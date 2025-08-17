@@ -29,7 +29,7 @@ const Profile = ({ session, users }) => {
       <details className="relative">
         <summary></summary>
 
-        <div className="absolute top-[70%] mt-2 space-y-8 bg-purple-400 p-4 z-50 ">
+        <div className="absolute top-[70%] mt-2 bg-purple-400 p-4 z-50 ">
           <form className="" action={logOut}>
             <button
               className="text-lg/6 font-semibold py-4 text-nowrap text-red-900 hover:underline"
@@ -37,9 +37,7 @@ const Profile = ({ session, users }) => {
               Log Out
             </button>
           </form>
-          <Link className="hover:underline text-nowrap mt-2 " href="/profile">
-            <p className="text-lg/6 font-semibold py-4 ">Profile</p>
-          </Link>
+
           <div>
             {session?.user && (
               <Link
@@ -49,11 +47,6 @@ const Profile = ({ session, users }) => {
               </Link>
             )}
           </div>
-          <Link
-            className="text-lg/6 font-semibold py-4 hover:underline text-nowrap mt-2 "
-            href="/saved">
-            <p>Saved</p>
-          </Link>
         </div>
       </details>
     </div>

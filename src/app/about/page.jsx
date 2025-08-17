@@ -6,23 +6,23 @@ const page = async () => {
   const about = await getAbout();
   return (
     <div className="max-w-5xl mx-auto">
-      <h2 class="text-3xl mt-6 font-semibold tracking-tight text-pretty text-gray-900 sm:text-4xl">
+      <h2 className="text-3xl mt-6 font-semibold tracking-tight text-pretty text-gray-900 sm:text-4xl">
         About Seb Adventures
       </h2>
       <div>
         {about.map(a => (
-          <p key={a.id} class="mt-6 text-lg/8 text-gray-600">
+          <p key={a.id} className="mt-6 text-lg/8 text-gray-600">
             {a.about}
           </p>
         ))}
       </div>
       <div class="bg-white py-24 sm:py-32">
-        <div class="mx-auto grid max-w-7xl gap-20 px-6 lg:px-8 xl:grid-cols-3">
-          <div class="max-w-xl">
-            <h2 class="text-3xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-4xl">
+        <div className="mx-auto grid max-w-7xl gap-20 px-6 lg:px-8 xl:grid-cols-3">
+          <div className="max-w-xl">
+            <h2 className="text-3xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-4xl">
               Meet our Team
             </h2>
-            <p class="mt-6 text-lg/8 text-gray-600">
+            <p className="mt-6 text-lg/8 text-gray-600">
               We’re a dynamic group of individuals who are passionate about what
               we do and dedicated to delivering the best results for our
               clients.
@@ -30,7 +30,7 @@ const page = async () => {
           </div>
           <ul
             role="list"
-            class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
+            className="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
             {users.map(u => (
               <li>
                 <div className="flex items-center gap-x-6">

@@ -1,8 +1,6 @@
-import HomeTours from "@/components/HomeTours";
 import Icons from "@/components/Icons";
 import Photos from "@/components/Photos";
 import {
-  deleteUser,
   getContacts,
   getLinks,
   getTours,
@@ -17,7 +15,6 @@ const admin = async ({ params }) => {
   const users = await getusersWithPics();
   const tours = await getTours();
   const links = await getLinks();
-  console.log(users);
   const session = await auth();
   const email = session?.user.email;
   const user = await getUserByEmail(email);
@@ -26,90 +23,96 @@ const admin = async ({ params }) => {
 
   return (
     <div className="pl-10 max-w-6xl mx-auto">
-      <div>
-        <h2 className="bold text-xl">Users</h2>
-        <div className="flex items-center gap-5">
-          {users.map(u => (
-            <div className="flex flex-col gap-2">
-              <div className="flex flex-col gap-2">
-                <img
-                  className="w-[5rem] aspect-1/1"
-                  src={u.path ? u.path : `/1753441211144_1.jpg`}
-                />
-                <p className="capitalize bold">{u.username}</p>
-              </div>
-              <div className="px-4 flex items-center justify-between">
-                <button>
-                  <FaEye className="text-black" />
-                </button>
-                <a href={`/admin/${user_id}/editUser/${u.id}`}>
-                  <FaPen className="text-blue-700" />
-                </a>
-                <form action="">
-                  <input hidden name="user_id" value={4} />
-                  <button type="submit">
-                    <FaTrash className="text-red-700" />
+      <div className="space-y-8">
+        <div className="space-y-4">
+          <h2 className="bold text-xl">Users</h2>
+          <div className="flex items-center gap-5">
+            {users.map(u => (
+              <div key={u.id} className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2">
+                  <img
+                    className="w-[5rem] aspect-1/1"
+                    src={u.path ? u.path : `/1753441211144_1.jpg`}
+                  />
+                  <p className="capitalize bold">{u.username}</p>
+                </div>
+                <div className="px-4 flex items-center justify-between">
+                  <button>
+                    <FaEye className="text-black" />
                   </button>
-                </form>
+                  <a href={`/admin/${user_id}/editUser/${u.id}`}>
+                    <FaPen className="text-blue-700" />
+                  </a>
+                  <form action="">
+                    <input hidden name="user_id" value={4} />
+                    <button type="submit">
+                      <FaTrash className="text-red-700" />
+                    </button>
+                  </form>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-        <h2 className="bold text-xl">Guides</h2>
-        <div className="flex items-center gap-5">
-          {users.map(u => (
-            <div className="flex flex-col gap-2">
-              <div className="flex flex-col gap-2">
-                <img
-                  className="w-[5rem] aspect-1/1"
-                  src={u.path ? u.path : `/1753441211144_1.jpg`}
-                />
-                <p className="capitalize bold">{u.username}</p>
-              </div>
-              <div className="px-4 flex items-center justify-between">
-                <button>
-                  <FaEye className="text-black" />
-                </button>
-                <button>
-                  <FaPen className="text-blue-700" />
-                </button>
-                <form action="">
-                  <input hidden name="user_id" value={4} />
-                  <button type="submit">
-                    <FaTrash className="text-red-700" />
+        <div className="space-y-4">
+          <h2 className="bold text-xl">Guides</h2>
+          <div className="flex items-center gap-5">
+            {users.map(u => (
+              <div key={u.id} className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2">
+                  <img
+                    className="w-[5rem] aspect-1/1"
+                    src={u.path ? u.path : `/1753441211144_1.jpg`}
+                  />
+                  <p className="capitalize bold">{u.username}</p>
+                </div>
+                <div className="px-4 flex items-center justify-between">
+                  <button>
+                    <FaEye className="text-black" />
                   </button>
-                </form>
+                  <button>
+                    <FaPen className="text-blue-700" />
+                  </button>
+                  <form action="">
+                    <input hidden name="user_id" value={4} />
+                    <button type="submit">
+                      <FaTrash className="text-red-700" />
+                    </button>
+                  </form>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-        <h2 className="bold text-xl">Admins</h2>
-        <div className="flex items-center gap-5">
-          {users.map(u => (
-            <div className="flex flex-col gap-2">
-              <div className="flex flex-col gap-2">
-                <img
-                  className="w-[5rem] aspect-1/1"
-                  src={u.path ? u.path : `/1753441211144_1.jpg`}
-                />
-                <p className="capitalize bold">{u.username}</p>
-              </div>
-              <div className="px-4 flex items-center justify-between">
-                <button>
-                  <FaEye className="text-black" />
-                </button>
-                <button>
-                  <FaPen className="text-blue-700" />
-                </button>
-                <form action="">
-                  <input hidden name="user_id" value={4} />
-                  <button type="submit">
-                    <FaTrash className="text-red-700" />
+        <div className="space-y-4">
+          <h2 className="bold text-xl">Admins</h2>
+          <div className="flex items-center gap-5">
+            {users.map(u => (
+              <div key={u.id} className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2">
+                  <img
+                    className="w-[5rem] aspect-1/1"
+                    src={u.path ? u.path : `/1753441211144_1.jpg`}
+                  />
+                  <p className="capitalize bold">{u.username}</p>
+                </div>
+                <div className="px-4 flex items-center justify-between">
+                  <button>
+                    <FaEye className="text-black" />
                   </button>
-                </form>
+                  <button>
+                    <FaPen className="text-blue-700" />
+                  </button>
+                  <form action="">
+                    <input hidden name="user_id" value={4} />
+                    <button type="submit">
+                      <FaTrash className="text-red-700" />
+                    </button>
+                  </form>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
       <div>
@@ -143,7 +146,7 @@ const admin = async ({ params }) => {
         <p>Social Links</p>
         <div className="grid grid-cols-4 gap-4">
           {links.map(l => (
-            <div className="">
+            <div key={l.id} className="">
               <div>
                 <p>{l.name}</p>
                 <p>{l.link}</p>

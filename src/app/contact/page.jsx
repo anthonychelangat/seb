@@ -38,7 +38,7 @@ const page = () => {
               </div>
             </div>
             <form action={addMessage} className="md:col-span-8 p-10">
-              <div class="flex flex-wrap -mx-3 mb-6">
+              <div className="flex flex-wrap -mx-3 mb-6">
                 <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                   <label
                     className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
