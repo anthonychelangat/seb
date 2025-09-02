@@ -12,7 +12,7 @@ const SessionHeader = async () => {
   console.log(users, "users");
 
   return (
-    <div className="w-[100%] z-50 sticky top-0 h-[6rem] max-h-[6rem]">
+    <div className="w-[100%] z-50 sticky top-0 h-[7rem] max-h-[6rem]">
       <Header session={session} users={users} />
     </div>
   );

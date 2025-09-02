@@ -9,7 +9,7 @@ const Header = ({ session, users }) => {
   const pathname = usePathname();
 
   return (
-    <div className="bg-[gray] text-[white] h-[6rem] z-50">
+    <div className="bg-[gray] text-[white] h-[7rem] z-50">
       <div className="max-w-6xl mx-auto py-4 flex items-center justify-between">
         <h1 className="text-2xl/6 font-semibold">SEB EXPEDITIONS</h1>
         <div className="flex items-center gap-8 ">
