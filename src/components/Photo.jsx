@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState } from "react";
 import { FaAngleLeft, FaAngleRight, FaHeart } from "react-icons/fa";
 //import { saveFavorites } from "../../lib/data";
@@ -24,8 +25,11 @@ const Photo = ({ photos, id }) => {
           onClick={prevImage}
           className="absolute cursor text-black text-2xl top-[50%] left-0 ml-4"
         />
-        <img
-          className="rounded-lg h-[40vh] flex-1/2 z-0"
+        <Image
+          className="rounded-lg h-[45vh] w-full flex-1/2 z-0"
+          width={500}
+          height={50}
+          quality={80}
           src={`${pics ? pics[currentIndex] : "80.jpg"}`}
         />
 

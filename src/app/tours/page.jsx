@@ -10,7 +10,7 @@ const page = async () => {
 
   return (
     <div>
-      <div className="max-w-6xl my-6 mx-auto">
+      <div className="lg:max-w-6xl my-6 mx-4 md:mx-0 lg:mx-0 lg:mx-auto">
         <h1 className="mb-6 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-4xl">
           Our Best Offers For You
         </h1>
