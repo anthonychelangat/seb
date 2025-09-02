@@ -20,6 +20,7 @@ export const metadata = {
 import { FaWhatsapp } from "react-icons/fa";
 import { MdMail } from "react-icons/md";
 import SessionHeader from "@/components/SessionHeader";
+import MobileHeader from "@/components/MobileHeader";
 
 export default function RootLayout({ children }) {
   const tel = 703392995;
@@ -36,6 +37,9 @@ export default function RootLayout({ children }) {
         <div className="relative h-[fit-content]">
           <div className="hidden md:block xl:block fixed top-0 left-0 right-0">
             <SessionHeader />
+          </div>
+          <div className=" md:hidden lg:hidden fixed top-0 left-0 right-0">
+            <MobileHeader />
           </div>
 
           <div className="mt-[7rem] z-0">{children}</div>
