@@ -11,10 +11,10 @@ const Tour = ({ id, title, description }) => {
       <Photos id={id} />
       <div className="flex-1/2 flex flex-col justify-between h-[50vh]">
         <div>
-          <h5 class="mb-2 capitalize text-4xl md:5xl lg:5xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <h5 class="mb-2 capitalize text-2xl md:3xl lg:4xl font-bold tracking-tight text-gray-900 dark:text-white">
             {title}
           </h5>
-          <p className="mb-3 text-lg md:text-xl lg:text-2xl capitalize font-normal text-gray-700 dark:text-gray-400">
+          <p className="mb-3 text-lg lg:text-xl capitalize font-normal text-gray-700 dark:text-gray-400">
             {description}
           </p>
         </div>

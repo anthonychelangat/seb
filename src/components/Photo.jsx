@@ -26,10 +26,11 @@ const Photo = ({ photos, id }) => {
           className="absolute cursor text-black text-2xl top-[50%] left-0 ml-4"
         />
         <Image
-          className="rounded-lg h-[45vh] w-full flex-1/2 z-0"
+          className="rounded-md h-[50vh] z-0 object-cover"
           width={500}
           height={50}
           quality={80}
+          alt=""
           src={`${pics ? pics[currentIndex] : "80.jpg"}`}
         />
 

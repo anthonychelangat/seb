@@ -38,7 +38,7 @@ export default function RootLayout({ children }) {
             <SessionHeader />
           </div>
 
-          <div className="mt-[7rem]">{children}</div>
+          <div className="mt-[7rem] z-0">{children}</div>
         </div>
 
         <div className="fixed right-5 bottom-10 pb-4 flex flex-col gap-3">
