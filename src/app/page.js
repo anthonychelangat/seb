@@ -11,15 +11,15 @@ export default async function Home() {
     <div className="min-h-screen font-[family-name:var(--font-geist-sans)]">
       <main className="bg-[url(/Images/IMG-20250329-WA0002.jpg)] bg-auto bg-contain bg-cover no-repeat bg-center  ">
         <div className="flex items-center justify-center h-[50vh]">
-          <h1 className="font-semibold tracking-tight text-pretty sm:text-4xl w-[50%] h-[50%] text-center uppercase text-white text-4xl h-4">
+          <h1 className="font-semibold tracking-tight text-pretty text-2xl w-[50%] h-[50%] text-center uppercase text-white md:text-4xl lg:text-4xl h-4">
             Welcome to seb Expeditions for a thrilling tour experience
           </h1>
         </div>
       </main>
-      <div className="flex gap-8 sm:px-8 md:px-8 xl:px-0 flex-col">
-        <div className="max-w-6xl mx-auto my-8 grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
+      <div className="flex gap-8 px-4 md:px-8 lg:px-0 xl:px-0 flex-col">
+        <div className="max-w-6xl mx-auto my-4 md:my-8 lg:my-8 grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
           <div className="">
-            <h2 className="text-3xl mt-6 font-semibold tracking-tight text-pretty text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl mt-3 lg:mt-6 font-semibold tracking-tight text-pretty text-gray-900 sm:text-4xl">
               About Seb Adventures
             </h2>
             {about.map(a => (
@@ -54,7 +54,7 @@ export default async function Home() {
             <Link
               href="/tours"
               className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-              More Offers
+              <p className="hidden md:block lg:block">More Offers</p>
               <FaArrowRight className="rtl:rotate-180 w-3.5 h-3.5 ms-2" />
             </Link>
           </div>

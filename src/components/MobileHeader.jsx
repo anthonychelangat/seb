@@ -13,18 +13,16 @@ const MobileHeader = () => {
       <div className="relative h-[6rem] flex items-center justify-between">
         <p className="ml-4 text-3xl font-bold">Seb</p>
         <div>
-          <button onClick={() => setOpen(prev => !prev)}>
-            <FaBars className="text-3xl mr-4" />
+          <button className=" mr-4" onClick={() => setOpen(prev => !prev)}>
+            {open ? (
+              <MdCancel className="text-3xl text-red-900" />
+            ) : (
+              <FaBars className="text-3xl" />
+            )}
           </button>
         </div>
         {open && (
-          <div className="absolute bg-blue-300 h-[100vh] top-0 left-0 right-0 bottom-0 h-[100vh] z-100">
-            <div className="flex items-center justify-between px-5 py-6">
-              <p className="text-4xl">Seb</p>
-              <button onClick={() => setOpen(prev => !prev)}>
-                <MdCancel className="text-3xl text-red-900" />
-              </button>
-            </div>
+          <div className="absolute bg-blue-300 h-[100vh-6rem] top-[6rem] left-0 right-0 bottom-0 h-[100vh] z-100">
             <MobileSideLinks />
           </div>
         )}
