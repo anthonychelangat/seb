@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { FaBars } from "react-icons/fa";
 import MobileSideLinks from "./MobileSideLinks";
 import { MdCancel } from "react-icons/md";
+import Link from "next/link";
 
 const MobileHeader = ({ session, users }) => {
   const [open, setOpen] = useState(false);
@@ -11,7 +12,9 @@ const MobileHeader = ({ session, users }) => {
   return (
     <div className="bg-gray-400">
       <div className="relative h-[6rem] flex items-center justify-between">
-        <p className="ml-4 text-3xl font-bold">Seb</p>
+        <Link href="/">
+          <p className="ml-4 text-3xl font-bold">Seb</p>
+        </Link>
         <div>
           <button className=" mr-4" onClick={() => setOpen(prev => !prev)}>
             {open ? (
