@@ -4,7 +4,7 @@ import React from "react";
 
 const editUser = async ({ params }) => {
   const { id } = params;
-  console.log(id, "id");
+
   const user = await getUserById(id);
   return (
     <div>

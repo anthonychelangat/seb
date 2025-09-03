@@ -4,11 +4,11 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { getUserByEmail, logOut } from "../lib/actions";
 import Link from "next/link";
 
-const Profile = ({ session, users }) => {
+const MobileProfile = ({ session, users }) => {
   const [id] = users.map(u => u.id);
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex flex-col gap-2">
       {session?.user?.name && session?.user?.image ? (
         <>
           <Image
@@ -25,31 +25,27 @@ const Profile = ({ session, users }) => {
       ) : (
         <p>{session?.user?.email ? session?.user?.email : "tony@gmail.com"}</p>
       )}
-      <details className="relative">
-        <summary></summary>
 
-        <div className="absolute top-[70%] mt-2 bg-purple-400 p-4 z-50 ">
-          <form className="" action={logOut}>
-            <button
-              className="text-lg/6 font-semibold py-4 text-nowrap text-red-900 hover:underline"
-              type="submit">
-              Log Out
-            </button>
-          </form>
-
-          <div>
-            {session?.user && (
-              <Link
-                className={`text-lg/6 font-semibold py-4 relative`}
-                href={`/admin/${id}`}>
-                Admin
-              </Link>
-            )}
-          </div>
+      <div className="flex flex-col gap-2 ">
+        <div>
+          {session?.user && (
+            <Link
+              className={`text-lg/6 font-semibold py-4 relative`}
+              href={`/admin/${id}`}>
+              Admin
+            </Link>
+          )}
         </div>
-      </details>
+        <form className="" action={logOut}>
+          <button
+            className="text-lg/6 font-semibold py-4 text-nowrap text-red-900 hover:underline"
+            type="submit">
+            Log Out
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
 
-export default Profile;
+export default MobileProfile;

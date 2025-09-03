@@ -9,10 +9,6 @@ const PhotoForMobile = ({ photosOne, id }) => {
 
   const pics = photo1s1;
 
-  console.log(photo1s1, "p1");
-
-  console.log(pics, "pics");
-
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const prevImage = () => {

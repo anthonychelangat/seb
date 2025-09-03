@@ -5,7 +5,7 @@ import { FaBars } from "react-icons/fa";
 import MobileSideLinks from "./MobileSideLinks";
 import { MdCancel } from "react-icons/md";
 
-const MobileHeader = () => {
+const MobileHeader = ({ session, users }) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -23,7 +23,7 @@ const MobileHeader = () => {
         </div>
         {open && (
           <div className="absolute bg-blue-300 h-[100vh-6rem] top-[6rem] left-0 right-0 bottom-0 h-[100vh] z-100">
-            <MobileSideLinks />
+            <MobileSideLinks session={session} users={users} />
           </div>
         )}
       </div>

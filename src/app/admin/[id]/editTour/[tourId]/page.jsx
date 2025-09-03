@@ -4,7 +4,7 @@ import React from "react";
 
 const editTour = async ({ params }) => {
   const { id } = params;
-  console.log(id, "id");
+
   const tour = await getTourByTourId(id);
   return (
     <div>

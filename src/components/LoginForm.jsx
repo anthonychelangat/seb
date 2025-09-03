@@ -37,14 +37,6 @@ const LoginForm = () => {
             <FaGoogle className="text-3xl" />
             <p>Signin With Google</p>
           </button>
-          <button
-            className="flex items-center gap-4 py-4 w-[100%] text-xl px-4 rounded-[4px] bg-green-200 hover:bg-green-400"
-            type="submit"
-            name="action"
-            value="github">
-            <FaGithub className="text-3xl" />
-            <p>Signin With Github</p>
-          </button>
         </form>
         <form className="space-y-4 w-[100%]" onSubmit={handleFormSubmit}>
           <div className="space-y-2">

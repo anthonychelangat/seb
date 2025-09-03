@@ -8,8 +8,6 @@ const SessionHeader = async () => {
   const email = session?.user.email;
 
   const users = await getUserByEmail(email);
-  console.log(email, "email");
-  console.log(users, "users");
 
   return (
     <div className="w-[100%] z-100 sticky top-0 h-[7rem] max-h-[6rem]">

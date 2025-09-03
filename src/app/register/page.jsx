@@ -31,29 +31,22 @@ const register = () => {
     }
   }
   return (
-    <div className="flex justify-center items-center my-[6rem]">
-      <div className="bg-green-100 p-4 rounded-[6px]">
+    <div className="flex justify-center items-center mr-4 md:mr-0 lg:mr-0 py-[6rem]">
+      <div className="bg-green-100 px-10 py-4 lg:p-4 rounded-[6px]">
         <form className="flex mb-8 flex-col gap-2 " action={socialMediaLogin}>
           <button
-            className="py-2 w-[20vw] px-4 mr-8 rounded-[4px] bg-green-200 hover:bg-green-400"
+            className="py-2 w-full lg:w-[20vw] px-4 mr-8 rounded-[4px] bg-green-200 hover:bg-green-400"
             type="submit"
             name="action"
             value="google">
             Signin With Google
-          </button>
-          <button
-            className="py-2 w-[20vw] px-4 rounded-[4px] bg-green-200 hover:bg-green-400"
-            type="submit"
-            name="action"
-            value="github">
-            Signin With Github
           </button>
         </form>
         <form className="space-y-2" onSubmit={handleSubmit}>
           <div>
             <p>User Name</p>
             <input
-              className="outline-none w-[20vw]  py-2 px-4 bg-white rounded-[4px] border border-green-500"
+              className="outline-none w-full lg:w-[20vw]  py-2 px-4 bg-white rounded-[4px] border border-green-500"
               type="text"
               placeholder="User Name"
               name="name"
@@ -63,7 +56,7 @@ const register = () => {
           <div>
             <p>Email</p>
             <input
-              className="outline-none w-[20vw]  py-2 px-4 bg-white rounded-[4px] border border-green-500"
+              className="outline-none w-full lg:w-[20vw]  py-2 px-4 bg-white rounded-[4px] border border-green-500"
               type="email"
               placeholder="Email"
               name="email"
@@ -73,7 +66,7 @@ const register = () => {
           <div>
             <p>Password</p>
             <input
-              className="outline-none w-[20vw]  py-2 px-4 bg-white rounded-[4px] border border-green-500"
+              className="outline-none w-full lg:w-[20vw]  py-2 px-4 bg-white rounded-[4px] border border-green-500"
               type="password"
               placeholder="Password"
               name="password"
@@ -81,12 +74,12 @@ const register = () => {
             />
           </div>
           <button
-            className="w-[20vw] my-6 py-2 px-4 bg-green-700 hover:bg-green-900 text-white rounded-[4px] "
+            className="w-full lg:w-[20vw] my-6 py-2 px-4 bg-green-700 hover:bg-green-900 text-white rounded-[4px] "
             type="submit">
             Register
           </button>
           <div className="mt-4 flex items-center gap-1">
-            <p>Already have an account? </p>{" "}
+            <p>Already have an account? </p>
             <Link className="text-blue-800 underline " href="/login">
               Login Here
             </Link>
