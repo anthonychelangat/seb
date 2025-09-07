@@ -12,6 +12,7 @@ const AddAboutUs = () => {
           <div>
             <p>Contact</p>
             <textarea
+              rows="10"
               className="py-2 px-4 w-[100%] outline-none rounded-[4px] bg-gray-100 border border-gray-400 focus:border-blue-900 "
               type="text"
               placeholder="About US..."

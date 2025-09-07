@@ -25,7 +25,7 @@ const MobileHeader = ({ session, users }) => {
           </button>
         </div>
         {open && (
-          <div className="absolute bg-blue-300 h-[100vh-6rem] top-[6rem] left-0 right-0 bottom-0 h-[100vh] z-100">
+          <div className="absolute bg-blue-300 h-[100vh-6rem] top-[6rem] left-0 right-0 bottom-0 z-100">
             <MobileSideLinks session={session} users={users} />
           </div>
         )}

@@ -6,8 +6,6 @@ import React, { useState } from "react";
 const EditTour = ({ id, title, description }) => {
   const [newTitle, setNewTitle] = useState(title);
   const [newDescription, setNewDescription] = useState(description);
-  //const [newRole, setNewRole] = useState(role);
-  //const [newPassword, setNewPassword] = useState(password);
 
   return (
     <div className="flex justify-center w-[100%] items-center">
@@ -30,6 +28,7 @@ const EditTour = ({ id, title, description }) => {
           <div>
             <p>Description</p>
             <textarea
+              rows="10"
               className="py-2 px-4 w-[100%] outline-none rounded-[4px] bg-gray-100 border border-gray-400 focus:border-blue-900 "
               type="text"
               placeholder="Description"

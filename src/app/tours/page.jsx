@@ -6,12 +6,10 @@ import { FaArrowRight } from "react-icons/fa";
 const page = async () => {
   const tour = await getTours();
 
-  console.log(tour, "yes tours");
-
   return (
     <div>
-      <div className="lg:max-w-6xl my-6 mx-4 md:mx-0 lg:mx-0 lg:mx-auto">
-        <h1 className="mb-6 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-4xl">
+      <div className="lg:max-w-5xl my-6 mt-[8rem] mx-4 md:mx-0 lg:mx-auto">
+        <h1 className="mb-6 text-2xl font-semibold tracking-wide text-pretty text-gray-900 sm:text-4xl">
           Our Best Offers For You
         </h1>
         <div className="flex flex-col gap-12 font-thin">

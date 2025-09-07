@@ -2,8 +2,9 @@
 
 import { updateUser } from "@/lib/data";
 import React, { useState } from "react";
+import SelectOptions from "./SelectOptions";
 
-const EditUserForm = ({ id, username, email, role, password }) => {
+const EditUserForm = ({ id, username, email, role, password, roles }) => {
   const [newUsername, setNewUsername] = useState(username);
   const [newEmail, setNewEmail] = useState(email);
   const [newRole, setNewRole] = useState(role);
@@ -40,14 +41,7 @@ const EditUserForm = ({ id, username, email, role, password }) => {
           </div>
           <div>
             <p>Role</p>
-            <input
-              className="py-2 px-4 w-[100%] outline-none rounded-[4px] bg-gray-100 border border-gray-400 focus:border-blue-900 "
-              type="number"
-              placeholder="Role"
-              name="role"
-              value={newRole}
-              onChange={e => setNewRole(e.target.value)}
-            />
+            <SelectOptions roles={roles} />
           </div>
           <div>
             <p>Password</p>

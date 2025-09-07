@@ -1,11 +1,13 @@
 import EditUserForm from "@/components/EditUser";
-import { getUserById, getusersWithPics } from "@/lib/actions";
+import { getRoles, getUserById } from "@/lib/actions";
 import React from "react";
 
 const editUser = async ({ params }) => {
-  const { id } = params;
+  const { id, userId } = await params;
 
-  const user = await getUserById(id);
+  const user = await getUserById(userId);
+  const roles = await getRoles();
+
   return (
     <div>
       {user.map(u => (
@@ -16,6 +18,7 @@ const editUser = async ({ params }) => {
           email={u.email}
           role={u.role}
           password={u.password}
+          roles={roles}
         />
       ))}
     </div>

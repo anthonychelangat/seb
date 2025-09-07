@@ -8,9 +8,12 @@ const SessionMobileHeader = async () => {
   const email = session?.user.email;
 
   const users = await getUserByEmail(email);
-  console.log(users, "uuuuu");
 
-  return <MobileHeader session={session} users={users} />;
+  return (
+    <div className="md:hidden lg:hidden fixed top-0 left-0 right-0  mb-[6rem] md:mb-[7rem] lg:mb-[7rem]  ">
+      <MobileHeader session={session} users={users} />
+    </div>
+  );
 };
 
 export default SessionMobileHeader;

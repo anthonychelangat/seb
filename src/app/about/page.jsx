@@ -1,3 +1,4 @@
+import UserOptions from "@/components/UserOptions";
 import { getAbout, getusersWithPics } from "@/lib/actions";
 import React from "react";
 
@@ -5,8 +6,8 @@ const page = async () => {
   const users = await getusersWithPics();
   const about = await getAbout();
   return (
-    <div className="lg:max-w-5xl lg:mx-auto mx-4 md:mx-0 lg:mx-0">
-      <h2 className="text-3xl mt-8 md:mt-6 lg:mt-6 font-semibold tracking-tight text-pretty text-gray-900 sm:text-4xl">
+    <div className="lg:max-w-5xl lg:mx-auto mx-4 md:mx-0 lg:mx-0 mt-[7.5rem]">
+      <h2 className="text-3xl pt-8 md:mt-6 lg:mt-6  block uppercase tracking-wide font-semibold text-pretty text-gray-900 sm:text-4xl">
         About Seb Adventures
       </h2>
       <div>
@@ -17,7 +18,7 @@ const page = async () => {
         ))}
       </div>
       <div className="bg-white py-10 pg:py-32">
-        <div className="mx-auto grid max-w-7xl gap-20 lg:px-8 xl:grid-cols-3">
+        <div className="mx-auto grid max-w-7xl gap-20 xl:grid-cols-3">
           <div className="max-w-xl">
             <h2 className="text-3xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-4xl">
               Meet our Team
@@ -44,7 +45,7 @@ const page = async () => {
                       {u.username}
                     </h3>
                     <p className="text-sm/6 font-semibold text-indigo-600">
-                      Co-Founder / CEO
+                      <UserOptions id={u.role} />
                     </p>
                   </div>
                 </div>

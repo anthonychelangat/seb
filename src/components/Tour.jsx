@@ -14,7 +14,7 @@ const Tour = ({ id, title, description }) => {
           <h5 class="mb-2 capitalize text-2xl md:3xl lg:4xl font-bold tracking-tight text-gray-900 dark:text-white">
             {title}
           </h5>
-          <p className="mb-3 text-lg lg:text-xl capitalize font-normal text-gray-700 dark:text-gray-400">
+          <p className="mb-3 line-clamp-9 text-lg lg:text-lg capitalize font-normal text-gray-700 dark:text-gray-400">
             {description}
           </p>
         </div>
@@ -23,7 +23,7 @@ const Tour = ({ id, title, description }) => {
 
           <Link
             href={`/tour/${id}`}
-            class="inline-flex text-xl items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            class="inline-flex text-lg items-center px-3 py-2 font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
             Read more
             <FaArrowRight className="rtl:rotate-180 w-3.5 h-3.5 ms-2" />
           </Link>

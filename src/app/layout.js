@@ -20,8 +20,10 @@ export const metadata = {
 import { FaWhatsapp } from "react-icons/fa";
 import { MdMail } from "react-icons/md";
 import SessionHeader from "@/components/SessionHeader";
-import MobileHeader from "@/components/MobileHeader";
 import SessionMobileHeader from "@/components/SessionMobileHeader";
+import Link from "next/link";
+import IntermediateFooter from "@/components/IntermediateFooter";
+import FullFooter from "@/components/FullFooter";
 
 export default function RootLayout({ children }) {
   const tel = 703392995;
@@ -36,35 +38,33 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <div className="relative h-[fit-content]">
-          <div className="hidden md:block xl:block fixed top-0 left-0 right-0">
+          <div>
             <SessionHeader />
           </div>
-          <div className=" md:hidden lg:hidden fixed top-0 left-0 right-0">
+          <div>
             <SessionMobileHeader />
           </div>
 
-          <div className="mt-[6rem] md:mt-[7rem] lg:mt-[7rem] z-0">
-            {children}
-          </div>
+          <div className="z-0">{children}</div>
         </div>
 
         <div className="fixed right-5 bottom-10 pb-4 flex flex-col gap-3">
-          <a
+          <Link
             href={`https://api.whatsapp.com/send?phone=${whatsappLink}`}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center w-12 h-12 xs:w-10 xs:h-10 bg-green-500 text-white rounded-full shadow-lg transition-transform hover:scale-110">
             <FaWhatsapp className="text-2xl lg:text-2xl" />
-          </a>
+          </Link>
 
-          <a
+          <Link
             href={`mailto:${emailLink}`}
             className="flex items-center justify-center w-12 h-12 xs:w-10 xs:h-10 bg-blue-600 text-white rounded-full shadow-lg transition-transform hover:scale-110">
             <MdMail className="text-2xl lg:text-2xl" />
-          </a>
+          </Link>
         </div>
 
-        <Footer />
+        <FullFooter />
       </body>
     </html>
   );

@@ -6,7 +6,7 @@ import {
   FaSnapchat,
   FaTiktok,
 } from "react-icons/fa";
-import { FaLocationPin, FaStar } from "react-icons/fa6";
+import { FaLocationPin } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 
 const Icons = ({ name }) => {

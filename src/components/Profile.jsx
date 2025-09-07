@@ -23,7 +23,9 @@ const Profile = ({ session, users }) => {
           </p>
         </>
       ) : (
-        <p>{session?.user?.email ? session?.user?.email : "tony@gmail.com"}</p>
+        <p className="block tracking-wide font-bold">
+          {session?.user?.email ? session?.user?.email : "tony@gmail.com"}
+        </p>
       )}
       <details className="relative">
         <summary></summary>
@@ -31,16 +33,16 @@ const Profile = ({ session, users }) => {
         <div className="absolute top-[70%] mt-2 bg-purple-400 p-4 z-50 ">
           <form className="" action={logOut}>
             <button
-              className="text-lg/6 font-semibold py-4 text-nowrap text-red-900 hover:underline"
+              className="text-lg/6 block uppercase tracking-wide font-bold py-4 text-nowrap text-red-900 hover:underline"
               type="submit">
               Log Out
             </button>
           </form>
 
           <div>
-            {session?.user && (
+            {session?.user && session?.user.role === 1 && (
               <Link
-                className={`text-lg/6 font-semibold py-4 relative`}
+                className={`text-lg/6 block uppercase tracking-wide font-bold py-4 relative`}
                 href={`/admin/${id}`}>
                 Admin
               </Link>

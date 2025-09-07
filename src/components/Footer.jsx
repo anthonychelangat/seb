@@ -1,31 +1,18 @@
-import Link from "next/link";
 import React from "react";
-import { FaLocationPin, FaStubber, FaTwitter } from "react-icons/fa6";
-import { MdEmail } from "react-icons/md";
-import {
-  FaFacebook,
-  FaInstagram,
-  FaPhoneAlt,
-  FaSnapchat,
-  FaTiktok,
-} from "react-icons/fa";
 import { getContacts, getLinks } from "@/lib/actions";
 import Icons from "./Icons";
 import Subscribe from "./Subscribe";
 
-const Footer = async () => {
-  const links = await getLinks();
-  const contacts = await getContacts();
-
+const Footer = async ({ links, contacts }) => {
   return (
     <div className="bg-blue-500 ">
       <div className="">
-        <div className="max-w-6xl mx-auto py-4 flex items-center justify-center flex-col">
+        <div className="max-w-5xl mx-auto py-4 flex items-center justify-center flex-col">
           <Subscribe />
         </div>
         <div className="bg-gray-100">
-          <div className="max-w-screen-lg px-4 sm:px-6 text-gray-800 sm:grid md:grid-cols-4 sm:grid-cols-2 mx-auto">
-            <div className="p-5">
+          <div className="max-w-5xl w-full px-6 md:px-0 lg:px-0 text-gray-800 grid md:grid-cols-4 sm:grid-cols-2 mx-auto">
+            <div className="py-5">
               <h3 className="font-bold text-xl text-indigo-600">
                 Seb Expeditions
               </h3>

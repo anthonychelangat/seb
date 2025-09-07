@@ -212,3 +212,53 @@ export const addSubscriber = async formData => {
     console.log("Subscriber has failed");
   }
 };
+
+export const updateAbout = async formData => {
+  const id = formData.get("about_id");
+  const about = formData.get("about");
+
+  const abouta = await executeQuery("update about set about=? where id=?", [
+    about,
+    id,
+  ]);
+
+  if (abouta.affectedRows) {
+    console.log("About details updated successfull");
+  } else {
+    console.log("About details update failed");
+  }
+};
+
+export const updateContact = async formData => {
+  const name = formData.get("category");
+  const contact = formData.get("contact");
+  const id = formData.get("contact_id");
+
+  const contacta = await executeQuery(
+    "update contacts set name=?,contact=? where id=?",
+    [name, contact, id]
+  );
+
+  if (contacta.affectedRows) {
+    console.log("Contact details updated successfull");
+  } else {
+    console.log("Contact details update failed");
+  }
+};
+
+export const updateSocial = async formData => {
+  const name = formData.get("socials");
+  const link = formData.get("link");
+  const id = formData.get("link_id");
+
+  const social = await executeQuery(
+    "update socials set name=?,link=? where id=?",
+    [name, link, id]
+  );
+
+  if (social.affectedRows) {
+    console.log("Social details updated successfull");
+  } else {
+    console.log("Social details update failed");
+  }
+};

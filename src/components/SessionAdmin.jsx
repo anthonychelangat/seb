@@ -10,6 +10,7 @@ const SessionAdmin = async () => {
   const email = session?.user.email;
 
   const user = await getUserByEmail(email);
+
   const [id] = user.map(u => u.id);
 
   return (

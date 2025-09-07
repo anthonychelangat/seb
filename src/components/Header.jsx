@@ -9,13 +9,15 @@ const Header = ({ session, users }) => {
   const pathname = usePathname();
 
   return (
-    <div className="bg-[gray] text-[white] h-[7rem] z-50">
-      <div className="max-w-6xl mx-auto py-4 flex items-center justify-between">
-        <h1 className="text-2xl/6 font-semibold">SEB EXPEDITIONS</h1>
+    <div className="bg-[gray] text-[white] hidden md:block lg:block fixed left-0 right-0 w-[100%] z-100 top-0 h-[7rem] mb-[6rem] md:mb-[7rem] lg:mb-[7rem] ">
+      <div className="max-w-5xl mx-auto py-4 flex items-center justify-between">
+        <h1 className="text-2xl/6 block uppercase tracking-wide font-bold">
+          SEB EXPEDITIONS
+        </h1>
         <div className="flex items-center gap-8 ">
           <div className="flex items-center gap-4">
             <Link
-              className={` text-lg/6 font-semibold py-4 relative ${
+              className={` text-lg/6 block uppercase tracking-wide font-bold py-4 relative ${
                 pathname === "/"
                   ? "text-blue-900 before:absolute before:content-[''] before:w-full before:h-1 before:mt-4 before:bottom-0 before:bg-black"
                   : ""
@@ -25,7 +27,7 @@ const Header = ({ session, users }) => {
             </Link>
 
             <Link
-              className={`text-lg/6 font-semibold py-4 relative ${
+              className={`text-lg/6 py-4 relative block uppercase tracking-wide font-bold ${
                 pathname === "/about"
                   ? "text-blue-900 before:absolute before:content-[''] before:w-full before:h-1 before:mt-4 before:bottom-0 before:bg-black"
                   : ""
@@ -34,7 +36,7 @@ const Header = ({ session, users }) => {
               About Us
             </Link>
             <Link
-              className={`text-lg/6 font-semibold py-4 relative ${
+              className={`text-lg/6 block uppercase tracking-wide font-bold py-4 relative ${
                 pathname === "/tours"
                   ? "text-blue-900 before:absolute before:content-[''] before:w-full before:h-1 before:mt-4 before:bottom-0 before:bg-blue-500 "
                   : ""
@@ -43,7 +45,7 @@ const Header = ({ session, users }) => {
               Tour Packages
             </Link>
             <Link
-              className={`text-lg/6 font-semibold py-4 relative ${
+              className={`text-lg/6 block uppercase tracking-wide font-bold py-4 relative ${
                 pathname === "/contact"
                   ? "text-blue-900 before:absolute before:content-[''] before:w-full before:h-1 before:mt-4 before:bottom-0 before:bg-blue-500 "
                   : ""
@@ -60,7 +62,7 @@ const Header = ({ session, users }) => {
               </Suspense>
             ) : (
               <Link
-                className={`text-lg/6 font-semibold py-4 relative ${
+                className={`text-lg/6 block uppercase tracking-wide font-bold py-4 relative ${
                   pathname === "/login"
                     ? "text-blue-500 before:absolute before:content-[''] before:w-full before:h-2 before:bottom-0 before:bg-blue-500 "
                     : ""

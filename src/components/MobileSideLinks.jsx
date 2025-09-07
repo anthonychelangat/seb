@@ -9,8 +9,7 @@ import MobileProfile from "./MobileProfile";
 
 const MobileSideLinks = ({ session, users }) => {
   const pathname = usePathname();
-  console.log(session, "s");
-  console.log("yessss");
+
   return (
     <div className="">
       <div className="mx-4 flex flex-col justify-between gap-[10rem] ">
