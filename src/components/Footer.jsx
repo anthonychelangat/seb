@@ -4,7 +4,7 @@ import Subscribe from "./Subscribe";
 
 const Footer = ({ links, contacts }) => {
   const year = new Date().getFullYear();
-  console.log(year);
+
   return (
     <div className="bg-blue-500 ">
       <div className="">
