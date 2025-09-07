@@ -17,7 +17,7 @@ const Header = ({ session, users }) => {
         <div className="flex items-center gap-8 ">
           <div className="flex items-center gap-4">
             <Link
-              className={` text-lg/6 block uppercase tracking-wide font-bold py-4 relative ${
+              className={`text-lg block uppercase tracking-tight font-bold py-4 relative ${
                 pathname === "/"
                   ? "text-blue-900 before:absolute before:content-[''] before:w-full before:h-1 before:mt-4 before:bottom-0 before:bg-black"
                   : ""
@@ -27,7 +27,7 @@ const Header = ({ session, users }) => {
             </Link>
 
             <Link
-              className={`text-lg/6 py-4 relative block uppercase tracking-wide font-bold ${
+              className={`text-lg py-4 relative block uppercase tracking-tight font-bold ${
                 pathname === "/about"
                   ? "text-blue-900 before:absolute before:content-[''] before:w-full before:h-1 before:mt-4 before:bottom-0 before:bg-black"
                   : ""
@@ -36,7 +36,7 @@ const Header = ({ session, users }) => {
               About Us
             </Link>
             <Link
-              className={`text-lg/6 block uppercase tracking-wide font-bold py-4 relative ${
+              className={`text-lg block uppercase tracking-tight font-bold py-4 relative ${
                 pathname === "/tours"
                   ? "text-blue-900 before:absolute before:content-[''] before:w-full before:h-1 before:mt-4 before:bottom-0 before:bg-blue-500 "
                   : ""
@@ -45,7 +45,7 @@ const Header = ({ session, users }) => {
               Tour Packages
             </Link>
             <Link
-              className={`text-lg/6 block uppercase tracking-wide font-bold py-4 relative ${
+              className={`text-lg block uppercase tracking-tight font-bold py-4 relative ${
                 pathname === "/contact"
                   ? "text-blue-900 before:absolute before:content-[''] before:w-full before:h-1 before:mt-4 before:bottom-0 before:bg-blue-500 "
                   : ""
@@ -62,7 +62,7 @@ const Header = ({ session, users }) => {
               </Suspense>
             ) : (
               <Link
-                className={`text-lg/6 block uppercase tracking-wide font-bold py-4 relative ${
+                className={`text-lg block uppercase tracking-tight font-bold py-4 relative ${
                   pathname === "/login"
                     ? "text-blue-500 before:absolute before:content-[''] before:w-full before:h-2 before:bottom-0 before:bg-blue-500 "
                     : ""

@@ -3,6 +3,8 @@ import Icons from "./Icons";
 import Subscribe from "./Subscribe";
 
 const Footer = ({ links, contacts }) => {
+  const year = new Date().getFullYear();
+  console.log(year);
   return (
     <div className="bg-blue-500 ">
       <div className="">
@@ -73,7 +75,7 @@ const Footer = ({ links, contacts }) => {
                 </a>
               ))}
             </div>
-            <div className="my-5">© Copyright 2020. All Rights Reserved.</div>
+            <div className="my-5">© Copyright {year}. All Rights Reserved.</div>
           </div>
         </div>
       </div>
