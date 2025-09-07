@@ -26,7 +26,7 @@ export const credentialsLogin = async formData => {
 };
 
 export const getUserByEmail = async email => {
-  const user = await executeQuery("select * from users where email=?", [email]);
+  const user = await executeQuery("SELECT * FROM users WHERE email=?", [email]);
 
   return user;
 };

@@ -6,6 +6,9 @@ import Link from "next/link";
 
 const Profile = ({ session, users }) => {
   const [id] = users.map(u => u.id);
+  console.log(users, "users");
+  const [role] = users.map(u => u.role);
+  console.log(role);
 
   return (
     <div className="flex items-center gap-2">
@@ -40,7 +43,7 @@ const Profile = ({ session, users }) => {
           </form>
 
           <div>
-            {session?.user && session?.user.role === 1 && (
+            {session?.user && role === 1 && (
               <Link
                 className={`text-lg/6 block uppercase tracking-wide font-bold py-4 relative`}
                 href={`/admin/${id}`}>

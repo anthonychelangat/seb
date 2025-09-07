@@ -1,9 +1,8 @@
 import React from "react";
-import { getContacts, getLinks } from "@/lib/actions";
 import Icons from "./Icons";
 import Subscribe from "./Subscribe";
 
-const Footer = async ({ links, contacts }) => {
+const Footer = ({ links, contacts }) => {
   return (
     <div className="bg-blue-500 ">
       <div className="">

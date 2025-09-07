@@ -13,7 +13,7 @@ import { MdPictureInPicture } from "react-icons/md";
 
 const page = async ({ params }) => {
   const { id, tour_id } = await params;
-
+  console.log(tour_id, "toor");
   const tour = await getTourByTourId(tour_id);
 
   const pics = await getToursPhotosByTourId(tour_id);
