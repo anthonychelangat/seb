@@ -5,7 +5,7 @@ import Header from "./Header";
 import { usePathname } from "next/navigation";
 
 const IntermediateHeader = ({ session, users }) => {
-  const links = ["/", "/login", "/register", "/about", "/contact", "/tours"];
+  const links = ["/", "/about", "/contact", "/tours"];
   const pathname = usePathname();
   const activeLink = links.some(link => pathname === link);
 
