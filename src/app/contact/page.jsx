@@ -24,9 +24,7 @@ const page = () => {
 
               <div className="flex items-center mt-5">
                 <FaLocationPin className="h-6 mr-2 text-indigo-600" />
-                <span className="text-sm">
-                  Kapkwirwok, Sipi, Kapchorwa Uganda.
-                </span>
+                <span className="text-sm">Sipi, Kapchorwa Uganda.</span>
               </div>
               <div className="flex items-center mt-5">
                 <FaPhone className="h-6 mr-2 text-indigo-600" />
@@ -96,7 +94,7 @@ const page = () => {
                     Your Message
                   </label>
                   <textarea
-                    rows="10"
+                    rows="8"
                     name="message"
                     className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"></textarea>
                 </div>
