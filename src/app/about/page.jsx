@@ -6,13 +6,13 @@ const page = async () => {
   const users = await getusersWithPics();
   const about = await getAbout();
   return (
-    <div className="lg:max-w-5xl lg:mx-auto mx-4 md:mx-0 lg:mx-0 mt-[7.5rem]">
-      <h2 className="text-3xl pt-8 md:mt-6 lg:mt-6  block uppercase tracking-wide font-semibold text-pretty text-gray-900 sm:text-4xl">
-        About Seb Adventures
+    <div className="lg:max-w-5xl lg:mx-auto mx-4 md:mx-0 lg:mx-0 mt-[6rem] lg:mt-[7.5rem]">
+      <h2 className="text-lg pt-8 md:mt-6 lg:mt-6  block uppercase tracking-wide font-semibold text-pretty text-gray-900 sm:text-4xl">
+        About Seb Expeditions
       </h2>
       <div>
         {about.map(a => (
-          <p key={a.id} className="mt-6 text-lg/8 text-gray-600">
+          <p key={a.id} className="mt-6 text-sm text-gray-600">
             {a.about}
           </p>
         ))}
@@ -20,10 +20,10 @@ const page = async () => {
       <div className="bg-white py-10 pg:py-32">
         <div className="mx-auto grid max-w-7xl gap-20 xl:grid-cols-3">
           <div className="max-w-xl">
-            <h2 className="text-3xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-4xl">
+            <h2 className="text-lg font-semibold tracking-tight text-pretty text-gray-900 sm:text-4xl">
               Meet our Team
             </h2>
-            <p className="mt-6 text-lg/8 text-gray-600">
+            <p className="mt-6 text-sm text-gray-600">
               We’re a dynamic group of individuals who are passionate about what
               we do and dedicated to delivering the best results for our
               clients.
@@ -44,7 +44,7 @@ const page = async () => {
                     <h3 className="capitalize text-base/7 font-semibold tracking-tight text-gray-900">
                       {u.username}
                     </h3>
-                    <p className="text-sm/6 font-semibold text-indigo-600">
+                    <p className="text-xs font-semibold text-indigo-600">
                       <UserOptions id={u.role} />
                     </p>
                   </div>
