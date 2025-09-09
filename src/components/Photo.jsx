@@ -23,10 +23,10 @@ const Photo = ({ photos, id }) => {
       <div className="relative w-[100%] ">
         <FaAngleLeft
           onClick={prevImage}
-          className="absolute cursor text-black text-2xl top-[50%] left-0 ml-4"
+          className="absolute z-[1] cursor text-black text-2xl top-[50%] left-0 ml-4"
         />
         <Image
-          className="rounded-md h-[50vh] z-0 object-cover"
+          className="rounded-md h-[50vh] z-[-1] object-cover"
           width={500}
           height={50}
           quality={80}

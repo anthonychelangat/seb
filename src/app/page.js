@@ -29,9 +29,9 @@ export default async function Home() {
                 {a.about}
               </p>
             ))}
-            <div className="flex items-center justify-between pr-6">
+            <div className="flex flex-col my-2 lg:flex-row lg:items-center lg:justify-between pr-6">
               <div></div>
-              <Link className="underline " href="/about">
+              <Link className="underline text-sm " href="/about">
                 Read More
               </Link>
             </div>
@@ -48,12 +48,13 @@ export default async function Home() {
         </div>
         <div className=" max-w-6xl my-6 mx-auto">
           <div className="flex w-full items-center gap-8 justify-between mt-4">
-            <h2 className="text-lg lg:text-lg md:text-lg uppercase tracking-wide font-semibold text-pretty text-gray-900">
-              Our Best Offers For You
+            <h2 className="text-lg lg:text-lg md:text-lg flex items-center gap-2 uppercase tracking-wide font-semibold text-pretty text-gray-900">
+              Our Best Offers
+              <span className="hidden md:block lg:block">For You</span>
             </h2>
             <Link
               href="/tours"
-              className="inline-flex items-center px-3 py-2  text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              className="inline-flex items-center px-3 py-2  text-sm font-medium text-center lg:text-white lg:bg-blue-700 rounded-lg lg:hover:bg-blue-800 focus:ring-4 focus:outline-none lg:focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
               <p className="hidden md:block lg:block">More Offers</p>
               <FaArrowRight className="rtl:rotate-180 w-3.5 h-3.5 ms-2" />
             </Link>

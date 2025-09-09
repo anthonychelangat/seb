@@ -6,7 +6,7 @@ const Footer = ({ links, contacts }) => {
   const year = new Date().getFullYear();
 
   return (
-    <div className="bg-blue-500 ">
+    <div className="bg-blue-500 z-50 ">
       <div className="">
         <div className="max-w-5xl mx-auto py-4 flex items-center justify-center flex-col">
           <Subscribe />
