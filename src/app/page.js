@@ -18,7 +18,7 @@ export default async function Home() {
         </div>
       </main>
       <div className="flex max-w-5xl mx-auto gap-8 px-4 md:px-8 lg:px-0 xl:px-0 flex-col">
-        <div className="max-w-6xl mx-auto my-4 md:my-8 lg:my-8 grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
+        <div className="md:my-8 lg:my-8 grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
           <div className="">
             <h2 className="text-lg lg:text-xl md:text-xl mt-3 lg:mt-6 font-semibold block uppercase tracking-wide text-pretty text-gray-900">
               About Seb Expeditions
@@ -47,7 +47,7 @@ export default async function Home() {
             alt=""
           />
         </div>
-        <div className=" max-w-6xl my-6 mx-auto">
+        <div className=" max-w-6xl my-2 lg:my-6 mx-auto">
           <div className="flex w-full items-center gap-8 justify-between mt-4">
             <h2 className="text-lg lg:text-lg md:text-lg flex items-center gap-2 uppercase tracking-wide font-semibold text-pretty text-gray-900">
               Our Best Offers

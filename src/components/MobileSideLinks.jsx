@@ -6,6 +6,10 @@ import { MdLogin } from "react-icons/md";
 import { usePathname } from "next/navigation";
 import { FaHiking, FaHome, FaInfo, FaPhone } from "react-icons/fa";
 import MobileProfile from "./MobileProfile";
+import { SiHomepage } from "react-icons/si";
+import { BsFillInfoSquareFill } from "react-icons/bs";
+import { RiContactsBook3Fill } from "react-icons/ri";
+import { MdTour } from "react-icons/md";
 
 const MobileSideLinks = ({ session, users }) => {
   const pathname = usePathname();
@@ -15,40 +19,44 @@ const MobileSideLinks = ({ session, users }) => {
       <div className="mx-4 flex flex-col justify-between gap-[10rem] ">
         <div className="flex flex-col gap-4">
           <Link
-            className={`flex items-center gap-4 text-sm font-semibold py-4 relative ${
-              pathname === "/" ? "text-blue-900 " : ""
+            className={`flex items-center gap-6 text-sm font-semibold py-4 relative ${
+              pathname === "/"
+                ? "text-blue-500 before:absolute before:content-[''] before:h-[40%] before:w-2 before:right-0 before:bg-blue-500 "
+                : ""
             }`}
             href="/">
-            <FaHome />
+            <SiHomepage />
             Home
           </Link>
 
           <Link
             className={`flex items-center gap-6 sm font-semibold py-4 relative ${
-              pathname === "/about" ? "text-blue-900" : ""
+              pathname === "/about"
+                ? "text-blue-500 before:absolute before:content-[''] before:h-[40%] before:w-2 before:right-0 before:bg-blue-500 "
+                : ""
             }`}
             href="/about">
-            <FaInfo />
+            <BsFillInfoSquareFill />
             About Us
           </Link>
           <Link
             className={`flex items-center gap-6 text-sm font-semibold py-4 relative ${
               pathname === "/tours"
-                ? "text-blue-900 before:absolute before:content-[''] before:w-full before:h-1 before:mt-4 before:bottom-0 before:bg-blue-500 "
+                ? "text-blue-500 before:absolute before:content-[''] before:h-[40%] before:w-2 before:right-0 before:bg-blue-500 "
                 : ""
             }`}
             href="/tours">
-            <FaHiking />
+            <MdTour />
             Tour Packages
           </Link>
           <Link
             className={`flex items-center gap-6 text-sm font-semibold py-4 relative ${
               pathname === "/contact"
-                ? "text-blue-900 before:absolute before:content-[''] before:w-full before:h-1 before:mt-4 before:bottom-0 before:bg-blue-500 "
+                ? "text-blue-500 before:absolute before:content-[''] before:h-[40%] before:w-2 before:right-0 before:bg-blue-500 "
                 : ""
             }`}
             href="/contact">
-            <FaPhone />
+            <RiContactsBook3Fill />
             Contact
           </Link>
         </div>
@@ -62,7 +70,7 @@ const MobileSideLinks = ({ session, users }) => {
             <Link
               className={`flex items-center gap-6 text-sm font-semibold py-4 relative ${
                 pathname === "/login"
-                  ? "text-blue-500 before:absolute before:content-[''] before:h-full before:w-2 before:right-0 before:bg-blue-500 "
+                  ? "text-blue-500 before:absolute before:content-[''] before:h-[40%] before:w-2 before:right-0 before:bg-blue-500 "
                   : ""
               }`}
               href="/login">

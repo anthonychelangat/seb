@@ -13,7 +13,7 @@ const MobileHeader = ({ session, users }) => {
     <div className="bg-gray-400">
       <div className="relative h-[6rem] flex items-center justify-between">
         <Link href="/">
-          <p className="ml-4 text-3xl font-bold">Seb</p>
+          <p className="ml-4 uppercase text-3xl font-bold">Seb</p>
         </Link>
         <div>
           <button className=" mr-4" onClick={() => setOpen(prev => !prev)}>
