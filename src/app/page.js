@@ -55,7 +55,7 @@ export default async function Home() {
             </h2>
             <Link
               href="/tours"
-              className="inline-flex items-center px-3 py-2  text-sm font-medium text-center lg:text-white lg:bg-blue-700 rounded-lg lg:hover:bg-blue-800 focus:ring-4 focus:outline-none lg:focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              className="inline-flex items-center lg:px-3 py-2  text-sm font-medium text-center lg:text-white lg:bg-blue-700 rounded-lg lg:hover:bg-blue-800 focus:ring-4 focus:outline-none lg:focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
               <p className="hidden md:block lg:block">More Offers</p>
               <IoIosArrowForward className="rtl:rotate-180 w-3.5 bold h-3.5 ms-2" />
             </Link>
