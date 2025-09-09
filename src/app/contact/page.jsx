@@ -8,7 +8,7 @@ const page = () => {
     <div>
       <div>
         <div className="max-w-5xl mx-auto mt-[6rem] md:mt-[7.5rem] lg:mt-[7.5rem]">
-          <div className="grid grid-cols-1 md:grid-cols-12 border">
+          <div className="grid grid-cols-1 my-0 lg:my-6 md:grid-cols-12 border">
             <div className="bg-gray-900 md:col-span-4 p-10 text-white">
               <p className="mt-4 text-sm leading-7 font-regular uppercase">
                 Contact
@@ -17,9 +17,9 @@ const page = () => {
                 Get In <span class="text-indigo-600">Touch</span>
               </h3>
               <p className="mt-4 leading-7 text-gray-200">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s.
+                Whether you're dreaming of your next adventure or simply curious
+                about what we offer, our team at Seb Adventures is here to guide
+                you every step of the way.
               </p>
 
               <div className="flex items-center mt-5">
