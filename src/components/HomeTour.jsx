@@ -1,5 +1,6 @@
 import React from "react";
 import Photos from "./Photos";
+import Link from "next/link";
 
 const HomeTour = ({ id, title, description }) => {
   return (
@@ -11,9 +12,11 @@ const HomeTour = ({ id, title, description }) => {
       <p className="mb-3 text-sm font-normal line-clamp-3 text-gray-700 dark:text-gray-400">
         {description}
       </p>
-      <a className="underline text-sm hover:text-gray-950" href={`/tour/${id}`}>
+      <Link
+        className="underline text-center md:text-left lg:text-left text-sm hover:text-gray-950"
+        href={`/tour/${id}`}>
         Read More
-      </a>
+      </Link>
     </div>
   );
 };

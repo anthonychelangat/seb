@@ -45,7 +45,7 @@ export default function RootLayout({ children }) {
             <SessionMobileHeader />
           </div>
 
-          <div className="z-0">{children}</div>
+          <div className="z-0 bg-[white]">{children}</div>
         </div>
 
         <div className="fixed right-5 bottom-10 pb-4 flex flex-col gap-3">
