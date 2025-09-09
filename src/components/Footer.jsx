@@ -18,7 +18,7 @@ const Footer = ({ links, contacts }) => {
                 Seb Expeditions
               </h3>
             </div>
-            <div className="p-5">
+            <div className="py-5 md:p-5 lg:p-5">
               <div className="text-sm uppercase text-indigo-600 font-bold">
                 Quick Links
               </div>
@@ -33,7 +33,7 @@ const Footer = ({ links, contacts }) => {
                 Our Blog <span className="text-teal-600 text-xs p-1">Soon</span>
               </a>
             </div>
-            <div className="p-5">
+            <div className="py-5 md:p-5 lg:p-5">
               <div className="text-sm uppercase text-indigo-600 font-bold">
                 Support
               </div>
@@ -48,7 +48,7 @@ const Footer = ({ links, contacts }) => {
                 Conditions <span className="text-teal-600 text-xs p-1"></span>
               </a>
             </div>
-            <div className="p-5">
+            <div className="py-5 md:p-5 lg:p-5">
               <div className="text-sm uppercase text-indigo-600 font-bold">
                 Contact us
               </div>

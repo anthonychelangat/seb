@@ -20,7 +20,7 @@ export default async function Home() {
         <div className="max-w-6xl mx-auto my-4 md:my-8 lg:my-8 grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
           <div className="">
             <h2 className="text-lg lg:text-xl md:text-xl mt-3 lg:mt-6 font-semibold block uppercase tracking-wide text-pretty text-gray-900">
-              About Seb Adventures
+              About Seb Expeditions
             </h2>
             {about.map(a => (
               <p
@@ -53,7 +53,7 @@ export default async function Home() {
             </h2>
             <Link
               href="/tours"
-              className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              className="inline-flex items-center lg:px-3 lg:py-2  text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
               <p className="hidden md:block lg:block">More Offers</p>
               <FaArrowRight className="rtl:rotate-180 w-3.5 h-3.5 ms-2" />
             </Link>
