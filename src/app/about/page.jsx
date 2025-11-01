@@ -4,6 +4,7 @@ import React from "react";
 
 const page = async () => {
   const users = await getusersWithPics();
+  console.log(users);
   const about = await getAbout();
   return (
     <div className="lg:max-w-5xl lg:mx-auto mx-4 md:mx-0 lg:mx-0 mt-[6rem] lg:mt-[7.5rem]">
@@ -36,7 +37,7 @@ const page = async () => {
               <li>
                 <div key={u.id} className="flex items-center gap-x-6">
                   <img
-                    src={u.path}
+                    src={u.url}
                     alt=""
                     class="size-16 rounded-full outline-1 -outline-offset-1 outline-black/5"
                   />

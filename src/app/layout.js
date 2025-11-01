@@ -1,15 +1,14 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Roboto_Mono } from "next/font/google";
 import "./globals.css";
-import Footer from "@/components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const roboto_mono = Roboto_Mono({
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata = {
@@ -22,7 +21,6 @@ import { MdMail } from "react-icons/md";
 import SessionHeader from "@/components/SessionHeader";
 import SessionMobileHeader from "@/components/SessionMobileHeader";
 import Link from "next/link";
-import IntermediateFooter from "@/components/IntermediateFooter";
 import FullFooter from "@/components/FullFooter";
 
 export default function RootLayout({ children }) {
@@ -35,8 +33,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${inter.variable} ${roboto_mono.variable} antialiased`}>
         <div className="relative h-[fit-content]">
           <div>
             <SessionHeader />

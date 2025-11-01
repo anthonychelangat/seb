@@ -9,7 +9,7 @@ const SideBarComponent = async ({ id }) => {
       <div className="h-[5rem] w-[100%] flex justify-left">
         <a href="/">
           <p className="text-3xl block capitalise tracking-wide text-gray-700 font-bold mb-2">
-            Seb Exped
+            Seb
           </p>
         </a>
       </div>
@@ -42,6 +42,11 @@ const SideBarComponent = async ({ id }) => {
         href={`/admin/${id}/addAboutUs`}
         className="capitalise tracking-wide text-gray-700 font-bold mb-4 text-xl flex items-center gap-4">
         <FaInfo /> Add About
+      </Link>
+      <Link
+        href={`/admin/${id}/assignGuides`}
+        className="capitalise tracking-wide text-gray-700 font-bold mb-4 text-xl flex items-center gap-4">
+        <FaInfo /> Assign Guides
       </Link>
     </div>
   );

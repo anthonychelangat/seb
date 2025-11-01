@@ -3,11 +3,11 @@ import mysql from "mysql2/promise";
 const executeQuery = async (query, data) => {
   try {
     const db = await mysql.createConnection({
-      host: "tramway.proxy.rlwy.net",
-      port: "43657",
+      host: "0.tcp.in.ngrok.io",
+      port: "10362",
       user: "root",
-      password: "CUtGhKrSTGoEVIcoGAJIplcaKpTUuBxD",
-      database: "railway",
+      password: "",
+      database: "sipi",
     });
 
     const [results] = await db.execute(query, data);
@@ -17,5 +17,11 @@ const executeQuery = async (query, data) => {
     console.log("error");
   }
 };
+
+// host: "tramway.proxy.rlwy.net",
+// port: "43657",
+// user: "root",
+// password: "CUtGhKrSTGoEVIcoGAJIplcaKpTUuBxD",
+// database: "railway",
 
 export default executeQuery;

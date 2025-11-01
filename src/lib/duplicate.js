@@ -34,7 +34,7 @@ export const addTour = async formData => {
 
   if (same.length > 0) {
     console.log("There is a tour by that name already");
-    return { message: "There is a tour by that name" };
+    return { message: "There is a tour by that name name" };
   }
 
   const tour = await executeQuery(
@@ -49,15 +49,17 @@ export const addTour = async formData => {
   for (const file of files) {
     const buffer = Buffer.from(await file.arrayBuffer());
     const filename = `${Date.now()}_${file.name}`;
+    const filepath = "/Images/" + filename;
 
-    const size = file.size;
-    const owner = "tour";
-    const mimetype = file.type;
-
-    await executeQuery(
-      "insert into pictures(data,filename,mime_type,size,owner_type,tour_id) values(?,?,?,?,?,?)",
-      [buffer, filename, mimetype, size, owner, id]
+    await writeFile(
+      path.join(process.cwd(), "./public/Images/" + filename),
+      buffer
     );
+
+    await executeQuery("insert into photos(url,tour_id) values(?,?)", [
+      filepath,
+      id,
+    ]);
   }
 
   if (tour.affectedRows) {
@@ -72,7 +74,6 @@ export const addSingleUser = async formData => {
   const password = formData.get("password");
   const role = formData.get("role");
   const file = formData.get("file");
-  const owner = "user";
 
   const same = await executeQuery("select * from users where email=?", [email]);
 
@@ -93,12 +94,10 @@ export const addSingleUser = async formData => {
   const buffer = Buffer.from(await file.arrayBuffer());
   const filename = `${Date.now()}_${file.name}`;
   const filepath = "/Images/" + filename;
-  const size = file.size;
-  const mimetype = file.type;
 
-  const p = await executeQuery(
-    "insert into pictures(data,filename,owner_type,user_id,mime_type,size) values(?,?,?,?,?,?)",
-    [buffer, filename, owner, id, mimetype, size]
+  await writeFile(
+    path.join(process.cwd(), "./public/Images/" + filename),
+    buffer
   );
 
   await executeQuery(
@@ -108,7 +107,7 @@ export const addSingleUser = async formData => {
 
   if (tour.affectedRows) {
     console.log("A user has been added");
-    // redirect("/tours");
+    redirect("/tours");
   }
 };
 
@@ -157,26 +156,29 @@ export const updateUser = async formData => {
     [username, email, role, password, id]
   );
 
-  const same = await executeQuery("select * from pictures where user_id=?", [
+  const same = await executeQuery("select * from user_photos where user_id=?", [
     id,
   ]);
 
   const buffer = Buffer.from(await file.arrayBuffer());
   const filename = `${Date.now()}_${file.name}`;
+  const filepath = "/Images/" + filename;
 
-  const owner = "user";
-  const size = file.size;
-  const type = file.type;
+  await writeFile(
+    path.join(process.cwd(), "./public/Images/" + filename),
+    buffer
+  );
 
   if (same.length > 0) {
-    await executeQuery(
-      "update pictures set filename=?,data=? where user_id=?",
-      [filename, buffer, id]
-    );
+    await executeQuery("update user_photos set name=?,path=? where user_id=?", [
+      filename,
+      filepath,
+      id,
+    ]);
   } else {
     await executeQuery(
-      "insert into pictures(data,filename,size,mime_type,owner_type,user_id) values(?,?,?,?,?,?)",
-      [buffer, filename, size, type, owner, id]
+      "insert into user_photos(name,path,user_id) values(?,?,?)",
+      [filename, filepath, id]
     );
   }
 

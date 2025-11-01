@@ -36,7 +36,7 @@ const page = async ({ params }) => {
                 className="w-full aspect-1/1"
                 width={500}
                 height={50}
-                src={u.path ? u.path : `/1753441211144_1.jpg`}
+                src={u.url}
               />
             </div>
             <div className="col-span-4 space-y-6">

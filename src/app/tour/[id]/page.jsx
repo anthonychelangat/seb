@@ -1,21 +1,48 @@
+import BookingForm from "@/components/BookingForm";
 import PhotosForMobile from "@/components/PhotosForMobile";
 import PreviousPage from "@/components/PreviousPage";
 import SharePage from "@/components/SharePage";
-import { getTourByTourId, getToursPhotosByTourId } from "@/lib/actions";
+import UserOptions from "@/components/UserOptions";
+import {
+  getGuidesByTourId,
+  getTourByTourId,
+  getToursPhotosByTourId,
+  getUserByEmail,
+} from "@/lib/actions";
+import { auth } from "@/lib/auth";
 import Link from "next/link";
 import React from "react";
 import { MdPictureInPicture } from "react-icons/md";
 
 const singleTour = async ({ params }) => {
-  const { id } = params;
+  const { id } = await params;
 
   const tour = await getTourByTourId(id);
 
   const pics = await getToursPhotosByTourId(id);
+  console.log(pics);
+
+  const guides = await getGuidesByTourId(id);
+
+  console.log(guides);
+
+  const [price] = tour.map(t => t.price);
+
+  const formattedPrice = new Intl.NumberFormat("en-UG", {
+    style: "currency",
+    currency: "UGX",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(price);
+
+  const session = await auth();
+  const email = session?.user.email;
+
+  const users = await getUserByEmail(email);
 
   return (
     <div>
-      <div className="lg:max-w-6xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <div className="hidden lg:flex lg:items-center lg:justify-between lg:pt-8 lg:marker:pb-4">
           <PreviousPage />
 
@@ -50,44 +77,76 @@ const singleTour = async ({ params }) => {
         </div>
         <div className="hidden lg:h-[40vh lg:my-4 lg:flex lg:gap-1">
           <div className="h-[100%] bg-gray-500 w-[50%]">
-            {pics.slice(0, 1).map(pic => (
+            {pics.slice(0, 1).map((pic, index) => (
               <img
-                key={pic.url}
+                key={index}
                 className="w-[100%] h-[100%] object-cover aspect-[1/1] "
-                src={`${pic.url ? pic.url : "1753439177475_(40).jpg"}`}
+                src={`${pic.url}`}
               />
             ))}
           </div>
           <div className="relative h-[100%] w-[50%] grid grid-cols-2 gap-1 ">
-            {pics.slice(1, 5).map(pic => (
+            {pics.slice(1, 5).map((pic, index) => (
               <img
-                key={pic.url}
+                key={index}
                 className="w-[100%] h-[100%] object-cover aspect-[1/1] "
-                src={`${pic.url ? pic.url : "1753439177475_(40).jpg"}`}
+                src={`${pic.url}`}
               />
             ))}
-            <Link
-              href={`/photos/${id}`}
-              className="flex items-center gap-2 absolute bottom-4 right-[7%]
-               bg-gray-200 hover:bg-gray-300 z-10 rounded-[4px] py-2 px-4 ">
-              <MdPictureInPicture />
-              <p>Show All Photos</p>
-            </Link>
           </div>
         </div>
-        <div>
-          {tour.map(h => (
-            <p key={h.id} className="text-2xl lg:text-4xl capitalize font-bold">
-              {h.title}
-            </p>
-          ))}
-        </div>
-        <div>
-          {tour.map(h => (
-            <p key={h.id} className="">
-              {h.description}
-            </p>
-          ))}
+        <div className="grid grid-cols-6 gap-4">
+          <div className="col-span-4">
+            <div className="flex items-center justify-between">
+              <div>
+                {tour.map(h => (
+                  <p key={h.id} className="text-lg pb-4 capitalize font-bold">
+                    {h.title}
+                  </p>
+                ))}
+              </div>
+              <p className="font-bold">{formattedPrice}</p>
+            </div>
+            <div className="">
+              {tour.map(h => (
+                <p className="" key={h.id}>
+                  {h.description}
+                </p>
+              ))}
+            </div>
+            <div className="space-y-4">
+              <p className="text-lg capitalize font-bold">Your Tour Guides</p>
+              <ul
+                role="list"
+                className="grid gap-x-5 gap-y-8 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
+                {guides.map(u => (
+                  <li>
+                    <div key={u.id} className="flex items-center gap-x-6">
+                      <img
+                        src={u.url}
+                        alt=""
+                        class="size-16 rounded-full outline-1 -outline-offset-1 outline-black/5"
+                      />
+                      <div>
+                        <h3 className="capitalize text-base/7 font-semibold tracking-tight text-gray-900">
+                          {u.username}
+                        </h3>
+                        <p className="text-xs font-semibold text-indigo-600">
+                          <UserOptions id={u.role} />
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+              <div></div>
+            </div>
+          </div>
+          <div className="col-span-2 rounded-b-sm">
+            {tour.map(t => (
+              <BookingForm key={t.id} id={t.id} price={t.price} email={email} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

@@ -3,12 +3,19 @@
 import { updateUser } from "@/lib/data";
 import React, { useState } from "react";
 import SelectOptions from "./SelectOptions";
+import { FaEdit } from "react-icons/fa";
 
-const EditUserForm = ({ id, username, email, role, password, roles }) => {
+const EditUserForm = ({ id, username, email, role, password, roles, pics }) => {
   const [newUsername, setNewUsername] = useState(username);
   const [newEmail, setNewEmail] = useState(email);
   const [newRole, setNewRole] = useState(role);
   const [newPassword, setNewPassword] = useState(password);
+
+  const [file, setFile] = useState([]);
+
+  const fileChange = e => {
+    setFile(e.target.files);
+  };
 
   return (
     <div className="flex justify-center w-[100%] items-center">
@@ -16,6 +23,23 @@ const EditUserForm = ({ id, username, email, role, password, roles }) => {
         <p className="text-2xl">Update User</p>
         <form action={updateUser} className="space-y-4">
           <input type="number" hidden name="user_id" value={id} />
+
+          <div className="relative w-[30%] mx-auto">
+            {pics.map(p => (
+              <img src={p.url} className="w-full aspect-square br-[50%]" />
+            ))}
+            <label className="cursor-pointer" htmlFor="file">
+              <FaEdit className="absolute bottom-0 right-0" />
+            </label>
+            <input
+              type="file"
+              hidden
+              name="file"
+              id="file"
+              onChange={fileChange}
+              multiple
+            />
+          </div>
 
           <div>
             <p>Full Name</p>

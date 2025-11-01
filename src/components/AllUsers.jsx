@@ -31,10 +31,10 @@ const AllUsers = async ({ id }) => {
             <tr className=" even:bg-blue-200 hover:bg-gray-50" key={user.id}>
               <td className="p-[1rem]">{user.id}</td>
               <td className="p-[1rem] capitalize flex items-center gap-1">
-                {user.path && (
+                {user.url && (
                   <Image
                     className="w-8 aspect-square rounded-[50%]"
-                    src={`${user.path}`}
+                    src={`${user.url}`}
                     width={24}
                     height={24}
                   />

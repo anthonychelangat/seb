@@ -1,5 +1,5 @@
 import EditUserForm from "@/components/EditUser";
-import { getRoles, getUserById } from "@/lib/actions";
+import { getRoles, getUserById, getUserPicsById } from "@/lib/actions";
 import React from "react";
 
 const editUser = async ({ params }) => {
@@ -7,6 +7,7 @@ const editUser = async ({ params }) => {
 
   const user = await getUserById(userId);
   const roles = await getRoles();
+  const pics = await getUserPicsById(userId);
 
   return (
     <div>
@@ -19,6 +20,7 @@ const editUser = async ({ params }) => {
           role={u.role}
           password={u.password}
           roles={roles}
+          pics={pics}
         />
       ))}
     </div>

@@ -11,7 +11,7 @@ import {
   getLinks,
   getTours,
   getUserByEmail,
-  getusersWithPics,
+  getAllUsersWithPics,
 } from "@/lib/actions";
 import { auth } from "@/lib/auth";
 import Link from "next/link";
@@ -19,7 +19,7 @@ import React from "react";
 import { FaArrowRight, FaEye, FaPen, FaTrash } from "react-icons/fa";
 
 const admin = async ({ params }) => {
-  const users = await getusersWithPics();
+  const users = await getAllUsersWithPics();
   const tours = await getTours();
   const links = await getLinks();
   const session = await auth();
@@ -35,7 +35,7 @@ const admin = async ({ params }) => {
         <div className="flex items-center justify-between">
           <h2 className="bold text-xl">Users</h2>
           <Link
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 pointer"
             href={`/admin/${user_id}/allUsers`}>
             <p>More</p>
             <FaArrowRight />
@@ -45,10 +45,7 @@ const admin = async ({ params }) => {
           {users.map(u => (
             <div key={u.id} className="flex flex-col gap-2">
               <div className="flex flex-col gap-2">
-                <img
-                  className="w-[5rem] aspect-1/1"
-                  src={u.path ? u.path : `/1753441211144_1.jpg`}
-                />
+                <img className="w-[5rem] aspect-1/1" src={u.url && u.url} />
                 <p className="capitalize bold">{u.username}</p>
               </div>
               <div className="px-4 flex items-center justify-between">

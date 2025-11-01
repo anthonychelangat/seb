@@ -43,6 +43,17 @@ const AddTour = ({ id }) => {
               name="title"
             />
           </div>
+          <div>
+            <p className="block capitalise tracking-wide text-gray-700 font-bold mb-2">
+              Price
+            </p>
+            <input
+              className="py-2 px-4 w-[100%] outline-none rounded-[4px] bg-gray-100 border border-gray-400 focus:border-blue-900 "
+              type="int"
+              placeholder="Price"
+              name="price"
+            />
+          </div>
           <div className="w-full">
             <label
               className="block capitalise tracking-wide text-gray-700 font-bold mb-2"

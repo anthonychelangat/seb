@@ -13,6 +13,7 @@ const editTour = async ({ params }) => {
         <EditTour
           key={u.id}
           id={u.id}
+          price={u.price}
           title={u.title}
           description={u.description}
         />

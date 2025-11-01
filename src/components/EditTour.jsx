@@ -3,8 +3,9 @@
 import { updateTour } from "@/lib/data";
 import React, { useState } from "react";
 
-const EditTour = ({ id, title, description }) => {
+const EditTour = ({ id, title, description,price }) => {
   const [newTitle, setNewTitle] = useState(title);
+  const [newPrice, setNewPrice] = useState(price);
   const [newDescription, setNewDescription] = useState(description);
 
   return (
@@ -23,6 +24,17 @@ const EditTour = ({ id, title, description }) => {
               name="title"
               value={newTitle}
               onChange={e => setNewTitle(e.target.value)}
+            />
+          </div>
+          <div>
+            <p>Price</p>
+            <input
+              className="py-2 px-4 w-[100%] outline-none rounded-[4px] bg-gray-100 border border-gray-400 focus:border-blue-900 "
+              type="text"
+              placeholder="Price"
+              name="price"
+              value={newPrice}
+              onChange={e => setNewPrice(e.target.value)}
             />
           </div>
           <div>

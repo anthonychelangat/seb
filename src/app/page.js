@@ -3,7 +3,6 @@ import { getAbout } from "@/lib/actions";
 import Image from "next/image";
 import Link from "next/link";
 import { IoIosArrowForward } from "react-icons/io";
-import { FaArrowRight } from "react-icons/fa";
 
 export default async function Home() {
   const about = await getAbout();
@@ -40,10 +39,9 @@ export default async function Home() {
 
           <Image
             className="h-[50vh] hidden md:block sm:block w-full object-fit"
-            src="/Images/IMG-20250329-WA0002.jpg"
+            src="/Images/IMG-20250329-WA0003.jpg"
             width={500}
             height={50}
-            quality={80}
             alt=""
           />
         </div>

@@ -31,7 +31,7 @@ const register = () => {
     }
   }
   return (
-    <div className="flex justify-center items-center mr-4 md:mr-0 lg:mr-0 py-[6rem]">
+    <div className="flex justify-center items-center mt-[6rem] lg:mt-[7.5rem] mr-4 md:mr-0 lg:mr-0 py-[6rem]">
       <div className="bg-green-100 px-10 py-4 lg:p-4 rounded-[6px]">
         <form className="flex mb-8 flex-col gap-2 " action={socialMediaLogin}>
           <button

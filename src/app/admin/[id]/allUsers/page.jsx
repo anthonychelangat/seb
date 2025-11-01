@@ -5,10 +5,8 @@ import { getusersWithPics } from "@/lib/actions";
 import React from "react";
 
 const page = async ({ params, searchParams }) => {
-  const role = searchParams.role;
+  const role = await searchParams.role;
   const { id } = await params;
-  console.log(id, "id");
-  console.log(role);
 
   return (
     <div className="mx-6 space-y-6">
