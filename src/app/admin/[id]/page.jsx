@@ -45,7 +45,7 @@ const admin = async ({ params }) => {
           {users.map(u => (
             <div key={u.id} className="flex flex-col gap-2">
               <div className="flex flex-col gap-2">
-                <img className="w-[5rem] aspect-1/1" src={u.url && u.url} />
+                <img className="w-[5rem] aspect-1/1" src={u.url} />
                 <p className="capitalize bold">{u.username}</p>
               </div>
               <div className="px-4 flex items-center justify-between">

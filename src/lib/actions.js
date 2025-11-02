@@ -106,35 +106,59 @@ export const getContacts = async () => {
 
 export const getusersWithPics = async () => {
   const rows = await executeQuery(
-    `select users.id as id, username, data, email, role from users left join pictures on users.id=pictures.user_id where pictures.owner_type="user" and users.role=2`
+    `select users.id as id, username, pictures.data as data, email, role from users left join pictures on users.id=pictures.user_id where pictures.owner_type="user" and users.role=2 or users.role=1`
   );
 
-  return rows.map(row => {
-    const base64 = Buffer.from(row.data).toString("base64");
-    const url = `data:${row.type};base64,${base64}`;
-    const id = row.id;
-    const username = row.username;
-    const email = row.email;
-    const role = row.role;
+  console.log(rows, "rows");
 
-    return { url, id, username, email, role };
+  return rows.map(row => {
+    if (row.data) {
+      const base64 = Buffer.from(row.data).toString("base64");
+      const url = `data:${row.type};base64,${base64}`;
+      const id = row.id;
+      const username = row.username;
+      const email = row.email;
+      const role = row.role;
+
+      console.log(url);
+
+      return { url, id, username, email, role };
+    } else {
+      const id = row.id;
+      const username = row.username;
+      const email = row.email;
+      const role = row.role;
+
+      return { id, username, email, role };
+    }
   });
 };
 
 export const getAllUsersWithPics = async () => {
   const rows = await executeQuery(
-    `select users.id as id, username, data, email, role from users left join pictures on users.id=pictures.user_id where pictures.owner_type="user"`
+    `select users.id as id, username, data, email, role from users left join pictures on users.id=pictures.user_id`
   );
 
-  return rows.map(row => {
-    const base64 = Buffer.from(row.data).toString("base64");
-    const url = `data:${row.type};base64,${base64}`;
-    const id = row.id;
-    const username = row.username;
-    const email = row.email;
-    const role = row.role;
+  console.log(rows, "them");
 
-    return { url, id, username, email, role };
+  return rows.map(row => {
+    if (row.data) {
+      const base64 = Buffer.from(row.data).toString("base64");
+      const url = `data:${row.type};base64,${base64}`;
+      const id = row.id;
+      const username = row.username;
+      const email = row.email;
+      const role = row.role;
+
+      return { url, id, username, email, role };
+    } else {
+      const id = row.id;
+      const username = row.username;
+      const email = row.email;
+      const role = row.role;
+
+      return { id, username, email, role };
+    }
   });
 };
 
@@ -238,14 +262,23 @@ export const getGuidesByTourId = async id => {
   );
 
   return rows.map(row => {
-    const base64 = Buffer.from(row.data).toString("base64");
-    const url = `data:${row.type};base64,${base64}`;
-    const id = row.id;
-    const tour_id = row.tour_id;
-    const username = row.username;
-    const role = row.role;
+    if (row.data) {
+      const base64 = Buffer.from(row.data).toString("base64");
+      const url = `data:${row.type};base64,${base64}`;
+      const id = row.id;
+      const tour_id = row.tour_id;
+      const username = row.username;
+      const role = row.role;
 
-    return { url, id, tour_id, username, role };
+      return { url, id, tour_id, username, role };
+    } else {
+      const id = row.id;
+      const tour_id = row.tour_id;
+      const username = row.username;
+      const role = row.role;
+
+      return { id, tour_id, username, role };
+    }
   });
 };
 

@@ -20,11 +20,10 @@ const singleTour = async ({ params }) => {
   const tour = await getTourByTourId(id);
 
   const pics = await getToursPhotosByTourId(id);
-  console.log(pics);
 
   const guides = await getGuidesByTourId(id);
 
-  console.log(guides);
+  console.log(guides, "guides");
 
   const [price] = tour.map(t => t.price);
 
@@ -47,8 +46,9 @@ const singleTour = async ({ params }) => {
           <PreviousPage />
 
           <div className="flex items-center gap-2">
-            {tour.map(h => (
+            {tour.map((h, index) => (
               <SharePage
+                key={index}
                 url={typeof window !== "undefined" ? window.location.href : ""}
                 title={h.title}
                 text={h.description}
@@ -62,8 +62,9 @@ const singleTour = async ({ params }) => {
           </div>
           <div className="flex items-center gap-3 absolute top-[1rem] right-[1.5rem] z-50">
             <div className="p-2 aspect-square rounded-[50%] bg-gray-200 ">
-              {tour.map(h => (
+              {tour.map((h, index) => (
                 <SharePage
+                  key={index}
                   url={
                     typeof window !== "undefined" ? window.location.href : ""
                   }
@@ -100,7 +101,7 @@ const singleTour = async ({ params }) => {
             <div className="flex items-center justify-between">
               <div>
                 {tour.map(h => (
-                  <p key={h.id} className="text-lg pb-4 capitalize font-bold">
+                  <p key={h.id} className="text-lg capitalize font-bold">
                     {h.title}
                   </p>
                 ))}
@@ -114,18 +115,18 @@ const singleTour = async ({ params }) => {
                 </p>
               ))}
             </div>
-            <div className="space-y-4">
+            <div className="space-y-4 mt-4">
               <p className="text-lg capitalize font-bold">Your Tour Guides</p>
               <ul
                 role="list"
                 className="grid gap-x-5 gap-y-8 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
-                {guides.map(u => (
-                  <li>
-                    <div key={u.id} className="flex items-center gap-x-6">
+                {guides.map((u, index) => (
+                  <li key={index}>
+                    <div className="flex items-center gap-x-6">
                       <img
                         src={u.url}
                         alt=""
-                        class="size-16 rounded-full outline-1 -outline-offset-1 outline-black/5"
+                        className="size-16 rounded-full outline-1 -outline-offset-1 outline-black/5"
                       />
                       <div>
                         <h3 className="capitalize text-base/7 font-semibold tracking-tight text-gray-900">

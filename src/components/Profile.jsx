@@ -6,9 +6,8 @@ import Link from "next/link";
 
 const Profile = ({ session, users }) => {
   const [id] = users.map(u => u.id);
-  console.log(users, "users");
+
   const [role] = users.map(u => u.role);
-  console.log(role);
 
   return (
     <div className="flex items-center gap-2">
@@ -16,18 +15,16 @@ const Profile = ({ session, users }) => {
         <>
           <Image
             className="w-[2rem] aspect-square rounded-[50%]"
-            src={session?.user?.image ? session?.user?.image : "/noavater.jpeg"}
-            alt={session?.user?.name ? session?.user?.name : "tony"}
+            src={session?.user.image}
+            alt={session?.user.name}
             width={50}
             height={50}
           />
-          <p className="font-semibold py-4 text-nowrap">
-            {session?.user?.name ? session?.user?.name : "Tony"}
-          </p>
+          <p className=" py-4 text-nowrap">{session?.user.name}</p>
         </>
       ) : (
         <p className="block tracking-wide font-semibold">
-          {session?.user?.email ? session?.user?.email : "tony@gmail.com"}
+          {session?.user.email}
         </p>
       )}
       <details className="relative">
@@ -36,7 +33,7 @@ const Profile = ({ session, users }) => {
         <div className="absolute top-[70%] mt-2 bg-purple-400 p-4 z-50 ">
           <form className="" action={logOut}>
             <button
-              className="text-lg  block uppercase tracking-tight font-bold py-4 text-nowrap text-red-900 hover:underline"
+              className="text-lg tracking-tight font-bold py-4 text-nowrap text-red-900 hover:underline"
               type="submit">
               Log Out
             </button>
@@ -45,7 +42,7 @@ const Profile = ({ session, users }) => {
           <div>
             {session?.user && role === 1 && (
               <Link
-                className={`text-lg  block uppercase tracking-tight font-bold py-4 relative`}
+                className={`text-lg tracking-tight font-bold py-4 relative`}
                 href={`/admin/${id}`}>
                 Admin
               </Link>

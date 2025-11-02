@@ -1,4 +1,5 @@
 import HomeTours from "@/components/HomeTours";
+//import SlideShow from "@/components/SlideShow";
 import { getAbout } from "@/lib/actions";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,7 +10,7 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen mt-[6rem] lg:mt-[7rem] md:mt-[7rem] font-[family-name:var(--font-geist-sans)]">
-      <main className="bg-[url(/Images/IMG-20250329-WA0002.jpg)] bg-auto bg-contain bg-cover no-repeat bg-center  ">
+      <main className="bg-[url(/Images/IMG-20250329-WA0002.jpg)] bg-cover bg-center bg-no-repeat  ">
         <div className="flex items-center justify-center h-[50vh]">
           <h1 className="font-semibold tracking-tight text-pretty text-lg lg:text-2xl w-[50%] h-[50%] text-center uppercase text-white md:text-4xl">
             Welcome to seb Expeditions for a thrilling tour experience
@@ -25,7 +26,7 @@ export default async function Home() {
             {about.map(a => (
               <p
                 key={a.id}
-                className="overflow-hidden line-clamp-10  mt-6 text-sm text-gray-600">
+                className="overflow-hidden text-black line-clamp-10 mt-6 text-sm md:text-lg lg:text-base">
                 {a.about}
               </p>
             ))}
@@ -38,13 +39,14 @@ export default async function Home() {
           </div>
 
           <Image
-            className="h-[50vh] hidden md:block sm:block w-full object-fit"
-            src="/Images/IMG-20250329-WA0003.jpg"
+            className="h-[50vh] hidden md:block sm:block w-full object-cover"
+            src="/Images/1757009961374_55.jpg"
             width={500}
             height={50}
             alt=""
           />
         </div>
+
         <div className=" max-w-6xl my-2 lg:my-6 mx-auto">
           <div className="flex w-full items-center gap-8 justify-between mt-4">
             <h2 className="text-lg lg:text-lg md:text-lg flex items-center gap-2 uppercase tracking-wide font-semibold text-pretty text-gray-900">
