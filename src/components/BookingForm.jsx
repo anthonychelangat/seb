@@ -15,10 +15,24 @@ const BookingForm = ({ id, price, email }) => {
     setTotal(newGuest * newPrice);
   };
 
+  const formattedPrice = new Intl.NumberFormat("en-UG", {
+    style: "currency",
+    currency: "UGX",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(newPrice);
+
+  const formattedTotal = new Intl.NumberFormat("en-UG", {
+    style: "currency",
+    currency: "UGX",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(total);
+
   return (
     <div className="w-[100%] h-[fitcontent] border p-4 space-y-8border-gray-700 rounded-[6px]">
       <p className="text-xl capitalize text-pink-700 font-bold">
-        UGX {newPrice} per Guest
+        {formattedPrice} per Guest
       </p>
       <form action={pendingBooking} className="space-y-4 w-[100%] ">
         <input type="number" hidden name="price" id="price" value={newPrice} />
@@ -76,17 +90,17 @@ const BookingForm = ({ id, price, email }) => {
       <div className="space-y-2">
         <div className="flex items-center gap-4 justify-between ">
           <p className="underline text-nowrap">
-            UGX {price} * {guests ? guests : 0} Guests
+            {formattedPrice} * {guests ? guests : 0} Guests
           </p>
           <p className="font-bold text-nowrap">
-            UGX {total ? total : price * 0}
+            {formattedTotal ? formattedTotal : price * 0}
           </p>
         </div>
 
         <div className="flex items-center gap-4 justify-between ">
           <p className="underline text-nowrap">Total before Taxes</p>
           <p className="font-bold text-nowrap">
-            UGX {guests === 0 ? price * 0 : total}
+            {guests === 0 ? formattedPrice * 0 : formattedTotal}
           </p>
         </div>
       </div>
