@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import PreviousPage from "../components/PreviousPage";
+import { processPayments } from "../lib/data";
 
 const BookingFinalizedForm = ({
   title,
@@ -15,12 +16,29 @@ const BookingFinalizedForm = ({
   const [newPrice, setNewPrice] = useState(price);
   const [total, setTotal] = useState(price * guests);
   const [newGuests, setNewGuests] = useState(guests);
+  const [ntelephone, setTelephone] = useState(telephone);
+
+  console.log(telephone, "noooo");
 
   const handleGuestsChange = e => {
     const newNewGuests = e.target.value;
     setNewGuests(newNewGuests);
     setTotal(newNewGuests * newPrice);
   };
+
+  const formattedTotal = new Intl.NumberFormat("en-UG", {
+    style: "currency",
+    currency: "UGX",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(total);
+
+  const formattedPrice = new Intl.NumberFormat("en-UG", {
+    style: "currency",
+    currency: "UGX",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(newPrice);
 
   return (
     <div>
@@ -34,7 +52,7 @@ const BookingFinalizedForm = ({
               </div>
               <div>
                 <p className="text-gray-500 capitalize">Payment</p>
-                <p className="text-3xl capitalize">UGX {total}</p>
+                <p className="text-3xl capitalize">{formattedTotal}</p>
               </div>
             </div>
             <div className="space-y-8">
@@ -52,7 +70,7 @@ const BookingFinalizedForm = ({
                 <div className="flex  items-center gap-6">
                   <img className="w-[3rem] aspect-square " src={url} />
                   <div>
-                    <p className="capitalize ">{title}</p>
+                    <p className="capitalize text-xs ">{title}</p>
                     <div className="flex items-center">
                       <input
                         className="outline-none w-[1.5rem]"
@@ -69,27 +87,29 @@ const BookingFinalizedForm = ({
                 </div>
                 <div className="">
                   <div className="w-full flex justify-end">
-                    <p>UGX {total}</p>
+                    <p>{formattedTotal}</p>
                   </div>
-                  <p className="text-gray-500  capitalize">
-                    UGX {newPrice} Per Guest
+                  <p className="text-gray-500 text-xs capitalize">
+                    {formattedPrice} Per Guest
                   </p>
                 </div>
               </div>
               <div className="ml-[4.5rem] flex items-center pb-8 justify-between border border-b-gray-300 border-r-0 border-l-0 border-t-0">
                 <p className="capitalize">subtotal</p>
-                <p>UGX {total}</p>
+                <p>{formattedTotal}</p>
               </div>
 
               <div className="ml-[4.5rem] flex items-center justify-between">
                 <p>Total Due</p>
-                <p>UGX {total}</p>
+                <p>{formattedTotal}</p>
               </div>
             </div>
           </div>
         </div>
         <div className="lg:col-span-1 flex justify-center">
-          <div className="w-full flex flex-col items-center gap-8 lg:gap-[12rem] ">
+          <form
+            action={processPayments}
+            className="w-full flex flex-col items-center gap-8 lg:gap-[12rem] ">
             <div className="8 flex flex-col items-center gap-4 lg:gap-10 w-full">
               <p className="text-xl">Payment Systems</p>
               <div className="flex flex-col w-full items-center gap-6">
@@ -104,15 +124,29 @@ const BookingFinalizedForm = ({
                 </button>
               </div>
             </div>
-            <button className="hidden lg:block lg:w-[70%] w-[90%] py-4 px-4 rounded-[4px] text-white bg-[blue] hover:bg-blue-800 ">
-              Pay UGX {total}
+            <input type="number" hidden name="total" id="total" value={total} />
+
+            <input
+              type="phone"
+              hidden
+              name="telephone"
+              id="telephone"
+              value={`0${ntelephone}`}
+            />
+
+            <button
+              type="submit"
+              className="hidden lg:block lg:w-[70%] w-[90%] py-4 px-4 rounded-[4px] text-white bg-[blue] hover:bg-blue-800 ">
+              Pay {formattedTotal}
             </button>
             <div className="fixed right-0 left-0 bottom-0 bg-blue-200 h-[7rem] border border-t-blue-500 w-full flex items-center justify-center lg:hidden ">
-              <button className="lg:w-[70%] w-[90%] py-4 px-4 rounded-[4px] text-white bg-[blue] hover:bg-blue-800 ">
-                Pay UGX {total}
+              <button
+                type="submit"
+                className="lg:w-[70%] w-[90%] py-4 px-4 rounded-[4px] text-white bg-[blue] hover:bg-blue-800 ">
+                Pay {formattedTotal}
               </button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </div>

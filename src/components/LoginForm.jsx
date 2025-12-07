@@ -24,13 +24,13 @@ const LoginForm = () => {
     }
   }
   return (
-    <div className="flex justify-center pt-10 w-[100%] h-[fitcontent]">
-      <div className="bg-green-100 px-4 w-[100%] py-10 flex flex-col gap-8 rounded-[6px]">
+    <div className="flex justify-center lg:pt-10 w-[100%] h-[fitcontent]">
+      <div className="lg:bg-gray-200 px-6 w-[100%] py-10 flex flex-col gap-8 rounded-[6px]">
         <form
           className="flex mb-8 flex-col gap-6 w-[100%] "
           action={socialMediaLogin}>
           <button
-            className="flex items-center gap-4 py-4 w-[100%] px-4 text-xl rounded-[4px] bg-green-200 hover:bg-green-400"
+            className="flex items-center gap-4 py-4 w-[100%] px-4 text-xl rounded-[4px] bg-blue-200 hover:bg-blue-400"
             type="submit"
             name="action"
             value="google">
@@ -60,12 +60,12 @@ const LoginForm = () => {
             />
           </div>
           <button
-            className="w-[100%] text-xl my-6 py-4 px-4 bg-green-700 hover:bg-green-900 text-white rounded-[4px] "
+            className="w-[100%] text-xl my-6 py-4 px-4 bg-blue-700 hover:bg-blue-900 text-white rounded-[4px] "
             type="submit">
             Login
           </button>
           <div className="mt-8 text-lg lg:text-sm text-nowrap flex items-center gap-1">
-            <p>Don't have an account?</p>{" "}
+            <p>Don't have an account?</p>
             <Link className="text-blue-800 underline " href="/register">
               Register Here
             </Link>

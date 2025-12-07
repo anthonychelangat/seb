@@ -109,8 +109,6 @@ export const getusersWithPics = async () => {
     `select users.id as id, username, pictures.data as data, email, role from users left join pictures on users.id=pictures.user_id where pictures.owner_type="user" and users.role=2 or users.role=1`
   );
 
-  console.log(rows, "rows");
-
   return rows.map(row => {
     if (row.data) {
       const base64 = Buffer.from(row.data).toString("base64");
@@ -119,8 +117,6 @@ export const getusersWithPics = async () => {
       const username = row.username;
       const email = row.email;
       const role = row.role;
-
-      console.log(url);
 
       return { url, id, username, email, role };
     } else {
@@ -138,8 +134,6 @@ export const getAllUsersWithPics = async () => {
   const rows = await executeQuery(
     `select users.id as id, username, data, email, role from users left join pictures on users.id=pictures.user_id`
   );
-
-  console.log(rows, "them");
 
   return rows.map(row => {
     if (row.data) {
@@ -241,12 +235,19 @@ export const getTourByTourId = async id => {
 };
 
 export const getTourAndPhotoByTourId = async tour_id => {
-  const tour = await executeQuery(
-    "select * from tours inner join photos on tours.id=photos.tour_id where tours.id=? limit 1",
+  const rows = await executeQuery(
+    "select title,tours.id as id,data,mime_type as type from tours inner join pictures on tours.id=pictures.tour_id where tours.id=? limit 1",
     [tour_id]
   );
 
-  return tour;
+  return rows.map(row => {
+    const base64 = Buffer.from(row.data).toString("base64");
+    const url = `data:${row.type};base64,${base64}`;
+    const id = row.id;
+    const title = row.title;
+
+    return { url, id, title };
+  });
 };
 
 export const getContactByContactId = async id => {

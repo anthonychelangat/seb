@@ -13,7 +13,7 @@ const HomeTour = ({ id, title, description }) => {
         {description}
       </p>
       <Link
-        className="underline text-center md:text-left lg:text-left text-sm hover:text-gray-950"
+        className="underline text-center md:text-left lg:text-left text-base hover:text-gray-950"
         href={`/tour/${id}`}>
         Read More
       </Link>

@@ -30,7 +30,7 @@ const admin = async ({ params }) => {
   const about = await getAbout();
 
   return (
-    <div className="pl-10 max-w-6xl space-y-8 mx-auto">
+    <div className="px-4 lg:pl-10 max-w-6xl space-y-8 mx-auto">
       <div className="space-y-4 pt-8">
         <div className="flex items-center justify-between">
           <h2 className="bold text-xl">Users</h2>
@@ -67,6 +67,13 @@ const admin = async ({ params }) => {
         </div>
       </div>
 
+      <Link
+        className="flex items-center gap-2 pointer"
+        href={`/admin/${user_id}/allUsers`}>
+        <p>More</p>
+        <FaArrowRight />
+      </Link>
+
       <div>
         <div className="flex items-center justify-between">
           <h2 className="bold text-xl">Tours</h2>
@@ -77,7 +84,7 @@ const admin = async ({ params }) => {
             <FaArrowRight />
           </Link>
         </div>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           {tours.map(t => (
             <div key={t.id}>
               <Photos id={t.id} />

@@ -15,11 +15,11 @@ const MobileSideLinks = ({ session, users }) => {
   const pathname = usePathname();
 
   return (
-    <div className="bg-gray-400">
+    <div className="bg-[#020224] text-[white] ">
       <div className="mx-4 flex flex-col justify-between gap-[10rem] ">
         <div className="flex flex-col gap-4">
           <Link
-            className={`flex items-center gap-6 text-sm font-semibold py-4 relative ${
+            className={`flex items-center gap-6 text-base font-semibold py-4 relative ${
               pathname === "/"
                 ? "text-blue-500 before:absolute before:content-[''] before:h-[40%] before:w-2 before:right-0 before:bg-blue-500 "
                 : ""
@@ -30,7 +30,7 @@ const MobileSideLinks = ({ session, users }) => {
           </Link>
 
           <Link
-            className={`flex items-center gap-6 sm font-semibold py-4 relative ${
+            className={`flex items-center gap-6 text-base font-semibold py-4 relative ${
               pathname === "/about"
                 ? "text-blue-500 before:absolute before:content-[''] before:h-[40%] before:w-2 before:right-0 before:bg-blue-500 "
                 : ""
@@ -40,7 +40,7 @@ const MobileSideLinks = ({ session, users }) => {
             About Us
           </Link>
           <Link
-            className={`flex items-center gap-6 text-sm font-semibold py-4 relative ${
+            className={`flex items-center gap-6 text-base font-semibold py-4 relative ${
               pathname === "/tours"
                 ? "text-blue-500 before:absolute before:content-[''] before:h-[40%] before:w-2 before:right-0 before:bg-blue-500 "
                 : ""
@@ -50,7 +50,7 @@ const MobileSideLinks = ({ session, users }) => {
             Tour Packages
           </Link>
           <Link
-            className={`flex items-center gap-6 text-sm font-semibold py-4 relative ${
+            className={`flex items-center gap-6 text-base font-semibold py-4 relative ${
               pathname === "/contact"
                 ? "text-blue-500 before:absolute before:content-[''] before:h-[40%] before:w-2 before:right-0 before:bg-blue-500 "
                 : ""
@@ -68,7 +68,7 @@ const MobileSideLinks = ({ session, users }) => {
             </Suspense>
           ) : (
             <Link
-              className={`flex items-center gap-6 text-sm font-semibold py-4 relative ${
+              className={`flex items-center gap-6 text-base font-semibold py-4 relative ${
                 pathname === "/login"
                   ? "text-blue-500 before:absolute before:content-[''] before:h-[40%] before:w-2 before:right-0 before:bg-blue-500 "
                   : ""

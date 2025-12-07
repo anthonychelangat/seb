@@ -1,4 +1,5 @@
 import BookingForm from "@/components/BookingForm";
+import MobileBookingForm from "@/components/MobileBookingForm";
 import PhotosForMobile from "@/components/PhotosForMobile";
 import PreviousPage from "@/components/PreviousPage";
 import SharePage from "@/components/SharePage";
@@ -23,8 +24,6 @@ const singleTour = async ({ params }) => {
 
   const guides = await getGuidesByTourId(id);
 
-  console.log(guides, "guides");
-
   const [price] = tour.map(t => t.price);
 
   const formattedPrice = new Intl.NumberFormat("en-UG", {
@@ -41,7 +40,7 @@ const singleTour = async ({ params }) => {
 
   return (
     <div>
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto  ">
         <div className="hidden lg:flex lg:items-center lg:justify-between lg:pt-8 lg:marker:pb-4">
           <PreviousPage />
 
@@ -96,7 +95,7 @@ const singleTour = async ({ params }) => {
             ))}
           </div>
         </div>
-        <div className="grid grid-cols-6 gap-4">
+        <div className="grid grid-cols-1 mb-[7rem] px-4 lg:px-0 lg:grid-cols-6 gap-4">
           <div className="col-span-4">
             <div className="flex items-center justify-between">
               <div>
@@ -143,12 +142,20 @@ const singleTour = async ({ params }) => {
               <div></div>
             </div>
           </div>
-          <div className="col-span-2 rounded-b-sm">
+          <div className="hidden lg:block col-span-2 rounded-b-sm">
             {tour.map(t => (
               <BookingForm key={t.id} id={t.id} price={t.price} email={email} />
             ))}
           </div>
         </div>
+        {tour.map(t => (
+          <MobileBookingForm
+            key={t.id}
+            id={t.id}
+            price={t.price}
+            email={email}
+          />
+        ))}
       </div>
     </div>
   );

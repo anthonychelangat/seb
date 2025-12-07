@@ -17,8 +17,8 @@ const AddTour = ({ id }) => {
   };
 
   return (
-    <div className="flex justify-center w-[100%] items-center">
-      <div className="space-y-8 mt-6 bg-gray-200 rounded-lg px-8 py-12 w-[50%]">
+    <div className="lg:flex lg:justify-center w-[100%] lg:items-center">
+      <div className="space-y-8 lg:mt-6 lg:bg-gray-200 rounded-lg px-8 py-12 w-[100%] lg:w-[50%]">
         <p className="text-2xl block uppercase tracking-wide text-gray-700 font-bold mb-2">
           Add Tour
         </p>
@@ -74,7 +74,7 @@ const AddTour = ({ id }) => {
             <div
               className="flex flex-col gap-2 items-center justify-center 
               w-[100%] h-[6rem] border border-dotted border-black bg-purple-100 rounded-[6px]">
-              <p className="font-semibold">Drop 4 photos here</p>
+              <p className="font-semibold">Drop 5 photos here</p>
               <label className="cursor-pointer" htmlFor="file">
                 Press Here
               </label>

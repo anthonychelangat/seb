@@ -16,7 +16,7 @@ const page = async ({ params }) => {
             <th className="p-[1rem] sticky bg-blue-400 border-collapse ">
               Title
             </th>
-            <th className="p-[1rem] sticky bg-blue-400 border-collapse ">
+            <th className="p-[1rem] hidden lg:block sticky bg-blue-400 border-collapse ">
               Description
             </th>
             <th className="p-[1rem] sticky bg-blue-400 border-collapse ">
@@ -32,7 +32,7 @@ const page = async ({ params }) => {
                 <td className="p-[1rem] capitalize flex items-center gap-1">
                   {tour.title}
                 </td>
-                <td className="p-[1rem]">{tour.description}</td>
+                <td className="p-[1rem] hidden lg:block">{tour.description}</td>
                 <td className="p-[1rem] flex items-center gap-3">
                   <Link
                     className="flex items-center"

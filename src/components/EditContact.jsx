@@ -8,8 +8,8 @@ const EditContact = ({ id, name, contact }) => {
   const [newContact, setNewContact] = useState(contact);
 
   return (
-    <div className="flex justify-center w-[100%] items-center">
-      <div className="space-y-8 mt-6 bg-gray-200 rounded-lg px-8 py-12 w-[50%]">
+    <div className="lg:flex lg:justify-center w-[100%] lg:items-center">
+      <div className="space-y-8 lg:mt-6 lg:bg-gray-200 rounded-lg px-6 lg:px-8 py-12 w-[100%] lg:w-[50%]">
         <p className="text-2xl">Update Contacts</p>
         <form action={updateContact} className="space-y-4">
           <input type="number" hidden name="contact_id" value={id} />

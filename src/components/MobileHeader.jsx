@@ -10,7 +10,7 @@ const MobileHeader = ({ session, users }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="bg-gray-400">
+    <div className="bg-[#020224] text-[white] ">
       <div className="relative h-[6rem] flex items-center justify-between">
         <Link href="/">
           <p className="ml-4 uppercase text-3xl font-bold">Seb</p>

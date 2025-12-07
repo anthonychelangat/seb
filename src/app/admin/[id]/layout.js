@@ -1,14 +1,17 @@
+import AdminHeader from "@/components/AdminHeader";
 import PreviousPage from "@/components/PreviousPage";
 import SessionAdmin from "@/components/SessionAdmin";
 import SharePage from "@/components/SharePage";
 
 export default function RootLayout({ children }) {
   return (
-    <div className="max-w-6xl mx-auto grid grid-cols-8 gap-4">
-      <div className="col-span-2 sticky overflow-y-auto h-[screen] max-h-[screen]">
+    <div className="max-w-6xl mx-auto grid grid-cols-1 gap-0 lg:grid-cols-8 lg:gap-4">
+      <div className="hidden lg:block col-span-2 sticky overflow-y-auto h-[screen] max-h-[screen]">
         <SessionAdmin />
       </div>
-
+      <div className="lg:hidden">
+        <AdminHeader />
+      </div>
       <div className="col-span-6 overflow-y-auto">{children}</div>
     </div>
   );

@@ -13,24 +13,24 @@ const MobileProfile = ({ session, users }) => {
         <>
           <Image
             className="w-[2rem] aspect-square rounded-[50%]"
-            src={session?.user?.image ? session?.user?.image : "/noavater.jpeg"}
-            alt={session?.user?.name ? session?.user?.name : "tony"}
+            src={session?.user.image}
+            alt={session?.user.name}
             width={50}
             height={50}
           />
           <p className="text-lg/6 font-semibold py-4 text-nowrap">
-            {session?.user?.name ? session?.user?.name : "Tony"}
+            {session?.user.name}
           </p>
         </>
       ) : (
-        <p>{session?.user?.email ? session?.user?.email : "tony@gmail.com"}</p>
+        <p>{session?.user.email}</p>
       )}
 
       <div className="flex flex-col gap-2 ">
         <div>
           {session?.user && (
             <Link
-              className={`text-lg/6 font-semibold py-4 relative`}
+              className={`text-base font-semibold py-4 relative`}
               href={`/admin/${id}`}>
               Admin
             </Link>

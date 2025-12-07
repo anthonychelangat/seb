@@ -17,7 +17,7 @@ const UsersByRole = async ({ id, role }) => {
           <th className="p-[1rem] sticky bg-blue-400 border-collapse ">
             User Name
           </th>
-          <th className="p-[1rem] sticky bg-blue-400 border-collapse ">
+          <th className="p-[1rem]  hidden lg:block sticky bg-blue-400 border-collapse ">
             Email
           </th>
           <th className="p-[1rem] sticky bg-blue-400 border-collapse ">Role</th>
@@ -42,7 +42,7 @@ const UsersByRole = async ({ id, role }) => {
                 )}
                 {user.username}
               </td>
-              <td className="p-[1rem]">{user.email}</td>
+              <td className="p-[1rem] hidden lg:block">{user.email}</td>
               <td className="p-[1rem]">
                 <UserOptions id={user.role} />
               </td>

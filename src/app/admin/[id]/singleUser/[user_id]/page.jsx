@@ -16,7 +16,7 @@ const page = async ({ params }) => {
     <div>
       {user.map(u => (
         <div className="my-8 space-y-4">
-          <div className="flex items-center justify-between ">
+          <div className="flex items-center px-6 lg:px-0 justify-between ">
             <PreviousPage />
             <div className="flex items-center gap-4">
               <Link href={`/admin/${user_id}/editUser/${u.id}`}>
@@ -30,7 +30,7 @@ const page = async ({ params }) => {
               </form>
             </div>
           </div>
-          <div key={u.id} className="grid grid-cols-8 gap-2">
+          <div key={u.id} className="grid grid-cols-1 lg:grid-cols-8 gap-2">
             <div className="col-span-4">
               <Image
                 className="w-full aspect-1/1"
@@ -39,7 +39,7 @@ const page = async ({ params }) => {
                 src={u.url}
               />
             </div>
-            <div className="col-span-4 space-y-6">
+            <div className="col-span-4 px-6 lg:px-0 space-y-6">
               <div className="space-y-2">
                 <p>User Name</p>
                 <p className="capitalize bold">{u.username}</p>

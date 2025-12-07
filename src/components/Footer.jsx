@@ -6,13 +6,13 @@ const Footer = ({ links, contacts }) => {
   const year = new Date().getFullYear();
 
   return (
-    <div className="bg-blue-500 z-50 ">
+    <div className="bg-[#01012a] z-50 ">
       <div className="">
         <div className="max-w-5xl mx-auto py-4 flex items-center justify-center flex-col">
           <Subscribe />
         </div>
         <div className="bg-gray-100">
-          <div className="max-w-5xl w-full px-6 md:px-0 lg:px-0 text-gray-800 grid md:grid-cols-4 sm:grid-cols-2 mx-auto">
+          <div className="max-w-5xl w-full px-4 md:px-0 lg:px-0 text-gray-800 grid md:grid-cols-4 sm:grid-cols-2 mx-auto">
             <div className="py-5">
               <h3 className="font-bold text-xl text-indigo-600">
                 Seb Expeditions

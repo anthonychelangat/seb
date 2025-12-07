@@ -10,9 +10,9 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen mt-[6rem] lg:mt-[7rem] md:mt-[7rem] font-[family-name:var(--font-geist-sans)]">
-      <main className="bg-[url(/Images/IMG-20250329-WA0002.jpg)] bg-cover bg-center bg-no-repeat  ">
+      <main className="bg-[url(/Images/35.jpg)] bg-cover bg-center bg-no-repeat  ">
         <div className="flex items-center justify-center h-[50vh]">
-          <h1 className="font-semibold tracking-tight text-pretty text-lg lg:text-2xl w-[50%] h-[50%] text-center uppercase text-white md:text-4xl">
+          <h1 className="font-semibold tracking-tight text-pretty text-2xl lg:text-2xl w-[50%] h-[50%] text-center uppercase text-white md:text-4xl">
             Welcome to seb Expeditions for a thrilling tour experience
           </h1>
         </div>
@@ -20,13 +20,13 @@ export default async function Home() {
       <div className="flex max-w-5xl mx-auto gap-8 px-4 md:px-8 lg:px-0 xl:px-0 flex-col">
         <div className="md:my-8 lg:my-8 grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
           <div className="">
-            <h2 className="text-lg lg:text-xl md:text-xl mt-3 lg:mt-6 font-semibold block uppercase tracking-wide text-pretty text-gray-900">
+            <h2 className="text-lg lg:text-xl md:text-xl mt-3 lg:mt-6 font-semibold block uppercase tracking-wide text-pretty text-black">
               About Seb Expeditions
             </h2>
             {about.map(a => (
               <p
                 key={a.id}
-                className="overflow-hidden text-black line-clamp-10 mt-6 text-sm md:text-lg lg:text-base">
+                className="overflow-hidden text-black line-clamp-10 mt-3 text-base">
                 {a.about}
               </p>
             ))}
@@ -40,7 +40,7 @@ export default async function Home() {
 
           <Image
             className="h-[50vh] hidden md:block sm:block w-full object-cover"
-            src="/Images/1757009961374_55.jpg"
+            src="/Images/10241.jpg"
             width={500}
             height={50}
             alt=""
@@ -48,7 +48,7 @@ export default async function Home() {
         </div>
 
         <div className=" max-w-6xl my-2 lg:my-6 mx-auto">
-          <div className="flex w-full items-center gap-8 justify-between mt-4">
+          <div className="flex w-full items-center gap-8 justify-between">
             <h2 className="text-lg lg:text-lg md:text-lg flex items-center gap-2 uppercase tracking-wide font-semibold text-pretty text-gray-900">
               Our Best Offers
               <span className="hidden md:block lg:block">For You</span>

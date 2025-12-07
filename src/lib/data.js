@@ -318,3 +318,10 @@ export const pendingBooking = async formData => {
     console.log("Booking details failed");
   }
 };
+
+export const processPayments = async formData => {
+  const telephone = formData.get("telephone");
+  const total = formData.get("total");
+
+  console.log(telephone, total);
+};
