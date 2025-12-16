@@ -1,3 +1,4 @@
+import { authOptions } from "@/app/api/auth/[...nextauth]";
 import BookingForm from "@/components/BookingForm";
 import MobileBookingForm from "@/components/MobileBookingForm";
 import PhotosForMobile from "@/components/PhotosForMobile";
@@ -10,10 +11,8 @@ import {
   getToursPhotosByTourId,
   getUserByEmail,
 } from "@/lib/actions";
-import { auth } from "@/lib/auth";
-import Link from "next/link";
+import { getServerSession } from "next-auth";
 import React from "react";
-import { MdPictureInPicture } from "react-icons/md";
 
 const singleTour = async ({ params }) => {
   const { id } = await params;
@@ -33,7 +32,7 @@ const singleTour = async ({ params }) => {
     maximumFractionDigits: 0,
   }).format(price);
 
-  const session = await auth();
+  const session = await getServerSession(authOptions);
   const email = session?.user.email;
 
   const users = await getUserByEmail(email);

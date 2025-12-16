@@ -1,7 +1,7 @@
 "use server";
 
+import { signIn, signOut } from "next-auth/react";
 import executeQuery from "./utils";
-import { signIn, signOut } from "./auth";
 
 export const socialMediaLogin = async formData => {
   const action = formData.get("action");

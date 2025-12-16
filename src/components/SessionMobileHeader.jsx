@@ -1,12 +1,14 @@
 import { getUserByEmail } from "@/lib/actions";
-import { auth } from "@/lib/auth";
 import React from "react";
 import MobileHeader from "./MobileHeader";
 import IntermediateMobileHeader from "./IntermediateMobileHeader";
+import { useSession } from "next-auth/react";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]";
 
 const SessionMobileHeader = async () => {
-  const session = await auth();
-  const email = session?.user.email;
+  const session = await getServerSession(authOptions);
+  const email = session?.user.email ? session?.user.email : "tony@gmail.com";
 
   const users = await getUserByEmail(email);
 

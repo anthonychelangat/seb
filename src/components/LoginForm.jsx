@@ -6,6 +6,7 @@ import { credentialsLogin } from "../lib/actions";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { FaGithub, FaGoogle } from "react-icons/fa6";
+import { signIn } from "next-auth/react";
 
 const LoginForm = () => {
   const router = useRouter();
@@ -26,18 +27,16 @@ const LoginForm = () => {
   return (
     <div className="flex justify-center lg:pt-10 w-[100%] h-[fitcontent]">
       <div className="lg:bg-gray-200 px-6 w-[100%] py-10 flex flex-col gap-8 rounded-[6px]">
-        <form
-          className="flex mb-8 flex-col gap-6 w-[100%] "
-          action={socialMediaLogin}>
-          <button
-            className="flex items-center gap-4 py-4 w-[100%] px-4 text-xl rounded-[4px] bg-blue-200 hover:bg-blue-400"
-            type="submit"
-            name="action"
-            value="google">
-            <FaGoogle className="text-3xl" />
-            <p>Signin With Google</p>
-          </button>
-        </form>
+        <button
+          className="flex items-center gap-4 py-4 w-[100%] px-4 text-xl rounded-[4px] bg-blue-200 hover:bg-blue-400"
+          type="submit"
+          name="action"
+          onClick={() => signIn("google", { callbackUrl: "/" })}
+          value="google">
+          <FaGoogle className="text-3xl" />
+          <p>Signin With Google</p>
+        </button>
+
         <form className="space-y-4 w-[100%]" onSubmit={handleFormSubmit}>
           <div className="space-y-2">
             <p className="text-xl">Email</p>

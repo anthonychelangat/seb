@@ -4,11 +4,12 @@ import {
   getTourAndPhotoByTourId,
   getUserByEmail,
 } from "@/lib/actions";
-import { auth } from "@/lib/auth";
+import { getServerSession } from "next-auth";
 import React from "react";
+import { authOptions } from "../api/auth/[...nextauth]";
 
 const page = async () => {
-  const session = await auth();
+  const session = await getServerSession(authOptions);
   const email = session?.user.email;
 
   const users = await getUserByEmail(email);

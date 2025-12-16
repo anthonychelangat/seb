@@ -22,6 +22,7 @@ import SessionHeader from "@/components/SessionHeader";
 import SessionMobileHeader from "@/components/SessionMobileHeader";
 import Link from "next/link";
 import FullFooter from "@/components/FullFooter";
+import AuthProvider from "@/components/Authprovider";
 
 export default function RootLayout({ children }) {
   const tel = 703392995;
@@ -36,13 +37,19 @@ export default function RootLayout({ children }) {
       <body className={`${inter.variable} ${roboto_mono.variable} antialiased`}>
         <div className="relative h-[fit-content]">
           <div>
-            <SessionHeader />
+            <AuthProvider>
+              <SessionHeader />
+            </AuthProvider>
           </div>
           <div>
-            <SessionMobileHeader />
+            <AuthProvider>
+              <SessionMobileHeader />
+            </AuthProvider>
           </div>
 
-          <div className="z-0 bg-[white]">{children}</div>
+          <AuthProvider>
+            <div className="z-0 bg-[white]">{children}</div>
+          </AuthProvider>
         </div>
 
         <div className="fixed right-5 bottom-10 pb-4 flex flex-col gap-3">

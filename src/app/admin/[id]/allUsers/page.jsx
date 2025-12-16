@@ -1,7 +1,6 @@
 import AllUsers from "@/components/AllUsers";
 import PlacesNav from "@/components/placesNav/PlacesNav";
 import UsersByRole from "@/components/UsersByRole";
-import { getusersWithPics } from "@/lib/actions";
 import React from "react";
 
 const page = async ({ params, searchParams }) => {

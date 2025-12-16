@@ -1,11 +1,12 @@
 "use server";
 
+import { authOptions } from "@/app/api/auth/[...nextauth]";
 import AddTour from "@/components/AddTour";
 import { getUserByEmail } from "@/lib/actions";
-import { auth } from "@/lib/auth";
+import { getServerSession } from "next-auth";
 
 const addTours = async () => {
-  const session = await auth();
+  const session = await getServerSession(authOptions);
   const email = session?.user?.email;
   const user = await getUserByEmail(email);
   const [id] = user.map(u => u.id);

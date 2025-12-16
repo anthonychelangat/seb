@@ -1,18 +1,22 @@
-// File: pages/api/auth/[...nextauth].js
-
 import NextAuth from "next-auth";
-//import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import GithubProvider from "next-auth/providers/github";
 import { getUserByEmail } from "@/lib/actions";
-import Credentials from "next-auth/providers/credentials";
+import CredentialsProvider from "next-auth/providers/credentials";
+import executeQuery from "@/lib/utils";
 
 export const authOptions = {
   providers: [
-    Credentials({
+    CredentialsProvider({
+      name: "Credentials",
+      credentials: {
+        email: { label: "Email", type: "text" },
+        password: { label: "Password", type: "password" },
+      },
       async authorize(credentials) {
-        if (credentials === null) return null;
-        const email = credentials?.email;
+        if (!credentials) return null;
+
+        const email = credentials.email;
         const users = await getUserByEmail(email);
 
         if (users) {
@@ -39,8 +43,24 @@ export const authOptions = {
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
     }),
   ],
+  callbacks: {
+    async signIn({ user, account, profile }) {
+      if (account.provider === "google") {
+        const existing = await executeQuery(
+          "select id from users where email=?",
+          [profile.email]
+        );
+
+        if (existing.length === 0) {
+          await executeQuery("insert into users(username,email) values(?,?)", [
+            profile.name,
+            profile.email,
+          ]);
+        }
+      }
+      return true;
+    },
+  },
 };
 
-const handler = NextAuth(authOptions);
-
-export { handler as GET, handler as POST };
+export default NextAuth(authOptions);

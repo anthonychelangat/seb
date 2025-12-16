@@ -1,11 +1,12 @@
 import React from "react";
 import Header from "./Header";
-import { auth } from "../lib/auth";
 import SideBar from "./SideBar";
 import { getUserByEmail } from "@/lib/actions";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]";
 
 const SessionAdmin = async () => {
-  const session = await auth();
+  const session = await getServerSession(authOptions);
 
   const email = session?.user.email;
 

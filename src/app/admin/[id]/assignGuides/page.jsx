@@ -6,7 +6,7 @@ const page = async ({ params }) => {
   const { id } = await params;
 
   const user = await getUserById(id);
-  console.log(user, "user");
+
   return (
     <div>
       {user.map(u => (

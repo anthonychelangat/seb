@@ -1,3 +1,4 @@
+import { authOptions } from "@/app/api/auth/[...nextauth]";
 import Icons from "@/components/Icons";
 import Photos from "@/components/Photos";
 import {
@@ -13,7 +14,7 @@ import {
   getUserByEmail,
   getAllUsersWithPics,
 } from "@/lib/actions";
-import { auth } from "@/lib/auth";
+import { getServerSession } from "next-auth";
 import Link from "next/link";
 import React from "react";
 import { FaArrowRight, FaEye, FaPen, FaTrash } from "react-icons/fa";
@@ -22,7 +23,7 @@ const admin = async ({ params }) => {
   const users = await getAllUsersWithPics();
   const tours = await getTours();
   const links = await getLinks();
-  const session = await auth();
+  const session = await getServerSession(authOptions);
   const email = session?.user.email;
   const user = await getUserByEmail(email);
   const [user_id] = user.map(u => u.id);

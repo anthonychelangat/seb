@@ -1,7 +1,6 @@
 import Tour from "@/components/Tour";
 import { getTours } from "@/lib/actions";
 import React from "react";
-import { FaArrowRight } from "react-icons/fa";
 
 const page = async () => {
   const tour = await getTours();
