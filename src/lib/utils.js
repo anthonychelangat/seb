@@ -18,7 +18,7 @@ const executeQuery = async (query, data) => {
   }
 };
 
-// host: "tramway.proxy.rlwy.net",
+// host: "tramway.proxy.rlwy.net"
 
 // port: "43657",
 // user: "root",
