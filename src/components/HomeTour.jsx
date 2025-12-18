@@ -6,10 +6,10 @@ const HomeTour = ({ id, title, description }) => {
   return (
     <div>
       <Photos id={id} />
-      <h5 className="mb-2 capitalize text-lg font-bold tracking-tight text-black dark:text-white">
+      <h5 className="mb-2 capitalize text-lg font-bold tracking-tight text-black ">
         {title}
       </h5>
-      <p className="mb-3 text-base font-normal line-clamp-3 text-black dark:text-white">
+      <p className="mb-3 text-base font-normal line-clamp-3 text-black">
         {description}
       </p>
       <Link
