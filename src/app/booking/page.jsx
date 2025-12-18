@@ -10,9 +10,12 @@ import { authOptions } from "../api/auth/[...nextauth]";
 
 const page = async () => {
   const session = await getServerSession(authOptions);
-  const email = session?.user?.email ? session?.user?.email : "tony@gmail.com";
-
+  const email = session?.user?.email ?? "tony@gmail.com";
+  console.log(email);
   const users = await getUserByEmail(email);
+
+  console.log(users, "users");
+  console.log(email, "email");
 
   const booking = await getBookingDetailsByEmail(email);
   const [price] = booking.map(u => u.price);

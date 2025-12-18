@@ -6,7 +6,7 @@ import { authOptions } from "@/app/api/auth/[...nextauth]";
 
 const SessionMobileHeader = async () => {
   const session = await getServerSession(authOptions);
-  const email = session?.user?.email ? session?.user?.email : "tony@gmail.com";
+  const email = session?.user?.email ?? "tony@gmail.com";
 
   const users = await getUserByEmail(email);
 

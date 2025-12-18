@@ -8,22 +8,22 @@ import executeQuery from "@/lib/utils";
 
 const SessionHeader = async () => {
   const session = await getServerSession(authOptions);
-  const email = session?.user?.email ? session?.user?.email : "tony@gmail.com";
+  const email = session?.user?.email ?? "tony@gmail.com";
   const users = await getUserByEmail(email);
 
-  const existing = await executeQuery("select id from users where email=?", [
-    session.user.email,
-  ]);
+  //const existing = await executeQuery("select id from users where email=?", [
+  //  session.user.email,
+  //]);
 
-  const role = 1;
+  //const role = 1;
 
-  if (existing.length === 0) {
-    await executeQuery("insert into users(username,email,role) values(?,?,?)", [
-      session.user.name,
-      session.user.email,
-      role,
-    ]);
-  }
+  // if (existing.length === 0) {
+  //   await executeQuery("insert into users(username,email,role) values(?,?,?)", [
+  //    session.user.name,
+  //    session.user.email,
+  //    role,
+  //  ]);
+  // }
 
   return (
     <div className="hidden md:block xl:block fixed left-0 right-0 w-[100%] z-100 top-0 h-[7rem]">
