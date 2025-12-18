@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.variable} ${roboto_mono.variable} antialiased`}>
-        <div className="relative h-[fit-content]">
+        <div className="relative bg-[white] h-[fit-content]">
           <div>
             <AuthProvider>
               <SessionHeader />

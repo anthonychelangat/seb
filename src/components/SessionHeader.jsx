@@ -9,20 +9,21 @@ import executeQuery from "@/lib/utils";
 const SessionHeader = async () => {
   const session = await getServerSession(authOptions);
   const email = session?.user?.email ?? "tony@gmail.com";
+  //const name = session?.user?.name ?? "tony";
   const users = await getUserByEmail(email);
 
   //const existing = await executeQuery("select id from users where email=?", [
-  //  session.user.email,
+  //  email
   //]);
 
   //const role = 1;
 
   // if (existing.length === 0) {
   //   await executeQuery("insert into users(username,email,role) values(?,?,?)", [
-  //    session.user.name,
-  //    session.user.email,
+  //    name,
+  //    email
   //    role,
-  //  ]);
+  //  ]);,
   // }
 
   return (
