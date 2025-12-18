@@ -31,7 +31,7 @@ export default async function Home() {
             ))}
             <div className="flex flex-col my-2 lg:flex-row lg:items-center lg:justify-between pr-6">
               <div></div>
-              <Link className="underline text-sm " href="/about">
+              <Link className="underline text-black text-sm " href="/about">
                 Read More
               </Link>
             </div>
