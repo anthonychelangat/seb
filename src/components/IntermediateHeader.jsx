@@ -8,7 +8,6 @@ const IntermediateHeader = ({ session, users }) => {
   const links = ["/", "/about", "/contact", "/tours"];
   const pathname = usePathname();
   const activeLink = links.some(link => pathname === link);
-  console.log(session);
 
   return <div>{activeLink && <Header session={session} users={users} />}</div>;
 };

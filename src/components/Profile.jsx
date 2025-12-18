@@ -1,7 +1,4 @@
-import Image from "next/image";
 import React from "react";
-import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import { getUserByEmail, logOut } from "../lib/actions";
 import Link from "next/link";
 import Logout from "./Logout";
 
@@ -9,23 +6,23 @@ const Profile = ({ session, users }) => {
   const [id] = users.map(u => u.id);
 
   const [role] = users.map(u => u.role);
-  
+
   return (
     <div className="flex items-center gap-2">
-      {session?.user.name && session?.user.image ? (
+      {session?.user?.name && session?.user?.image ? (
         <>
           <img
             className="w-[2rem] aspect-square rounded-[50%]"
-            src={session?.user.image}
-            alt={session?.user.name}
+            src={session?.user?.image}
+            alt={session?.user?.name}
             width={50}
             height={50}
           />
-          <p className=" py-4 lowercase text-nowrap">{session?.user.name}</p>
+          <p className=" py-4 lowercase text-nowrap">{session?.user?.name}</p>
         </>
       ) : (
         <p className="block tracking-wide font-semibold">
-          {session?.user.email}
+          {session?.user?.email}
         </p>
       )}
       <details className="relative">
