@@ -18,8 +18,6 @@ const BookingFinalizedForm = ({
   const [newGuests, setNewGuests] = useState(guests);
   const [ntelephone, setTelephone] = useState(telephone);
 
-  console.log(telephone, "noooo");
-
   const handleGuestsChange = e => {
     const newNewGuests = e.target.value;
     setNewGuests(newNewGuests);

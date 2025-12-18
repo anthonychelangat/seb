@@ -44,7 +44,7 @@ const page = async ({ params }) => {
                   </Link>
                   <div>
                     <form action={deleteTour}>
-                      <input hidden name="tour_id" value={tour.id} />
+                      <input hidden name="tour_id" value={tour.id} readOnly />
                       <button type="submit">
                         <FaTrash className="text-red-700" />
                       </button>

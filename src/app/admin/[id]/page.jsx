@@ -57,7 +57,7 @@ const admin = async ({ params }) => {
                   <FaPen className="text-blue-700" />
                 </Link>
                 <form action={deleteUser}>
-                  <input hidden name="user_id" value={u.id} />
+                  <input hidden name="user_id" value={u.id} readOnly />
                   <button type="submit">
                     <FaTrash className="text-red-700" />
                   </button>
@@ -100,7 +100,7 @@ const admin = async ({ params }) => {
                 </Link>
 
                 <form action={deleteTour}>
-                  <input hidden name="tour_id" value={t.id} />
+                  <input hidden name="tour_id" value={t.id} readOnly />
                   <button type="submit">
                     <FaTrash className="text-red-700" />
                   </button>
@@ -130,7 +130,7 @@ const admin = async ({ params }) => {
                   <FaPen className="text-blue-700" />
                 </Link>
                 <form action={deleteAbout}>
-                  <input hidden name="about_id" value={l.id} />
+                  <input hidden name="about_id" value={l.id} readOnly />
                   <button type="submit">
                     <FaTrash className="text-red-700" />
                   </button>
@@ -161,7 +161,7 @@ const admin = async ({ params }) => {
                   <FaPen className="text-blue-700" />
                 </Link>
                 <form action={deleteLinks}>
-                  <input hidden name="link_id" value={l.id} />
+                  <input hidden name="link_id" value={l.id} readOnly />
                   <button type="submit">
                     <FaTrash className="text-red-700" />
                   </button>
@@ -192,7 +192,7 @@ const admin = async ({ params }) => {
                   <FaPen className="text-blue-700" />
                 </Link>
                 <form action={deleteContacts}>
-                  <input hidden name="contact_id" value={c.id} />
+                  <input hidden name="contact_id" value={c.id} readOnly />
                   <button type="submit">
                     <FaTrash className="text-red-700" />
                   </button>

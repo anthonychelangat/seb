@@ -35,9 +35,30 @@ const BookingForm = ({ id, price, email }) => {
         {formattedPrice} per Guest
       </p>
       <form action={pendingBooking} className="space-y-4 w-[100%] ">
-        <input type="number" hidden name="price" id="price" value={newPrice} />
-        <input type="number" hidden name="tour_id" id="tour_id" value={id} />
-        <input type="email" hidden name="email" id="email" value={email} />
+        <input
+          type="number"
+          hidden
+          name="price"
+          id="price"
+          value={newPrice}
+          readOnly
+        />
+        <input
+          type="number"
+          hidden
+          name="tour_id"
+          id="tour_id"
+          value={id}
+          readOnly
+        />
+        <input
+          type="email"
+          hidden
+          name="email"
+          id="email"
+          value={email}
+          readOnly
+        />
 
         <div>
           <p className="">Phone Number</p>
@@ -100,7 +121,7 @@ const BookingForm = ({ id, price, email }) => {
         <div className="flex items-center gap-4 justify-between ">
           <p className="underline text-nowrap">Total before Taxes</p>
           <p className="font-bold text-nowrap">
-            {guests === 0 ? formattedPrice * 0 : formattedTotal}
+            {String(guests === 0 ? formattedPrice * 0 : formattedTotal)}
           </p>
         </div>
       </div>

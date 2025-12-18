@@ -30,7 +30,7 @@ const page = async ({ params }) => {
                 <FaPen className="text-blue-700" />
               </Link>
               <form action={deleteTour}>
-                <input hidden name="tour_id" value={t.id} />
+                <input hidden name="tour_id" value={t.id} readOnly />
                 <button type="submit">
                   <FaTrash className="text-red-700" />
                 </button>

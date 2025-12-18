@@ -4,7 +4,8 @@ import UsersByRole from "@/components/UsersByRole";
 import React from "react";
 
 const page = async ({ params, searchParams }) => {
-  const role = await searchParams.role;
+  const search = await searchParams;
+  const role = search.role;
   const { id } = await params;
 
   return (
@@ -14,6 +15,8 @@ const page = async ({ params, searchParams }) => {
       <div>
         {role ? <UsersByRole id={id} role={role} /> : <AllUsers id={id} />}
       </div>
+
+      <PlacesNav />
     </div>
   );
 };

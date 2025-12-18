@@ -7,7 +7,6 @@ import Link from "next/link";
 
 const UsersByRole = async ({ id, role }) => {
   const users = await getusersWithPicsByRole(role);
-  console.log(users);
 
   return (
     <table className="border-collapse p-[1rem] rounded-bg shadow-black mx-auto overflow-auto w-[100%] bg-gray-100">
@@ -57,7 +56,7 @@ const UsersByRole = async ({ id, role }) => {
                 </Link>
                 <div>
                   <form action={deleteUser}>
-                    <input hidden name="user_id" value={user.id} />
+                    <input hidden name="user_id" value={user.id} readOnly />
                     <button type="submit">
                       <FaTrash className="text-red-700" />
                     </button>

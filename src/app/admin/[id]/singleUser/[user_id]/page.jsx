@@ -14,8 +14,8 @@ const page = async ({ params }) => {
 
   return (
     <div>
-      {user.map(u => (
-        <div className="my-8 space-y-4">
+      {user.map((u, index) => (
+        <div key={index} className="my-8 space-y-4">
           <div className="flex items-center px-6 lg:px-0 justify-between ">
             <PreviousPage />
             <div className="flex items-center gap-4">
@@ -23,7 +23,7 @@ const page = async ({ params }) => {
                 <FaPen className="text-blue-700" />
               </Link>
               <form action={deleteUser}>
-                <input hidden name="user_id" value={u.id} />
+                <input hidden name="user_id" value={u.id} readOnly />
                 <button type="submit">
                   <FaTrash className="text-red-700" />
                 </button>
@@ -37,6 +37,7 @@ const page = async ({ params }) => {
                 width={500}
                 height={50}
                 src={u.url}
+                alt={index}
               />
             </div>
             <div className="col-span-4 px-6 lg:px-0 space-y-6">

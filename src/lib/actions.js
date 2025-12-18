@@ -309,7 +309,7 @@ export const getToursPhotosByTourId = async id => {
     [id]
   );
 
-  return rows.map(row => {
+  return rows?.map(row => {
     const base64 = Buffer.from(row.data).toString("base64");
     const url = `data:${row.type};base64,${base64}`;
 

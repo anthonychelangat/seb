@@ -12,7 +12,7 @@ const EditContact = ({ id, name, contact }) => {
       <div className="space-y-8 lg:mt-6 lg:bg-gray-200 rounded-lg px-6 lg:px-8 py-12 w-[100%] lg:w-[50%]">
         <p className="text-2xl">Update Contacts</p>
         <form action={updateContact} className="space-y-4">
-          <input type="number" hidden name="contact_id" value={id} />
+          <input type="number" hidden name="contact_id" value={id} readOnly />
           <div>
             <p>Contact Category</p>
             <input

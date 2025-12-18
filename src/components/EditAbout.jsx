@@ -11,7 +11,7 @@ const EditAbout = ({ id, about }) => {
       <div className="space-y-8 lg:mt-6 lg:bg-gray-200 rounded-lg px-6 lg:px-8 py-12 w-[100%] lg:w-[50%]">
         <p className="text-2xl">Update About Us</p>
         <form action={updateAbout} className="space-y-4">
-          <input type="number" hidden name="about_id" value={id} />
+          <input type="number" hidden name="about_id" value={id} readOnly />
           <div>
             <p>About Us</p>
             <textarea

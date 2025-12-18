@@ -22,11 +22,15 @@ const EditUserForm = ({ id, username, email, role, password, roles, pics }) => {
       <div className="space-y-8 lg:mt-6 lg:bg-gray-200 rounded-lg px-6 lg:px-8 py-12 w-[100%] lg:w-[50%]">
         <p className="text-2xl">Update User</p>
         <form action={updateUser} className="space-y-4">
-          <input type="number" hidden name="user_id" value={id} />
+          <input type="number" hidden name="user_id" value={id} readOnly />
 
           <div className="relative w-[30%] mx-auto">
-            {pics.map(p => (
-              <img src={p.url} className="w-full aspect-square br-[50%]" />
+            {pics.map((p, index) => (
+              <img
+                key={index}
+                src={p.url}
+                className="w-full aspect-square br-[50%]"
+              />
             ))}
             <label className="cursor-pointer" htmlFor="file">
               <FaEdit className="absolute bottom-0 right-0" />

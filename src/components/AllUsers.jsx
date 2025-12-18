@@ -37,6 +37,7 @@ const AllUsers = async ({ id }) => {
                     src={`${user.url}`}
                     width={24}
                     height={24}
+                    alt=""
                   />
                 )}
                 {user.username}
@@ -56,7 +57,7 @@ const AllUsers = async ({ id }) => {
                 </Link>
                 <div>
                   <form action={deleteUser}>
-                    <input hidden name="user_id" value={user.id} />
+                    <input hidden name="user_id" value={user.id} readOnly />
                     <button type="submit">
                       <FaTrash className="text-red-700" />
                     </button>
