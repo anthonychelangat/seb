@@ -4,7 +4,6 @@ import Link from "next/link";
 import React, { Suspense } from "react";
 import { MdLogin } from "react-icons/md";
 import { usePathname } from "next/navigation";
-import { FaHiking, FaHome, FaInfo, FaPhone } from "react-icons/fa";
 import MobileProfile from "./MobileProfile";
 import { SiHomepage } from "react-icons/si";
 import { BsFillInfoSquareFill } from "react-icons/bs";

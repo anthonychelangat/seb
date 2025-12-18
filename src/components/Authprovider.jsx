@@ -1,4 +1,4 @@
-"use client"; // 👈 this file is client-only
+"use client";
 
 import { SessionProvider } from "next-auth/react";
 

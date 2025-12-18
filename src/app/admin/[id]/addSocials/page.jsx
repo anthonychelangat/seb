@@ -1,8 +1,6 @@
-"use server";
-
 import AddSocials from "@/components/AddSocials";
 
-const addSocials = async () => {
+const addSocials = () => {
   return <AddSocials />;
 };
 

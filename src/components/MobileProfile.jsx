@@ -1,7 +1,5 @@
-import Image from "next/image";
 import React from "react";
-import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import { getUserByEmail, logOut } from "../lib/actions";
+import { logOut } from "../lib/actions";
 import Link from "next/link";
 
 const MobileProfile = ({ session, users }) => {

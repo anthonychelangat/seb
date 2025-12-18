@@ -1,11 +1,10 @@
 "use client";
 
 import React from "react";
-import { socialMediaLogin } from "../lib/actions";
 import { credentialsLogin } from "../lib/actions";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { FaGithub, FaGoogle } from "react-icons/fa6";
+import { FaGoogle } from "react-icons/fa6";
 import { signIn } from "next-auth/react";
 
 const LoginForm = () => {

@@ -1,4 +1,4 @@
-import { getTours, getToursLimit } from "@/lib/actions";
+import { getToursLimit } from "@/lib/actions";
 import React from "react";
 import HomeTour from "./HomeTour";
 

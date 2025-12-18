@@ -2,15 +2,13 @@ import React from "react";
 
 import { getUserByEmail } from "@/lib/actions";
 import IntermediateHeader from "./IntermediateHeader";
-//import { useSession } from "next-auth/react";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]";
 import executeQuery from "@/lib/utils";
 
 const SessionHeader = async () => {
   const session = await getServerSession(authOptions);
-  const email = session?.user.email ? session?.user.email : "tony@gmail.com";
-
+  const email = session?.user?.email ? session?.user?.email : "tony@gmail.com";
   const users = await getUserByEmail(email);
 
   const existing = await executeQuery("select id from users where email=?", [

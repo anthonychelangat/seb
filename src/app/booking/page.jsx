@@ -10,7 +10,7 @@ import { authOptions } from "../api/auth/[...nextauth]";
 
 const page = async () => {
   const session = await getServerSession(authOptions);
-  const email = session?.user.email;
+  const email = session?.user?.email ? session?.user?.email : "tony@gmail.com";
 
   const users = await getUserByEmail(email);
 

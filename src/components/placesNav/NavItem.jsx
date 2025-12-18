@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import UsersByRole from "../UsersByRole";
 import UserOptions from "../UserOptions";
 
 const NavItem = ({ items, id }) => {

@@ -1,7 +1,5 @@
 import AdminHeader from "@/components/AdminHeader";
-import PreviousPage from "@/components/PreviousPage";
 import SessionAdmin from "@/components/SessionAdmin";
-import SharePage from "@/components/SharePage";
 
 export default function RootLayout({ children }) {
   return (

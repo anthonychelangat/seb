@@ -3,7 +3,6 @@ import { getGuides } from "@/lib/actions";
 
 const SelectGuides = async () => {
   const guides = await getGuides();
-  console.log(guides);
 
   return (
     <div>

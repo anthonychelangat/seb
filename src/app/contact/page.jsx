@@ -1,7 +1,7 @@
 import { addMessage } from "@/lib/data";
 import React from "react";
 import { FaPhone } from "react-icons/fa";
-import { FaClock, FaLocationPin, FaTiktok } from "react-icons/fa6";
+import { FaClock, FaLocationPin } from "react-icons/fa6";
 
 const page = () => {
   return (

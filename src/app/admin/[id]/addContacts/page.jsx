@@ -1,8 +1,6 @@
-"use server";
-
 import AddContacts from "@/components/AddContacts";
 
-const addContacts = async () => {
+const addContacts = () => {
   return <AddContacts />;
 };
 

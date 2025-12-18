@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import addSocials from "@/app/admin/[id]/addSocials/page";
 import { addLinks } from "@/lib/data";
 
 const AddSocials = () => {

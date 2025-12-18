@@ -1,5 +1,4 @@
 import HomeTours from "@/components/HomeTours";
-//import SlideShow from "@/components/SlideShow";
 import { getAbout } from "@/lib/actions";
 import Image from "next/image";
 import Link from "next/link";
