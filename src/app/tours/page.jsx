@@ -7,7 +7,7 @@ const page = async () => {
 
   return (
     <div>
-      <div className="lg:max-w-5xl py-6 mt-[8rem] mx-4 md:mx-0 lg:mx-auto">
+      <div className="lg:max-w-5xl py-6 mt-[6rem] lg:mt-[7rem] md:mt-[7rem] mx-4 md:mx-0 lg:mx-auto">
         <h1 className="mb-6 text-lg font-semibold tracking-wide text-pretty text-gray-900 sm:text-4xl">
           Our Best Offers For You
         </h1>
