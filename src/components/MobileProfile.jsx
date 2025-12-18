@@ -11,7 +11,7 @@ const MobileProfile = ({ session, users }) => {
     <div className="flex flex-col gap-2">
       {session?.user?.name && session?.user?.image ? (
         <>
-          <Image
+          <img
             className="w-[2rem] aspect-square rounded-[50%]"
             src={session?.user.image}
             alt={session?.user.name}
