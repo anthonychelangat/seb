@@ -11,7 +11,7 @@ const page = async () => {
         <h1 className="mb-6 text-lg font-semibold tracking-wide text-pretty text-gray-900 sm:text-4xl">
           Our Best Offers For You
         </h1>
-        <div className="flex flex-col gap-12">
+        <div className="flex flex-col gap-12 mb-6">
           {tour.map(t => (
             <Tour
               key={t.id}
