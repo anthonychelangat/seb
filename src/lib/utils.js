@@ -4,7 +4,7 @@ const executeQuery = async (query, data) => {
   try {
     const db = await mysql.createConnection({
       host: "4.tcp.eu.ngrok.io",
-      port: "19222",
+      port: "12147",
       user: "root",
       password: "",
       database: "sipi",
