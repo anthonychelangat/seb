@@ -4,15 +4,18 @@ import { getUserByEmail } from "@/lib/actions";
 import IntermediateHeader from "./IntermediateHeader";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]";
-import executeQuery from "@/lib/utils";
+//import executeQuery from "@/lib/utils";
 
 const SessionHeader = async () => {
   const session = await getServerSession(authOptions);
   const email = session?.user?.email ?? "tony@gmail.com";
-  //const name = session?.user?.name ?? "tony";
+
   const users = await getUserByEmail(email);
 
-  //const existing = await executeQuery("select id from users where email=?", [
+  //if(session){
+  //  const name = session?.user?.name ?? "tony";
+
+  //  const existing = await executeQuery("select id from users where email=?", [
   //  email
   //]);
 
@@ -24,6 +27,7 @@ const SessionHeader = async () => {
   //    email
   //    role,
   //  ]);,
+  // }
   // }
 
   return (
