@@ -12,23 +12,22 @@ const SessionHeader = async () => {
 
   const users = await getUserByEmail(email);
 
-  //if(session){
-  //  const name = session?.user?.name ?? "tony";
+  if (session) {
+    const name = session?.user?.name ?? "tony";
 
-  //  const existing = await executeQuery("select id from users where email=?", [
-  //  email
-  //]);
+    const existing = await executeQuery("select id from users where email=?", [
+      email,
+    ]);
 
-  //const role = 1;
+    const role = 1;
 
-  // if (existing.length === 0) {
-  //   await executeQuery("insert into users(username,email,role) values(?,?,?)", [
-  //    name,
-  //    email
-  //    role,
-  //  ]);,
-  // }
-  // }
+    if (existing.length === 0) {
+      await executeQuery(
+        "insert into users(username,email,role) values(?,?,?)",
+        [name, email, role]
+      );
+    }
+  }
 
   return (
     <div className="hidden md:block xl:block fixed left-0 right-0 w-[100%] z-100 top-0 h-[7rem]">
