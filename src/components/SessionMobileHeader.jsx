@@ -1,5 +1,5 @@
 import { getUserByEmail } from "@/lib/actions";
-import React from "react";
+import React, { Suspense } from "react";
 import IntermediateMobileHeader from "./IntermediateMobileHeader";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]";

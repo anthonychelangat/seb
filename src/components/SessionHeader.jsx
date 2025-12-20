@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { getUserByEmail } from "@/lib/actions";
 import IntermediateHeader from "./IntermediateHeader";
 import { getServerSession } from "next-auth";

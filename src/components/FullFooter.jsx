@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import IntermediateFooter from "./IntermediateFooter";
 import { getContacts, getLinks } from "@/lib/actions";
 
@@ -7,9 +7,9 @@ const FullFooter = async () => {
   const contacts = await getContacts();
 
   return (
-    <div>
+    <Suspense>
       <IntermediateFooter links={links} contacts={contacts} />
-    </div>
+    </Suspense>
   );
 };
 

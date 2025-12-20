@@ -12,8 +12,10 @@ const roboto_mono = Roboto_Mono({
 });
 
 export const metadata = {
-  title: "Seb Expeditions",
-  description: "okay",
+  title: {
+    default: "Seb Expeditions",
+    template: "%s | Seb Expeditions", // Child pages will use this format
+  },
 };
 
 import { FaWhatsapp } from "react-icons/fa";
@@ -23,6 +25,7 @@ import SessionMobileHeader from "@/components/SessionMobileHeader";
 import Link from "next/link";
 import FullFooter from "@/components/FullFooter";
 import AuthProvider from "@/components/Authprovider";
+import { Suspense } from "react";
 
 export default function RootLayout({ children }) {
   const tel = 703392995;
@@ -38,12 +41,16 @@ export default function RootLayout({ children }) {
         <div className="relative bg-[white] h-[fit-content]">
           <div>
             <AuthProvider>
-              <SessionHeader />
+              <Suspense>
+                <SessionHeader />
+              </Suspense>
             </AuthProvider>
           </div>
           <div>
             <AuthProvider>
-              <SessionMobileHeader />
+              <Suspense>
+                <SessionMobileHeader />
+              </Suspense>
             </AuthProvider>
           </div>
 
