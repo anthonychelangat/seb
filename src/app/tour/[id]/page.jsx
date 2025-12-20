@@ -14,20 +14,20 @@ import {
 import { getServerSession } from "next-auth";
 import React from "react";
 
-export async function generateMetadata() {
-  const tour = await getToursPhotosByTourId();
-  const pics = await getToursPhotosByTourId(id);
+// export async function generateMetadata() {
+//   const tour = await getToursPhotosByTourId();
+//   const pics = await getToursPhotosByTourId(id);
 
-  return {
-    title: tour.title || "Activity",
-    description: tour.description || "Learn more about this tour.", // ← Picked from database!
-    openGraph: {
-      title: tour.title || "Activity",
-      description: tour.description || "Learn more about this tour.",
-      image: pics.url[0],
-    },
-  };
-}
+//   return {
+//     title: tour.title || "Activity",
+//     description: tour.description || "Learn more about this tour.", // ← Picked from database!
+//     openGraph: {
+//       title: tour.title || "Activity",
+//       description: tour.description || "Learn more about this tour.",
+//       image: pics.url[0],
+//     },
+//   };
+// }
 
 const singleTour = async ({ params }) => {
   const { id } = await params;

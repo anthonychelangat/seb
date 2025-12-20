@@ -2,18 +2,18 @@ import UserOptions from "@/components/UserOptions";
 import { getAbout, getusersWithPics } from "@/lib/actions";
 import React from "react";
 
-export async function generateMetadata() {
-  const about = await getAbout();
+// export async function generateMetadata() {
+//   const about = await getAbout();
 
-  return {
-    title: "Seb Expeditions" || "About Us",
-    description: about.about || "Learn more about us.", // ← Picked from database!
-    openGraph: {
-      title: "Seb Expeditions" || "About Us",
-      description: about.about || "Learn more about us.",
-    },
-  };
-}
+//   return {
+//     title: "Seb Expeditions" || "About Us",
+//     description: about.about || "Learn more about us.", // ← Picked from database!
+//     openGraph: {
+//       title: "Seb Expeditions" || "About Us",
+//       description: about.about || "Learn more about us.",
+//     },
+//   };
+// }
 
 const page = async () => {
   const users = await getusersWithPics();
