@@ -12,8 +12,10 @@ const roboto_mono = Roboto_Mono({
 });
 
 export const metadata = {
-  title: "Seb",
-  description: "okay",
+  title: {
+    default: "Seb Expeditions",
+    template: "%s | Seb Expeditions",
+  },
 };
 
 import { FaWhatsapp } from "react-icons/fa";

@@ -5,5 +5,6 @@ module.exports = {
     serverActions: {
       bodySizeLimit: "4mb",
     },
+    cacheComponents: true,
   },
 };
