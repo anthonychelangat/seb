@@ -122,7 +122,14 @@ const BookingFinalizedForm = ({
                 </button>
               </div>
             </div>
-            <input type="number" hidden name="total" id="total" value={total} />
+            <input
+              type="number"
+              hidden
+              name="total"
+              id="total"
+              value={total}
+              readOnly
+            />
 
             <input
               type="phone"
@@ -130,6 +137,7 @@ const BookingFinalizedForm = ({
               name="telephone"
               id="telephone"
               value={`0${ntelephone}`}
+              readOnly
             />
 
             <button

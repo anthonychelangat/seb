@@ -1,14 +1,14 @@
-import BookingFinalizedForm from "@/components/BookingFinalizedForm";
+import React from "react";
+import BookingFinalizedForm from "./BookingFinalizedForm";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]";
 import {
   getBookingDetailsByEmail,
   getTourAndPhotoByTourId,
   getUserByEmail,
 } from "@/lib/actions";
-import { getServerSession } from "next-auth";
-import React from "react";
-import { authOptions } from "../api/auth/[...nextauth]";
 
-const page = async () => {
+const BookingIntermediary = async () => {
   const session = await getServerSession(authOptions);
   const email = session?.user?.email ?? "tony@gmail.com";
 
@@ -39,4 +39,4 @@ const page = async () => {
   );
 };
 
-export default page;
+export default BookingIntermediary;

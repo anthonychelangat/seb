@@ -75,7 +75,9 @@ export default function RootLayout({ children }) {
           </Link>
         </div>
 
-        <FullFooter />
+        <Suspense>
+          <FullFooter />
+        </Suspense>
       </body>
     </html>
   );
