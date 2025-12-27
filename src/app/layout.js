@@ -67,7 +67,7 @@ export default function RootLayout({ children }) {
               aria-label="Chat with us on WhatsApp"
               className="group flex items-center justify-center w-14 h-14 bg-green-500 text-white rounded-full shadow-2xl transition-all duration-300 hover:scale-110 hover:shadow-green-500/50 hover:bg-green-600">
               <FaWhatsapp className="text-3xl" />
-              <span className="absolute right-full mr-4 px-3 py-2 bg-gray-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+              <span className="absolute hidden lg:block right-full mr-4 px-3 py-2 bg-gray-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
                 Chat on WhatsApp
               </span>
             </Link>
@@ -78,7 +78,7 @@ export default function RootLayout({ children }) {
               aria-label="Send us an email"
               className="group flex items-center justify-center w-14 h-14 bg-indigo-600 text-white rounded-full shadow-2xl transition-all duration-300 hover:scale-110 hover:shadow-indigo-600/50 hover:bg-indigo-700">
               <MdMail className="text-3xl" />
-              <span className="absolute right-full mr-4 px-3 py-2 bg-gray-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+              <span className="hidden lg:block absolute right-full mr-4 px-3 py-2 bg-gray-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
                 Send Email
               </span>
             </Link>

@@ -10,15 +10,15 @@ const SessionHeader = async () => {
   const email = session?.user?.email ?? "tony@gmail.com";
   const users = await getUserByEmail(email);
 
-  //if (users.length === 0) {
-  //  const role = 3;
+  if (users.length === 0) {
+    const role = 3;
 
-  //  await executeQuery("insert into users(username,email,role) values(?,?,?)", [
-  //    session.user.name,
-  //   session.user.email,
-  //    role,
-  //  ]);
-  // }
+    await executeQuery("insert into users(username,email,role) values(?,?,?)", [
+      session.user.name,
+      session.user.email,
+      role,
+    ]);
+  }
 
   return (
     <div className="">
