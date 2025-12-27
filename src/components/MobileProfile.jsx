@@ -4,6 +4,7 @@ import Logout from "./Logout";
 
 const MobileProfile = ({ session, users }) => {
   const [id] = users.map(u => u.id);
+  const [role] = users.map(u => u.role);
 
   return (
     <div className="flex flex-col gap-2">
@@ -26,7 +27,7 @@ const MobileProfile = ({ session, users }) => {
 
       <div className="flex flex-col gap-2 ">
         <div>
-          {session?.user && (
+          {session?.user && role === 1 && (
             <Link
               className={`text-base font-semibold py-4 relative`}
               href={`/admin/${id}`}>

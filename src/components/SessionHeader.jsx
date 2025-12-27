@@ -7,9 +7,9 @@ import executeQuery from "@/lib/utils";
 
 const SessionHeader = async () => {
   const session = await getServerSession(authOptions);
-  const email = session?.user?.email ?? "tony@gmail.com";
+  const email = session?.user?.email;
   const users = await getUserByEmail(email);
-  const name = session?.user?.name ?? "tony";
+  const name = session?.user?.name;
 
   if (users.length === 0) {
     const role = 3;
