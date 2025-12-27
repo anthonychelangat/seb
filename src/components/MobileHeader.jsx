@@ -2,35 +2,59 @@
 
 import React, { useState } from "react";
 import { FaBars } from "react-icons/fa";
-import MobileSideLinks from "./MobileSideLinks";
 import { MdCancel } from "react-icons/md";
 import Link from "next/link";
+import MobileSideLinks from "./MobileSideLinks";
 
 const MobileHeader = ({ session, users }) => {
   const [open, setOpen] = useState(false);
 
+  const toggleMenu = () => setOpen(prev => !prev);
+  const closeMenu = () => setOpen(false);
+
   return (
-    <div className="bg-[#020224] text-[white] ">
-      <div className="relative h-[6rem] flex items-center justify-between">
-        <Link href="/">
-          <p className="ml-4 uppercase text-3xl font-bold">Seb</p>
-        </Link>
-        <div>
-          <button className=" mr-4" onClick={() => setOpen(prev => !prev)}>
+    <>
+      {/* Main Header Bar - Highest z-index */}
+      <header className="fixed top-0 left-0 right-0 z-[50] bg-gray-950 text-white">
+        <div className="flex h-20 md:h-24 items-center justify-between px-8">
+          {/* Logo */}
+          <Link
+            href="/"
+            onClick={closeMenu}
+            className="relative text-4xl md:text-5xl font-extrabold tracking-tight">
+            <span className="text-transparent bg-clip-text bg-white">Seb</span>
+          </Link>
+
+          {/* Hamburger / Close Button */}
+          <button
+            onClick={toggleMenu}
+            aria-label={open ? "Close menu" : "Open menu"}
+            className="relative z-[70] p-4 rounded-2xl transition-all duration-300 hover:bg-white/10 active:scale-90">
             {open ? (
-              <MdCancel className="text-3xl text-red-900" />
+              <MdCancel className="text-4xl text-white" />
             ) : (
-              <FaBars className="text-3xl" />
+              <FaBars className="text-3xl text-indigo-500 drop-shadow-md" />
             )}
           </button>
         </div>
-        {open && (
-          <div className="absolute h-[100vh-6rem] top-[6rem] left-0 right-0 bottom-0 z-50">
+      </header>
+
+      {/* Overlay & Sliding Menu - Only when open */}
+      {open && (
+        <>
+          {/* Backdrop Overlay */}
+          <div
+            className="fixed inset-0 bg-black/80 z-[50]"
+            onClick={closeMenu}
+          />
+
+          {/* Sliding Sidebar */}
+          <div className="absolute top-20 md:top-24 left-0 bottom-0 w-80 z-[9999] transform transition-transform duration-500 ease-out translate-x-0">
             <MobileSideLinks session={session} users={users} />
           </div>
-        )}
-      </div>
-    </div>
+        </>
+      )}
+    </>
   );
 };
 

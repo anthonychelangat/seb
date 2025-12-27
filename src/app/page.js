@@ -11,61 +11,89 @@ export default async function Home() {
 
   return (
     <Suspense fallback={<HomeSkeleton />}>
-      <div className="min-h-screen mt-[6rem] lg:mt-[7rem] md:mt-[7rem] font-[family-name:var(--font-geist-sans)]">
-        <main className="bg-[url(/Images/35.jpg)] bg-cover bg-center bg-no-repeat  ">
-          <div className="flex items-center justify-center h-[50vh]">
-            <h1 className="font-semibold tracking-tight text-pretty text-2xl lg:text-2xl w-[50%] h-[50%] text-center uppercase text-white md:text-4xl">
-              Welcome to seb Expeditions for a thrilling tour experience
+      <div className="min-h-screen z-0 mt-[5rem] md:mt-[5rem] lg:mt-[5rem] font-[family-name:var(--font-geist-sans)]">
+        {/* Hero Section */}
+        <section className="relative z-0 h-[60vh] md:h-[70vh] lg:h-[80vh] flex items-center justify-center">
+          <Image
+            src="/Images/35.jpg"
+            alt="Thrilling adventure with Seb Expeditions"
+            fill
+            priority
+            className="object-cover object-center"
+            quality={90}
+          />
+
+          {/* Dark overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/50" />
+
+          {/* Hero Text */}
+          <div className="relative z-10 text-center px-6 max-w-4xl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white uppercase">
+              Welcome to Seb Expeditions
             </h1>
+            <p className="mt-4 text-lg md:text-xl lg:text-2xl text-white/90 font-medium">
+              Embark on a thrilling tour experience
+            </p>
           </div>
-        </main>
-        <div className="flex max-w-5xl mx-auto gap-8 px-4 md:px-8 lg:px-0 xl:px-0 flex-col">
-          <div className="md:my-8 lg:my-8 grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
-            <div className="">
-              <h2 className="text-lg lg:text-xl md:text-xl mt-3 lg:mt-6 font-semibold block uppercase tracking-wide text-pretty text-black">
+        </section>
+
+        {/* Main Content */}
+        <div className="max-w-5xl z-0 mx-auto px-6 md:px-8 lg:px-0 py-12 lg:py-20">
+          {/* About Section */}
+          <section className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center mb-20 lg:mb-32">
+            <div className="order-2 md:order-1">
+              <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-wide text-gray-900 mb-6">
                 About Seb Expeditions
               </h2>
+
               {about.map(a => (
                 <p
                   key={a.id}
-                  className="overflow-hidden text-black line-clamp-10 mt-3 text-base">
+                  className="text-base md:text-lg text-gray-700 leading-relaxed mb-6 line-clamp-6 md:line-clamp-none">
                   {a.about}
                 </p>
               ))}
-              <div className="flex flex-col my-2 lg:flex-row lg:items-center lg:justify-between pr-6">
-                <div></div>
-                <Link className="underline text-black text-sm " href="/about">
-                  Read More
-                </Link>
-              </div>
-            </div>
 
-            <Image
-              className="h-[50vh] hidden md:block sm:block w-full object-cover"
-              src="/Images/10241.jpg"
-              width={500}
-              height={50}
-              alt=""
-            />
-          </div>
-
-          <div className=" max-w-6xl my-2 lg:my-6 mx-auto">
-            <div className="flex w-full items-center gap-8 justify-between">
-              <h2 className="text-lg lg:text-lg md:text-lg flex items-center gap-2 uppercase tracking-wide font-semibold text-pretty text-gray-900">
-                Our Best Offers
-                <span className="hidden md:block lg:block">For You</span>
-              </h2>
               <Link
-                href="/tours"
-                className="inline-flex items-center lg:px-3 py-2  text-sm font-medium text-center lg:text-white lg:bg-blue-700 rounded-lg lg:hover:bg-blue-800 focus:ring-4 focus:outline-none lg:focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                <p className="hidden md:block lg:block">More Offers</p>
-                <IoIosArrowForward className="rtl:rotate-180 w-3.5 bold h-3.5 ms-2" />
+                href="/about"
+                className="inline-flex items-center text-indigo-600 font-semibold hover:text-indigo-700 transition-colors">
+                Read More
+                <IoIosArrowForward className="ml-2 w-4 h-4" />
               </Link>
             </div>
-            <div className="max-w-6xl mt-6">
+
+            <div className="order-1 md:order-2 hidden md:block lg:block">
+              <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/Images/10241.jpg"
+                  alt="Seb Expeditions adventure scene"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+            </div>
+          </section>
+
+          {/* Best Offers Section */}
+          <section>
+            <div className="flex items-center justify-between mb-10">
+              <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-wide text-gray-900">
+                Our Best Offers
+              </h2>
+
+              <Link
+                href="/tours"
+                className="lg:mt-4 lg:inline-flex lg:items-center px-6 py-3 lg:bg-indigo-600 lg:text-white lg:font-medium lg:rounded-lg lg:hover:bg-indigo-700 lg:transition-colors lg:focus:outline-none lg:focus:ring-4 lg:focus:ring-indigo-300">
+                <p className="hidden md:block lg:block">More Offers</p>
+                <IoIosArrowForward className="ml-2 w-5 h-5" />
+              </Link>
+            </div>
+
+            <div className="mt-8">
               <HomeTours />
             </div>
-          </div>
+          </section>
         </div>
       </div>
     </Suspense>

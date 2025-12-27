@@ -1,4 +1,5 @@
 import MainTour from "@/components/MainTour";
+import ToursSkeleton from "@/components/ToursSkeleton";
 import { getTourByTourId, getToursPhotosByTourId } from "@/lib/actions";
 import React, { Suspense } from "react";
 
@@ -21,7 +22,7 @@ const singleTour = async ({ params }) => {
   const { id } = await params;
 
   return (
-    <Suspense>
+    <Suspense fallback={<ToursSkeleton />}>
       <MainTour id={id} />
     </Suspense>
   );

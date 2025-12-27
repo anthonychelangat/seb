@@ -21,7 +21,7 @@ const SessionHeader = async () => {
   // }
 
   return (
-    <div className="hidden md:block xl:block fixed left-0 right-0 w-[100%] z-100 top-0 h-[7rem]">
+    <div className="">
       <IntermediateHeader session={session} users={users} />
     </div>
   );

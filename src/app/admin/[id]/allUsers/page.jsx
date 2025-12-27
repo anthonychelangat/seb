@@ -9,14 +9,12 @@ const page = async ({ params, searchParams }) => {
   const { id } = await params;
 
   return (
-    <div className="mx-6 space-y-6">
+    <div className="mx-6 mt-10 space-y-6">
       <PlacesNav />
 
       <div>
         {role ? <UsersByRole id={id} role={role} /> : <AllUsers id={id} />}
       </div>
-
-      <PlacesNav />
     </div>
   );
 };

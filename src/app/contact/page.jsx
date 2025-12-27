@@ -1,123 +1,184 @@
+import ContactSkeleton from "@/components/ContactSkeleton";
 import { addMessage } from "@/lib/data";
-import React from "react";
-import { FaPhone } from "react-icons/fa";
-import { FaClock, FaLocationPin } from "react-icons/fa6";
+import React, { Suspense } from "react";
+import { FaPhone, FaEnvelope, FaLocationDot, FaClock } from "react-icons/fa6";
 
-const page = () => {
+const ContactPage = () => {
   return (
-    <div className="max-w-5xl mx-auto mt-[6rem] md:mt-[7.5rem] lg:mt-[7rem]">
-      <div className="grid grid-cols-1 my-0 md:grid-cols-12 border">
-        <div className="bg-[#020224] md:col-span-4 p-10 text-white">
-          <p className="mt-4 text-sm leading-7 font-regular uppercase">
-            Contact
+    <Suspense fallback={<ContactSkeleton />}>
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 py-20 lg:py-28 overflow-hidden mt-[2rem]">
+        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="relative max-w-7xl mx-auto px-6 text-center text-white">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+            Get In <span className="text-pink-400">Touch</span>
+          </h1>
+          <p className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed opacity-90">
+            Whether you're planning your next adventure in Uganda, have
+            questions about our tours, or just want to say hello — we're here to
+            help make your journey unforgettable.
           </p>
-          <h3 className="text-3xl sm:text-4xl leading-normal font-extrabold tracking-tight">
-            Get In <span className="text-indigo-600">Touch</span>
-          </h3>
-          <p className="mt-4 leading-7 text-gray-200">
-            Whether you're dreaming of your next adventure or simply curious
-            about what we offer, our team at Seb Adventures is here to guide you
-            every step of the way.
-          </p>
+        </div>
+      </section>
 
-          <div className="flex items-center mt-5">
-            <FaLocationPin className="h-6 mr-2 text-indigo-600" />
-            <span className="text-sm">Sipi, Kapchorwa Uganda.</span>
-          </div>
-          <div className="flex items-center mt-5">
-            <FaPhone className="h-6 mr-2 text-indigo-600" />
-            <span className="text-sm">+256703392995</span>
-          </div>
-          <div className="flex items-center mt-5">
-            <FaClock className="h-6 mr-2 text-indigo-600" />
-            <span className="text-sm">24/7</span>
+      {/* Main Contact Section */}
+      <section className="py-16 lg:py-24 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            {/* Contact Info Card */}
+            <div className="bg-gradient-to-br from-gray-900 to-indigo-950 rounded-3xl shadow-2xl p-10 lg:p-12 text-white">
+              <h2 className="text-3xl font-bold mb-8">Contact Information</h2>
+              <p className="text-gray-300 mb-10 leading-relaxed">
+                Reach out anytime. Our team is passionate about helping you
+                discover the beauty of Uganda.
+              </p>
+
+              <div className="space-y-8">
+                <div className="flex items-start gap-5">
+                  <div className="p-4 bg-pink-600/20 rounded-xl">
+                    <FaLocationDot className="w-6 h-6 text-pink-400" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-lg">Our Location</p>
+                    <p className="text-gray-300 mt-1">
+                      Sipi, Kapchorwa
+                      <br />
+                      Eastern Uganda
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-5">
+                  <div className="p-4 bg-pink-600/20 rounded-xl">
+                    <FaPhone className="w-6 h-6 text-pink-400" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-lg">Phone</p>
+                    <p className="text-gray-300 mt-1">+256 703 392 995</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-5">
+                  <div className="p-4 bg-pink-600/20 rounded-xl">
+                    <FaEnvelope className="w-6 h-6 text-pink-400" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-lg">Email</p>
+                    <p className="text-gray-300 mt-1">
+                      info@sebexpeditions.com
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-5">
+                  <div className="p-4 bg-pink-600/20 rounded-xl">
+                    <FaClock className="w-6 h-6 text-pink-400" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-lg">Availability</p>
+                    <p className="text-gray-300 mt-1">
+                      We're here 24/7 for your adventure needs
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Contact Form */}
+            <div className="bg-white rounded-3xl shadow-2xl p-8 lg:p-12">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">
+                Send Us a Message
+              </h2>
+
+              <form action={addMessage} className="space-y-7">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
+                  <div>
+                    <label
+                      htmlFor="firstname"
+                      className="block text-sm font-medium text-gray-700 mb-2">
+                      First Name <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      name="firstname"
+                      id="firstname"
+                      required
+                      className="w-full px-5 py-4 rounded-xl border border-gray-300 focus:border-pink-500 focus:ring-4 focus:ring-pink-200 transition-all outline-none"
+                      placeholder="John"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="lastname"
+                      className="block text-sm font-medium text-gray-700 mb-2">
+                      Last Name
+                    </label>
+                    <input
+                      type="text"
+                      name="lastname"
+                      id="lastname"
+                      className="w-full px-5 py-4 rounded-xl border border-gray-300 focus:border-pink-500 focus:ring-4 focus:ring-pink-200 transition-all outline-none"
+                      placeholder="Doe"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700 mb-2">
+                    Email Address <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    required
+                    className="w-full px-5 py-4 rounded-xl border border-gray-300 focus:border-pink-500 focus:ring-4 focus:ring-pink-200 transition-all outline-none"
+                    placeholder="john@example.com"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-700 mb-2">
+                    Your Message <span className="text-red-500">*</span>
+                  </label>
+                  <textarea
+                    name="message"
+                    id="message"
+                    rows={6}
+                    required
+                    className="w-full px-5 py-4 rounded-xl border border-gray-300 focus:border-pink-500 focus:ring-4 focus:ring-pink-200 transition-all outline-none resize-none"
+                    placeholder="Tell us about your dream adventure..."></textarea>
+                </div>
+
+                <div className="flex items-center gap-4">
+                  <input
+                    type="checkbox"
+                    name="vote"
+                    id="newsletter"
+                    className="w-5 h-5 text-pink-600 rounded focus:ring-pink-500"
+                  />
+                  <label htmlFor="newsletter" className="text-sm text-gray-600">
+                    Send me occasional updates and exclusive offers
+                  </label>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full py-5 bg-gradient-to-r from-pink-600 to-purple-700 text-white font-bold text-lg rounded-xl hover:from-pink-700 hover:to-purple-800 transform hover:scale-105 transition-all shadow-xl">
+                  Send Message
+                </button>
+              </form>
+            </div>
           </div>
         </div>
-        <form action={addMessage} className="md:col-span-8 p-10">
-          <div className="flex flex-wrap -mx-3 mb-6">
-            <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-              <label
-                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                htmlFor="grid-first-name">
-                First Name
-              </label>
-              <input
-                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                id="grid-first-name"
-                name="firstname"
-                type="text"
-                placeholder="First Name"
-              />
-              <p className="text-red-500 text-xs italic">
-                Please fill out this field.
-              </p>
-            </div>
-            <div className="w-full md:w-1/2 px-3">
-              <label
-                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                htmlFor="grid-last-name">
-                Last Name
-              </label>
-              <input
-                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-last-name"
-                type="text"
-                name="lastname"
-                placeholder="Last Name"
-              />
-            </div>
-          </div>
-          <div className="flex flex-wrap -mx-3 mb-6">
-            <div className="w-full px-3">
-              <label
-                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                htmlFor="grid-password">
-                Email Address
-              </label>
-              <input
-                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-email"
-                name="email"
-                type="email"
-                placeholder="email"
-              />
-            </div>
-          </div>
-
-          <div className="flex flex-wrap -mx-3 mb-6">
-            <div className="w-full px-3">
-              <label
-                className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                htmlFor="grid-password">
-                Your Message
-              </label>
-              <textarea
-                rows="8"
-                name="message"
-                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"></textarea>
-            </div>
-            <div className="flex justify-between w-full px-3">
-              <div className="md:flex md:items-center">
-                <label className="block text-gray-500 font-bold">
-                  <input
-                    name="vote"
-                    className="mr-2 leading-tight"
-                    type="checkbox"
-                  />
-                  <span className="text-sm">Send me your newsletter!</span>
-                </label>
-              </div>
-              <button
-                className="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
-                type="submit">
-                Send Message
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
+      </section>
+    </Suspense>
   );
 };
 
-export default page;
+export default ContactPage;

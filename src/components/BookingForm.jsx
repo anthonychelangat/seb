@@ -5,124 +5,124 @@ import { pendingBooking } from "../lib/data";
 import Link from "next/link";
 
 const BookingForm = ({ id, price, email }) => {
-  const [newPrice, setNewPrice] = useState(price);
-  const [total, setTotal] = useState(0);
-  const [guests, setGuests] = useState(0);
+  const [guests, setGuests] = useState(1); // Start at 1 for better UX
+  const [total, setTotal] = useState(price);
 
   const handleGuestChange = e => {
-    const newGuest = e.target.value;
-    setGuests(newGuest);
-    setTotal(newGuest * newPrice);
+    const newGuests = Math.max(1, parseInt(e.target.value) || 1); // Prevent 0 or negative
+    setGuests(newGuests);
+    setTotal(newGuests * price);
   };
 
   const formattedPrice = new Intl.NumberFormat("en-UG", {
     style: "currency",
     currency: "UGX",
     minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
-  }).format(newPrice);
+  }).format(price);
 
   const formattedTotal = new Intl.NumberFormat("en-UG", {
     style: "currency",
     currency: "UGX",
     minimumFractionDigits: 0,
-    maximumFractionDigits: 0,
   }).format(total);
 
   return (
-    <div className="w-[100%] h-[fitcontent] border p-4 space-y-8border-gray-700 rounded-[6px]">
-      <p className="text-xl capitalize text-pink-700 font-bold">
-        {formattedPrice} per Guest
-      </p>
-      <form action={pendingBooking} className="space-y-4 w-[100%] ">
-        <input
-          type="number"
-          hidden
-          name="price"
-          id="price"
-          value={newPrice}
-          readOnly
-        />
-        <input
-          type="number"
-          hidden
-          name="tour_id"
-          id="tour_id"
-          value={id}
-          readOnly
-        />
-        <input
-          type="email"
-          hidden
-          name="email"
-          id="email"
-          value={email}
-          readOnly
-        />
+    <div className="w-full bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
+      {/* Header */}
+      <div className="bg-gradient-to-r from-pink-600 to-purple-700 text-white p-6">
+        <div className="flex items-end justify-between">
+          <div>
+            <p className="text-lg opacity-90">Starting from</p>
+            <p className="text-2xl font-bold">{formattedPrice}</p>
+          </div>
+          <p className="text-lg">per guest</p>
+        </div>
+      </div>
 
-        <div>
-          <p className="">Phone Number</p>
+      {/* Form */}
+      <form action={pendingBooking} className="p-6 space-y-6">
+        {/* Hidden fields */}
+        <input type="hidden" name="price" value={price} />
+        <input type="hidden" name="tour_id" value={id} />
+        <input type="hidden" name="email" value={email} />
+
+        {/* Phone Number */}
+        <div className="space-y-2">
+          <label className="block text-sm font-medium text-gray-700">
+            Phone Number
+          </label>
           <input
-            className="outline-none px-4 py-4 w-[100%] rounded-[4px] bg-purple-100  "
-            type="phone"
-            placeholder="Phone Number"
+            type="tel"
             name="telephone"
-            id="telephone"
+            placeholder="+256 700 000 000"
+            required
+            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 transition-all outline-none"
           />
         </div>
-        <div>
-          <p className="">Number of Guests</p>
+
+        {/* Number of Guests */}
+        <div className="space-y-2">
+          <label className="block text-sm font-medium text-gray-700">
+            Number of Guests
+          </label>
           <input
-            className="outline-none py-4 w-[100%] px-4 rounded-[4px] bg-purple-100  "
             type="number"
-            placeholder="Number of Guests"
             name="guests"
             value={guests}
             onChange={handleGuestChange}
-            id="guests"
-            min={3}
+            min="1"
+            required
+            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 transition-all outline-none"
           />
         </div>
-        <div>
-          <p className="">Date of Arrival</p>
+
+        {/* Date of Arrival */}
+        <div className="space-y-2">
+          <label className="block text-sm font-medium text-gray-700">
+            Date of Arrival
+          </label>
           <input
-            className="outline-none py-4 w-[100%] px-4 rounded-[4px] bg-purple-100  "
             type="date"
             name="date_of_arrival"
-            id="date_of_arrival"
-            placeholder="Date of Arrival"
+            required
+            min={new Date().toISOString().split("T")[0]} // Prevent past dates
+            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-pink-500 focus:ring-2 focus:ring-pink-200 transition-all outline-none"
           />
         </div>
+
+        {/* Submit Button */}
         {email ? (
           <button
             type="submit"
-            className="py-4 w-[100%] bg-pink-700 text-white rounded-[4px] hover:bg-pink-800 ">
-            Reserve
+            className="w-full py-4 bg-gradient-to-r from-pink-600 to-purple-700 text-white font-semibold text-lg rounded-lg hover:from-pink-700 hover:to-purple-800 transform hover:scale-[1.02] transition-all shadow-lg">
+            Reserve Now
           </button>
         ) : (
           <Link
             href="/login"
-            className="py-4 w-[100%] bg-pink-700 text-white rounded-[4px] hover:bg-pink-800 ">
-            Login First
+            className="block w-full py-4 bg-gradient-to-r from-pink-600 to-purple-700 text-white font-semibold text-lg rounded-lg text-center hover:from-pink-700 hover:to-purple-800 transform hover:scale-[1.02] transition-all shadow-lg">
+            Login to Reserve
           </Link>
         )}
+
+        {/* No charge notice */}
+        <p className="text-center text-sm text-gray-500">
+          You won't be charged yet
+        </p>
       </form>
-      <p className="text-center ">You Wont be charged yet</p>
-      <div className="space-y-2">
-        <div className="flex items-center gap-4 justify-between ">
-          <p className="underline text-nowrap">
-            {formattedPrice} * {guests ? guests : 0} Guests
+
+      {/* Price Breakdown */}
+      <div className="bg-gray-50 border-t border-gray-200 px-6 py-5 space-y-4">
+        <div className="flex justify-between text-gray-700 text-normal lg:text-sm ">
+          <p className="underline">
+            {formattedPrice} × {guests} {guests === 1 ? "guest" : "guests"}
           </p>
-          <p className="font-bold text-nowrap">
-            {formattedTotal ? formattedTotal : price * 0}
-          </p>
+          <p className="font-semibold">{formattedTotal}</p>
         </div>
 
-        <div className="flex items-center gap-4 justify-between ">
-          <p className="underline text-nowrap">Total before Taxes</p>
-          <p className="font-bold text-nowrap">
-            {String(guests === 0 ? formattedPrice * 0 : formattedTotal)}
-          </p>
+        <div className="flex justify-between text-normal lg:text-sm font-bold text-gray-900 pt-3 border-t border-gray-300">
+          <p>Total (before taxes)</p>
+          <p>{formattedTotal}</p>
         </div>
       </div>
     </div>

@@ -16,12 +16,11 @@ import MobileBookingForm from "./MobileBookingForm";
 
 const MainTour = async ({ id }) => {
   const tour = await getTourByTourId(id);
-
   const pics = await getToursPhotosByTourId(id);
-
   const guides = await getGuidesByTourId(id);
 
-  const [price] = tour.map(t => t.price);
+  const tourItem = tour[0];
+  const price = tourItem?.price;
 
   const formattedPrice = new Intl.NumberFormat("en-UG", {
     style: "currency",
@@ -32,127 +31,134 @@ const MainTour = async ({ id }) => {
 
   const session = await getServerSession(authOptions);
   const email = session?.user?.email ?? "tony@gmail.com";
-
   const users = await getUserByEmail(email);
 
-  return (
-    <div>
-      <div className="max-w-4xl mx-auto  ">
-        <div className="hidden lg:flex lg:items-center lg:justify-between lg:pt-8 lg:marker:pb-4">
-          <PreviousPage />
+  const shareUrl = typeof window !== "undefined" ? window.location.href : "";
 
-          <div className="flex items-center gap-2">
-            {tour.map((h, index) => (
-              <SharePage
-                key={index}
-                url={typeof window !== "undefined" ? window.location.href : ""}
-                title={h.title}
-                text={h.description}
-              />
-            ))}
-          </div>
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Header - Back & Share (Desktop) */}
+        <div className="hidden lg:flex items-center justify-between mb-8">
+          <PreviousPage />
+          <SharePage
+            url={shareUrl}
+            title={tourItem?.title || ""}
+            text={tourItem?.description || ""}
+          />
         </div>
-        <div className="lg:hidden md:hidden relative w-full">
-          <div className="absolute top-[1rem] left-[1.5rem] z-50 ">
+
+        {/* Mobile Header & Photo Carousel */}
+        <div className="lg:hidden relative mb-8">
+          <div className="absolute top-4 left-4 z-10">
             <PreviousPage />
           </div>
-          <div className="flex items-center gap-3 absolute top-[1rem] right-[1.5rem] z-50">
-            <div className="p-2 aspect-square rounded-[50%] bg-gray-200 ">
-              {tour.map((h, index) => (
-                <SharePage
-                  key={index}
-                  url={
-                    typeof window !== "undefined" ? window.location.href : ""
-                  }
-                  title={h.title}
-                  text={h.description}
-                />
-              ))}
+          <div className="absolute top-4 right-4 z-10">
+            <div className="p-3 bg-white/80 backdrop-blur rounded-full shadow-lg">
+              <SharePage
+                url={shareUrl}
+                title={tourItem?.title || ""}
+                text={tourItem?.description || ""}
+              />
             </div>
           </div>
           <PhotosForMobile id={id} />
         </div>
-        <div className="hidden lg:h-[40vh lg:my-4 lg:flex lg:gap-1">
-          <div className="h-[100%] bg-gray-500 w-[50%]">
-            {pics.slice(0, 1).map((pic, index) => (
+
+        {/* Desktop Photo Gallery - FIXED */}
+        <div className="hidden lg:grid lg:grid-cols-2 lg:gap-6 lg:mb-16 lg:h-[70vh] rounded-3xl overflow-hidden shadow-2xl">
+          {/* Main Large Image */}
+          <div className="overflow-hidden rounded-3xl">
+            {pics.slice(0, 1).map(pic => (
               <img
-                key={index}
-                className="w-[100%] h-[100%] object-cover aspect-[1/1] "
-                src={`${pic.url}`}
+                key={pic.url}
+                src={pic.url || fallbackImg}
+                alt="Main tour image"
+                className="w-full h-full object-cover"
               />
             ))}
           </div>
-          <div className="relative h-[100%] w-[50%] grid grid-cols-2 gap-1 ">
-            {pics.slice(1, 5).map((pic, index) => (
-              <img
-                key={index}
-                className="w-[100%] h-[100%] object-cover aspect-[1/1] "
-                src={`${pic.url}`}
-              />
+
+          {/* 2x2 Grid + Overlay Button */}
+          <div className="grid grid-cols-2 gap-6 relative">
+            {pics.slice(1, 5).map(pic => (
+              <div key={pic.url} className="overflow-hidden rounded-3xl">
+                <img
+                  src={pic.url || fallbackImg}
+                  alt="Tour gallery"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             ))}
           </div>
         </div>
-        <div className="grid grid-cols-1 mb-[7rem] px-4 lg:px-0 lg:grid-cols-6 gap-4">
-          <div className="col-span-4">
-            <div className="flex items-center justify-between">
+
+        {/* Main Content Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+          {/* Left Column - Tour Info & Guides */}
+          <div className="lg:col-span-2 space-y-10">
+            {/* Title & Price */}
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
               <div>
-                {tour.map(h => (
-                  <p key={h.id} className="text-lg capitalize font-bold">
-                    {h.title}
-                  </p>
-                ))}
+                <h1 className="text-xl sm:text-4xl lg:text-3xl font-bold text-gray-900 capitalize">
+                  {tourItem?.title}
+                </h1>
               </div>
-              <p className="font-bold">{formattedPrice}</p>
+              <div className="text-xl lg:text-3xl font-bold text-indigo-600">
+                {formattedPrice}
+              </div>
             </div>
-            <div className="">
-              {tour.map(h => (
-                <p className="" key={h.id}>
-                  {h.description}
-                </p>
-              ))}
+
+            {/* Description */}
+            <div className="prose prose-lg text-gray-700 max-w-none">
+              <p className="leading-relaxed">{tourItem?.description}</p>
             </div>
-            <div className="space-y-4 mt-4">
-              <p className="text-lg capitalize font-bold">Your Tour Guides</p>
-              <ul
-                role="list"
-                className="grid gap-x-5 gap-y-8 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
-                {guides.map((u, index) => (
-                  <li key={index}>
-                    <div className="flex items-center gap-x-6">
-                      <img
-                        src={u.url}
-                        alt=""
-                        className="size-16 rounded-full outline-1 -outline-offset-1 outline-black/5"
-                      />
+
+            {/* Tour Guides Section */}
+            {guides.length > 0 && (
+              <div className="pt-8 border-t border-gray-200">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-8">
+                  Your Tour Guides
+                </h2>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                  {guides.map((guide, index) => (
+                    <li key={index} className="flex items-center gap-6">
+                      <div className="flex-shrink-0">
+                        <img
+                          src={guide.url}
+                          alt={guide.username}
+                          className="w-20 h-20 rounded-full object-cover ring-4 ring-white shadow-lg"
+                        />
+                      </div>
                       <div>
-                        <h3 className="capitalize text-base/7 font-semibold tracking-tight text-gray-900">
-                          {u.username}
+                        <h3 className="text-lg font-semibold text-gray-900 capitalize">
+                          {guide.username}
                         </h3>
-                        <p className="text-xs font-semibold text-indigo-600">
-                          <UserOptions id={u.role} />
+                        <p className="text-sm font-medium text-indigo-600 mt-1">
+                          <UserOptions id={guide.role} />
                         </p>
                       </div>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-              <div></div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+
+          {/* Right Column - Desktop Booking Form */}
+          <div className="hidden lg:block">
+            <div className="sticky top-8 bg-white rounded-2xl shadow-xl p-8 border border-gray-200">
+              <BookingForm id={tourItem?.id} price={price} email={email} />
             </div>
           </div>
-          <div className="hidden lg:block col-span-2 rounded-b-sm">
-            {tour.map(t => (
-              <BookingForm key={t.id} id={t.id} price={t.price} email={email} />
-            ))}
+        </div>
+
+        {/* Mobile Booking Form (Fixed Bottom) */}
+        <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-2xl z-50">
+          <div className="px-4 py-4">
+            <MobileBookingForm id={tourItem?.id} price={price} email={email} />
           </div>
         </div>
-        {tour.map(t => (
-          <MobileBookingForm
-            key={t.id}
-            id={t.id}
-            price={t.price}
-            email={email}
-          />
-        ))}
       </div>
     </div>
   );

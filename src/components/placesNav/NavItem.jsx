@@ -5,30 +5,43 @@ import { usePathname, useSearchParams } from "next/navigation";
 import UserOptions from "../UserOptions";
 
 const NavItem = ({ items, id }) => {
-  const searchParam = useSearchParams();
+  const searchParams = useSearchParams();
   const pathname = usePathname();
-  const role = searchParam.get("role");
+  const currentRole = searchParams.get("role");
+
+  // Helper to check if a link is active
+  const isActive = hrefRole => {
+    if (hrefRole === null) {
+      return pathname === `/admin/${id}/allUsers` && !currentRole;
+    }
+    return currentRole === hrefRole;
+  };
 
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex items-center gap-1 bg-white rounded-xl shadow-md p-2 border border-gray-200">
+      {/* All Users Tab */}
       <Link
-        className={`py-2 pr-4 capitalize relative hover:bg-gray-200 ${
-          pathname === `/admin/${id}/allUsers`
-            ? "text-blue-700 before:content-[''] before:w-full before:h-1 before:bg-blue-700 before:absolute before:bottom-0 before:pt-1"
-            : ""
-        }`}
-        href={`/admin/${id}/allUsers`}>
+        href={`/admin/${id}/allUsers`}
+        className={`px-6 py-3 rounded-lg font-medium text-lg transition-all duration-200 capitalize
+          ${
+            isActive(null)
+              ? "bg-gradient-to-r from-indigo-600 to-pink-600 text-white shadow-lg"
+              : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+          }`}>
         All
       </Link>
+
+      {/* Role Tabs */}
       {items.map(item => (
         <Link
-          className={`py-2 px-4 capitalize relative hover:bg-gray-200 ${
-            pathname === `/admin/${id}/allUsers?role=${role}`
-              ? "text-blue-700 before:content-[''] before:w-full before:h-1 before:bg-blue-700 before:absolute before:bottom-0 before:pt-1"
-              : ""
-          }`}
+          key={item.role}
           href={`/admin/${id}/allUsers/?role=${item.role}`}
-          key={item.role}>
+          className={`px-6 py-3 rounded-lg font-medium text-lg transition-all duration-200 capitalize
+            ${
+              isActive(item.role)
+                ? "bg-gradient-to-r from-indigo-600 to-pink-600 text-white shadow-lg"
+                : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+            }`}>
           <UserOptions id={item.role} />
         </Link>
       ))}

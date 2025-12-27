@@ -1,75 +1,84 @@
+import AboutSkeleton from "@/components/AboutSkeleton";
 import UserOptions from "@/components/UserOptions";
 import { getAbout, getusersWithPics } from "@/lib/actions";
-import React from "react";
+import React, { Suspense } from "react";
 
 export async function generateMetadata() {
   const about = await getAbout();
+  const aboutText = about[0]?.about || "Learn more about Seb Expeditions.";
 
   return {
-    title: "Seb Expeditions" || "About Us",
-    description: about.about || "Learn more about us.", // ← Picked from database!
+    title: "About Seb Expeditions",
+    description: aboutText,
     openGraph: {
-      title: "Seb Expeditions" || "About Us",
-      description: about.about || "Learn more about us.",
+      title: "About Seb Expeditions",
+      description: aboutText,
     },
   };
 }
 
 const page = async () => {
   const users = await getusersWithPics();
-
   const about = await getAbout();
 
   return (
-    <div className="lg:max-w-5xl lg:mx-auto mx-4 md:mx-0 mt-[6rem] lg:mt-[7.5rem]">
-      <h2 className="text-lg pt-8 md:mt-6 lg:mt-6  block uppercase tracking-wide font-semibold text-pretty text-black sm:text-4xl">
-        About Seb Expeditions
-      </h2>
-      <div>
-        {about.map((a, index) => (
-          <p key={index} className="mt-6 text-sm lg:text-base text-black">
-            {a.about}
-          </p>
-        ))}
-      </div>
-      <div className="bg-white py-10 pg:py-32">
-        <div className="mx-auto grid max-w-7xl gap-20 xl:grid-cols-3">
-          <div className="max-w-xl">
-            <h2 className="text-lg font-semibold tracking-tight text-pretty text-black sm:text-4xl">
-              Meet our Team
+    <Suspense fallback={<AboutSkeleton />}>
+      <div className="min-h-screen mt-[2rem] bg-gray-50">
+        {/* Main container */}
+        <div className="mx-auto max-w-5xl px-6 py-16 lg:px-8 lg:py-24">
+          {/* About Section */}
+          <div className=" mb-24">
+            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+              About Seb Expeditions
             </h2>
-            <p className="mt-6 text-sm text-gray-600">
-              We’re a dynamic group of individuals who are passionate about what
-              we do and dedicated to delivering the best results for our
-              clients.
-            </p>
+            <div className="mt-12 max-w-3xl space-y-7 text-lg leading-relaxed text-gray-700">
+              {about.map((a, index) => (
+                <p key={index}>{a.about}</p>
+              ))}
+            </div>
           </div>
-          <ul
-            role="list"
-            className="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
-            {users.map((u, index) => (
-              <li key={index}>
-                <div className="flex items-center gap-x-6">
-                  <img
-                    src={u.url}
-                    alt=""
-                    className="size-16 rounded-full outline-1 -outline-offset-1 outline-black/5"
-                  />
-                  <div>
-                    <h3 className="capitalize text-base/7 font-semibold tracking-tight text-gray-900">
-                      {u.username}
-                    </h3>
-                    <p className="text-xs font-semibold text-indigo-600">
-                      <UserOptions id={u.role} />
-                    </p>
+
+          {/* Team Section - Now matching the clean centered card style */}
+          <div className="bg-white rounded-3xl shadow-2xl py-16 px-8 lg:py-20 lg:px-16">
+            <div className=" mb-16">
+              <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+                Meet our Team
+              </h2>
+              <p className="mt-6 max-w-2xl text-xl text-gray-600 leading-relaxed">
+                We’re a dynamic group of individuals who are passionate about
+                what we do and dedicated to delivering the best results for our
+                clients.
+              </p>
+            </div>
+
+            <ul
+              role="list"
+              className="grid grid-cols-1 gap-16 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
+              {users.map((u, index) => (
+                <li
+                  key={index}
+                  className="flex flex-col items-center text-center group">
+                  <div className="relative mb-8">
+                    <img
+                      src={u.url}
+                      alt={u.username}
+                      className="h-48 w-48 rounded-full object-cover ring-8 ring-white shadow-lg transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 rounded-full ring-4 ring-indigo-200 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
-                </div>
-              </li>
-            ))}
-          </ul>
+                  <h3 className="text-2xl font-semibold text-gray-900 capitalize">
+                    {u.username}
+                  </h3>
+                  <p className="mt-3 text-lg font-medium text-indigo-600">
+                    <UserOptions id={u.role} />
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
+    </Suspense>
   );
 };
 

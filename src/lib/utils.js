@@ -3,8 +3,8 @@ import mysql from "mysql2/promise";
 const executeQuery = async (query, data) => {
   try {
     const db = await mysql.createConnection({
-      host: "4.tcp.eu.ngrok.io",
-      port: "12147",
+      host: "127.0.0.1",
+      port: "3306",
       user: "root",
       password: "",
       database: "sipi",

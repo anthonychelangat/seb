@@ -1,23 +1,33 @@
 import { addSubscriber } from "@/lib/data";
 import React from "react";
+
 const Subscribe = () => {
   return (
-    <div className="text-[white]">
-      <h1 className="text-center text-lg">News Letter</h1>
-      <p className="text-center text-sm mb-3">Subscribe to our newsletter</p>
-      <form action={addSubscriber}>
+    <div className="w-full max-w-2xl mx-auto text-center">
+      {/* Form */}
+      <form
+        action={addSubscriber}
+        className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto items-center justify-center">
         <input
-          className="py-2 px-4 outline-none b-0 bg-white"
           type="email"
           name="email"
-          placeholder="Enter your email..."
+          required
+          placeholder="Enter your email address"
+          className="w-full border border-white sm:flex-1 px-6 py-4 rounded-full text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-indigo-400/100 transition-all text-base"
+          aria-label="Email address"
         />
-        <input
-          className="py-2 px-4 text-sm outline-none b-0 bg-red-500"
+
+        <button
           type="submit"
-          placeholder="Submit"
-        />
+          className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-pink-600 to-purple-700 text-white font-semibold rounded-full hover:from-pink-700 hover:to-purple-800 transform hover:scale-105 transition-all shadow-lg">
+          Subscribe Now
+        </button>
       </form>
+
+      {/* Reassurance */}
+      <p className="mt-6 text-sm text-gray-300">
+        No spam ever. Unsubscribe anytime.
+      </p>
     </div>
   );
 };

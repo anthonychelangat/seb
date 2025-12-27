@@ -163,15 +163,25 @@ export const getuserWithPics = async id => {
   );
 
   return rows.map(row => {
-    const base64 = Buffer.from(row.data).toString("base64");
-    const url = `data:${row.type};base64,${base64}`;
-    const id = row.id;
-    const password = row.password;
-    const username = row.username;
-    const email = row.email;
-    const role = row.role;
+    if (row.data) {
+      const base64 = Buffer.from(row.data).toString("base64");
+      const url = `data:${row.type};base64,${base64}`;
+      const id = row.id;
+      const password = row.password;
+      const username = row.username;
+      const email = row.email;
+      const role = row.role;
 
-    return { url, id, password, username, email, role };
+      return { url, id, password, username, email, role };
+    } else {
+      const id = row.id;
+      const password = row.password;
+      const username = row.username;
+      const email = row.email;
+      const role = row.role;
+
+      return { id, password, username, email, role };
+    }
   });
 };
 

@@ -13,89 +13,104 @@ import PhotosForMobile from "./PhotosForMobile";
 
 const TourDetails = async ({ id, tour_id }) => {
   const tour = await getTourByTourId(tour_id);
-
   const pics = await getToursPhotosByTourId(tour_id);
 
+  const fallbackImg = "1753439177475_(40).jpg";
+
   return (
-    <div>
-      <div className="lg:max-w-6xl mx-auto">
-        <div className="hidden lg:flex lg:items-center lg:justify-between lg:pt-8 lg:marker:pb-4">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-indigo-50">
+      <div className="max-w-7xl mx-auto px-4 py-8 lg:py-16">
+        {/* Desktop Header Actions */}
+        <div className="hidden lg:flex items-center justify-between mb-12">
           <PreviousPage />
 
           {tour.map(t => (
-            <div key={t.id} className="flex items-center gap-4">
-              <Link href={`/admin/${id}/editTour/${t.id}`}>
-                <FaPen className="text-blue-700" />
+            <div key={t.id} className="flex items-center gap-6">
+              <Link
+                href={`/admin/${id}/editTour/${t.id}`}
+                className="flex items-center gap-3 bg-white hover:bg-gray-50 px-8 py-4 rounded-2xl shadow-xl transition-all duration-300 hover:shadow-2xl">
+                <FaPen className="text-2xl text-indigo-600" />
+                <span className="text-lg font-semibold">Edit Tour</span>
               </Link>
+
               <form action={deleteTour}>
                 <input hidden name="tour_id" value={t.id} readOnly />
-                <button type="submit">
-                  <FaTrash className="text-red-700" />
+                <button
+                  type="submit"
+                  className="flex items-center gap-3 bg-red-600 hover:bg-red-700 px-8 py-4 rounded-2xl text-white shadow-xl transition-all duration-300 hover:shadow-2xl">
+                  <FaTrash className="text-2xl" />
+                  <span className="text-lg font-semibold">Delete</span>
                 </button>
               </form>
             </div>
           ))}
         </div>
-        <div className="lg:hidden md:hidden relative w-full">
-          <div className="absolute top-[1rem] left-[1.5rem] z-50 ">
+
+        {/* Mobile Header */}
+        <div className="lg:hidden relative mb-8">
+          <div className="absolute top-6 left-6 z-50">
             <PreviousPage />
           </div>
-          <div className="flex items-center gap-3 absolute top-[1rem] right-[1.5rem] z-50">
-            <div className="p-2 aspect-square rounded-[50%] bg-gray-200 ">
-              {tour.map(h => (
+
+          <div className="absolute top-6 right-6 z-50">
+            {tour.map(h => (
+              <div
+                key={h.id}
+                className="p-4 rounded-full bg-white shadow-2xl backdrop-blur-md">
                 <SharePage
                   url={
                     typeof window !== "undefined" ? window.location.href : ""
                   }
-                  key={h.id}
                   title={h.title}
                   text={h.description}
                 />
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
 
           <PhotosForMobile id={tour_id} />
         </div>
-        <div className="hidden lg:h-[40vh lg:my-4 lg:flex lg:gap-1">
-          <div className="h-[100%] bg-gray-500 w-[50%]">
+
+        {/* Desktop Photo Gallery */}
+        <div className="hidden lg:grid lg:grid-cols-2 lg:gap-6 lg:mb-16 lg:h-[70vh] rounded-3xl overflow-hidden shadow-2xl">
+          {/* Main Large Image */}
+          <div className="overflow-hidden rounded-3xl">
             {pics.slice(0, 1).map(pic => (
               <img
                 key={pic.url}
-                className="w-[100%] h-[100%] object-cover aspect-[1/1] "
-                src={`${pic.url ? pic.url : "1753439177475_(40).jpg"}`}
+                src={pic.url || fallbackImg}
+                alt="Main tour image"
+                className="w-full h-full object-cover"
               />
             ))}
           </div>
-          <div className="relative h-[100%] w-[50%] grid grid-cols-2 gap-1 ">
+
+          {/* 2x2 Grid + Overlay Button */}
+          <div className="grid grid-cols-2 gap-6 relative">
             {pics.slice(1, 5).map(pic => (
-              <img
-                key={pic.url}
-                className="w-[100%] h-[100%] object-cover aspect-[1/1] "
-                src={`${pic.url ? pic.url : "1753439177475_(40).jpg"}`}
-              />
+              <div key={pic.url} className="overflow-hidden rounded-3xl">
+                <img
+                  src={pic.url || fallbackImg}
+                  alt="Tour gallery"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             ))}
-            <Link
-              href={`/photos/${tour_id}`}
-              className="flex items-center gap-2 absolute bottom-4 right-[7%]
-               bg-gray-200 hover:bg-gray-300 z-10 rounded-[4px] py-2 px-4 ">
-              <MdPictureInPicture />
-              <p>Show All Photos</p>
-            </Link>
           </div>
         </div>
-        <div>
+
+        {/* Tour Title & Description */}
+        <div className="space-y-10">
           {tour.map(h => (
-            <p key={h.id} className="text-2xl lg:text-4xl capitalize font-bold">
-              {h.title}
-            </p>
-          ))}
-        </div>
-        <div>
-          {tour.map(h => (
-            <p key={h.id} className="">
-              {h.description}
-            </p>
+            <div key={h.id}>
+              <h1 className="text-4xl lg:text-7xl font-bold text-gray-900 capitalize leading-tight">
+                {h.title}
+              </h1>
+
+              <p className="mt-10 text-lg lg:text-2xl text-gray-700 leading-relaxed max-w-5xl">
+                {h.description}
+              </p>
+            </div>
           ))}
         </div>
       </div>

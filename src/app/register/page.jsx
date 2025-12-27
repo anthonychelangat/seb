@@ -4,15 +4,16 @@ import React from "react";
 import { socialMediaLogin } from "../../lib/actions";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { FaGoogle } from "react-icons/fa6";
 
-const register = () => {
+const Register = () => {
   const router = useRouter();
+
   async function handleSubmit(event) {
     event.preventDefault();
 
     try {
       const formData = new FormData(event.currentTarget);
-
       const name = formData.get("name");
       const email = formData.get("email");
       const password = formData.get("password");
@@ -25,72 +26,119 @@ const register = () => {
         body: JSON.stringify({ name, email, password }),
       });
 
-      response.status === 201 && router.push("/login");
+      if (response.status === 201) {
+        router.push("/login");
+      }
     } catch (error) {
       console.error(error.message);
     }
   }
+
   return (
-    <div className="lg:flex lg:justify-center lg:items-center w-[100%] py-6 mr-4 md:mr-0 lg:mr-0 ">
-      <div className="lg:bg-gray-200 px-6 py-4 w-[30%] rounded-[6px]">
-        <form
-          className="flex flex-col gap-2 w-[100%] "
-          action={socialMediaLogin}>
-          <button
-            className="py-2 mt-10 w-full px-4 mr-8 rounded-[4px] bg-blue-200 hover:bg-blue-400"
-            type="submit"
-            name="action"
-            value="google">
-            Signin With Google
-          </button>
-        </form>
-        <p className="py-10 text-center">OR</p>
-        <form className="space-y-2" onSubmit={handleSubmit}>
-          <div>
-            <p>Full Name</p>
-            <input
-              className="outline-none w-full lg:w-[100%]  py-2 px-4 bg-white rounded-[4px] border border-blue-500"
-              type="text"
-              placeholder="User Name"
-              name="name"
-              id="name"
-            />
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-teal-50 to-pink-50 flex items-center justify-center px-4 py-12">
+      <div className="w-full max-w-md">
+        {/* Elegant Card */}
+        <div className="bg-white/90 backdrop-blur-lg rounded-3xl shadow-2xl overflow-hidden border border-white/60">
+          {/* Gradient Header */}
+          <div className="bg-gradient-to-r from-indigo-600 to-teal-600 px-8 py-12 text-center">
+            <p className="mt-4 text-lg text-indigo-100">
+              Create your account and start exploring with Seb Expeditions
+            </p>
           </div>
-          <div>
-            <p>Email</p>
-            <input
-              className="outline-none w-full  py-2 px-4 bg-white rounded-[4px] border border-blue-500"
-              type="email"
-              placeholder="Email"
-              name="email"
-              id="email"
-            />
+
+          {/* Form Body */}
+          <div className="px-8 py-10 space-y-8">
+            {/* Google Sign Up */}
+            <form action={socialMediaLogin}>
+              <button
+                type="submit"
+                name="action"
+                value="google"
+                className="w-full flex items-center justify-center gap-4 px-6 py-4 text-lg font-medium text-gray-700 bg-white border-2 border-gray-300 rounded-2xl hover:border-indigo-400 hover:bg-indigo-50 hover:text-indigo-700 transition-all duration-300 shadow-md">
+                <FaGoogle className="text-2xl text-red-500" />
+                Continue with Google
+              </button>
+            </form>
+
+            {/* Divider */}
+            <div className="relative text-center">
+              <span className="px-6 bg-white text-gray-500 text-sm font-medium">
+                or register with email
+              </span>
+              <div className="absolute inset-x-0 top-1/2 h-px bg-gray-300" />
+            </div>
+
+            {/* Registration Form */}
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-semibold text-gray-700 mb-2">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  required
+                  placeholder="John Doe"
+                  className="w-full px-5 py-4 rounded-xl border border-gray-300 bg-gray-50 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-indigo-500/30 focus:border-indigo-500 transition"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-semibold text-gray-700 mb-2">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  required
+                  placeholder="you@example.com"
+                  className="w-full px-5 py-4 rounded-xl border border-gray-300 bg-gray-50 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-indigo-500/30 focus:border-indigo-500 transition"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-semibold text-gray-700 mb-2">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  required
+                  placeholder="••••••••"
+                  className="w-full px-5 py-4 rounded-xl border border-gray-300 bg-gray-50 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-indigo-500/30 focus:border-indigo-500 transition"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full py-5 text-lg font-bold text-white bg-gradient-to-r from-indigo-600 to-teal-600 rounded-xl hover:from-indigo-700 hover:to-teal-700 transform hover:scale-105 transition-all duration-300 shadow-xl">
+                Create Account
+              </button>
+            </form>
+
+            {/* Login Link */}
+            <p className="text-center text-gray-600">
+              Already have an account?{" "}
+              <Link
+                href="/login"
+                className="font-semibold text-indigo-600 hover:text-indigo-700 underline underline-offset-2 transition">
+                Sign in here
+              </Link>
+            </p>
           </div>
-          <div>
-            <p>Password</p>
-            <input
-              className="outline-none w-full  py-2 px-4 bg-white rounded-[4px] border border-blue-500"
-              type="password"
-              placeholder="Password"
-              name="password"
-              id="password"
-            />
-          </div>
-          <button
-            className="w-full my-6 py-2 px-4 bg-blue-700 hover:bg-blue-900 text-white rounded-[4px] "
-            type="submit">
-            Register
-          </button>
-          <div className="mt-4 flex items-center gap-1">
-            <p>Already have an account? </p>
-            <Link className="text-blue-800 underline " href="/login">
-              Login Here
-            </Link>
-          </div>
-        </form>
+        </div>
       </div>
     </div>
   );
 };
 
-export default register;
+export default Register;

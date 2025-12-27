@@ -5,25 +5,51 @@ import { assignGuides } from "@/lib/data";
 
 const AssignGuides = ({ id }) => {
   return (
-    <div className="lg:flex lg:justify-center w-[100%] lg:items-center">
-      <div className="space-y-8 lg:mt-6 lg:bg-gray-200 rounded-lg px-6 lg:px-8 py-12 w-[100%] lg:w-[50%]">
-        <p className="text-2xl">Assign Guide</p>
-        <form action={assignGuides} className="space-y-4">
-          <div>
-            <p>Tour Activity</p>
-            <SelectTours />
-          </div>
-          <div>
-            <p>Guide</p>
-            <SelectGuides />
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-indigo-50 py-12 px-4">
+      <div className="max-w-3xl mx-auto">
+        <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
+          {/* Header */}
+          <div className="bg-gradient-to-r from-indigo-600 to-pink-600 text-white px-10 py-12 text-center">
+            <h1 className="text-4xl font-bold tracking-tight">
+              Assign Guide to Tour
+            </h1>
+            <p className="mt-3 text-lg opacity-90">
+              Connect the right guide with the perfect tour experience
+            </p>
           </div>
 
-          <button
-            type="submit"
-            className="py-2 px-4 w-[100%] outline-none rounded-[4px] text-white hover:bg-blue-400 bg-blue-600 ">
-            Assign
-          </button>
-        </form>
+          {/* Form */}
+          <form action={assignGuides} className="px-10 py-12 space-y-10">
+            {/* Tour Activity */}
+            <div className="space-y-3">
+              <label className="block text-lg font-semibold text-gray-800">
+                Tour Activity
+              </label>
+              <div className="mt-2">
+                <SelectTours />
+              </div>
+            </div>
+
+            {/* Guide */}
+            <div className="space-y-3">
+              <label className="block text-lg font-semibold text-gray-800">
+                Select Guide
+              </label>
+              <div className="mt-2">
+                <SelectGuides />
+              </div>
+            </div>
+
+            {/* Submit Button */}
+            <div className="pt-8">
+              <button
+                type="submit"
+                className="w-full py-5 bg-gradient-to-r from-indigo-600 to-pink-600 text-white text-xl font-bold rounded-xl hover:from-indigo-700 hover:to-pink-700 transform hover:scale-105 transition-all duration-300 shadow-xl">
+                Assign Guide
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

@@ -5,27 +5,35 @@ import Link from "next/link";
 
 const Tour = ({ id, title, description }) => {
   return (
-    <div
-      key={id}
-      className="flex flex-col md:flex-row lg:flex-row justify-between gap-4 flex-1">
-      <Photos id={id} />
-      <div className="flex-1/2 flex flex-col justify-between h-[50vh]">
+    <div className="group flex flex-col md:flex-row gap-8 lg:gap-12 bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500">
+      {/* Photos Section */}
+      <div className="md:w-1/2 lg:w-3/5">
+        <div className="h-[300px] md:h-full">
+          <Photos id={id} />
+        </div>
+      </div>
+
+      {/* Text Content Section */}
+      <div className="md:w-1/2 lg:w-2/5 flex flex-col justify-between p-8 md:p-10 lg:p-12">
         <div>
-          <h5 className="mb-2 capitalize text-base md:text-lg lg:text-lg font-bold tracking-tight text-black dark:text-black">
+          {/* Title */}
+          <h5 className="mb-4 text-2xl md:text-3xl font-bold tracking-tight text-gray-900 capitalize group-hover:text-indigo-700 transition-colors duration-300">
             {title}
           </h5>
-          <p className="mb-3 line-clamp-9 text-sm lg:text-base capitalize font-normal text-black dark:text-gray-600">
+
+          {/* Description */}
+          <p className="mb-8 text-base md:text-lg text-gray-600 line-clamp-5 md:line-clamp-6 leading-relaxed">
             {description}
           </p>
         </div>
-        <div className="w-full flex items-center justify-between">
-          <div></div>
 
+        {/* CTA Button */}
+        <div className="mt-auto">
           <Link
             href={`/tour/${id}`}
-            className="inline-flex text-sm items-center px-3 py-2 font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Read more
-            <FaArrowRight className="rtl:rotate-180 w-3.5 h-3.5 ms-2" />
+            className="inline-flex items-center px-6 py-4 text-lg font-semibold text-white bg-indigo-600 rounded-xl hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-300 transition-all duration-300 shadow-md hover:shadow-lg group">
+            Explore Tour
+            <FaArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </div>
