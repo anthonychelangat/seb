@@ -1,6 +1,6 @@
 import React from "react";
-import { logOut } from "../lib/actions";
 import Link from "next/link";
+import Logout from "./Logout";
 
 const MobileProfile = ({ session, users }) => {
   const [id] = users.map(u => u.id);
@@ -34,13 +34,7 @@ const MobileProfile = ({ session, users }) => {
             </Link>
           )}
         </div>
-        <form className="" action={logOut}>
-          <button
-            className="text-lg/6 font-semibold py-4 text-nowrap text-red-900 hover:underline"
-            type="submit">
-            Log Out
-          </button>
-        </form>
+        <Logout />
       </div>
     </div>
   );
