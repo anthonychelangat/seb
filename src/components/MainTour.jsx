@@ -30,7 +30,7 @@ const MainTour = async ({ id }) => {
   }).format(price);
 
   const session = await getServerSession(authOptions);
-  const email = session?.user?.email;
+  const email = session?.user?.email ?? "tony@gmail.com";
   const users = await getUserByEmail(email);
 
   const shareUrl = typeof window !== "undefined" ? window.location.href : "";
