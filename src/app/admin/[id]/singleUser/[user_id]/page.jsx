@@ -19,7 +19,7 @@ const page = async ({ params }) => {
             key={u.id}
             className="bg-white rounded-3xl shadow-2xl overflow-hidden mb-16">
             {/* Header Bar */}
-            <div className="bg-indigo-600 text-white px-8 py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+            <div className="bg-indigo-600 text-white px-8 py-8 flex items-center justify-between gap-6">
               <PreviousPage />
 
               <div className="flex items-center gap-5">
@@ -83,7 +83,7 @@ const page = async ({ params }) => {
                     <p className="text-xl font-semibold text-gray-600">
                       Email Address
                     </p>
-                    <p className="text-lg font-medium text-gray-800 break-all">
+                    <p className="text-normal font-medium text-gray-800 break-all">
                       {u.email}
                     </p>
                   </div>
@@ -100,12 +100,14 @@ const page = async ({ params }) => {
                     <p className="text-xl font-semibold text-gray-600">
                       Password
                     </p>
-                    <p className="text-3xl font-medium text-gray-800">
+                    <p className="text-lg font-medium text-gray-800">
                       {u.password ? u.password : "••••••••••••••••"}
                     </p>
-                    <p className="text-sm text-gray-500 mt-2">
-                      Hidden for security reasons
-                    </p>
+                    {!u.password ?? (
+                      <p className="text-sm text-gray-500 mt-2">
+                        Hidden for security reasons
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>

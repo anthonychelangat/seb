@@ -22,7 +22,7 @@ const PreviousPage = () => {
 
   return (
     <button
-      className="p-1.5 aspect-square rounded-[50%] bg-gray-200 "
+      className="p-1.5 aspect-square rounded-[50%] bg-gray-600 "
       onClick={handleBack}>
       <MdKeyboardArrowLeft className="text-2xl lg:hover:text-blue-600" />
     </button>
