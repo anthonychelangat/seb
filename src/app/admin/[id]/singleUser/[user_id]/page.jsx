@@ -27,7 +27,9 @@ const page = async ({ params }) => {
                   href={`/admin/${user_id}/editUser/${u.id}`}
                   className="flex items-center gap-3 bg-white/20 hover:bg-white/30 px-6 py-4 rounded-xl transition-all duration-200 backdrop-blur-sm">
                   <FaPen className="text-2xl" />
-                  <span className="font-semibold text-lg">Edit User</span>
+                  <span className="hidden lg:block font-semibold text-lg">
+                    Edit User
+                  </span>
                 </Link>
 
                 <form action={deleteUser} className="inline">
@@ -36,7 +38,9 @@ const page = async ({ params }) => {
                     type="submit"
                     className="flex items-center gap-3 bg-red-600/90 hover:bg-red-600 px-6 py-4 rounded-xl transition-all duration-200">
                     <FaTrash className="text-2xl" />
-                    <span className="font-semibold text-lg">Delete</span>
+                    <span className="hidden lg:block font-semibold text-lg">
+                      Delete
+                    </span>
                   </button>
                 </form>
               </div>
