@@ -35,7 +35,7 @@ const LoginForm = () => {
           {/* Header */}
           <div className="bg-blue-500 px-8 py-5 text-center">
             <p className="mt-3 capitalize text-indigo-100 text-lg">
-              Sign in to continue your adventure
+              Sign in to continue
             </p>
           </div>
 
@@ -97,7 +97,7 @@ const LoginForm = () => {
             </form>
 
             {/* Register Link */}
-            <p className="text-center text-gray-600">
+            <p className="text-center text-sm text-gray-600">
               Don't have an account?{" "}
               <Link
                 href="/register"

@@ -22,7 +22,9 @@ const MobileHeader = ({ session, users }) => {
             href="/"
             onClick={closeMenu}
             className="text-4xl md:text-5xl font-extrabold tracking-tight">
-            <span className="text-transparent bg-clip-text bg-white">Seb</span>
+            <span className="text-transparent uppercase bg-clip-text bg-white">
+              Seb
+            </span>
           </Link>
 
           {/* Hamburger / Close Button */}

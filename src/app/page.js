@@ -13,7 +13,7 @@ export default async function Home() {
     <Suspense fallback={<HomeSkeleton />}>
       <div className="min-h-screen mt-[5rem] md:mt-[5rem] lg:mt-[5rem] font-[family-name:var(--font-geist-sans)]">
         {/* Hero Section */}
-        <section className="h-[60vh] md:h-[70vh] lg:h-[80vh] flex items-center justify-center overflow-hidden">
+        <section className="relative -z-10 h-[60vh] md:h-[70vh] lg:h-[80vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0">
             <Image
               src="/Images/35.jpg"
@@ -27,7 +27,7 @@ export default async function Home() {
 
           <div className="absolute inset-0 bg-black/50" />
 
-          <div className="text-center px-6 max-w-4xl">
+          <div className="relative z-10 text-center px-6 max-w-4xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white uppercase">
               Welcome to Seb Expeditions
             </h1>
@@ -42,7 +42,7 @@ export default async function Home() {
           {/* About Section */}
           <section className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center mb-20 lg:mb-32">
             <div className="order-2 md:order-1">
-              <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-wide text-gray-900 mb-6">
+              <h2 className="text-xl md:text-3xl lg:text-3xl font-bold uppercase lg:tracking-wide text-gray-900 mb-6">
                 About Seb Expeditions
               </h2>
 
@@ -79,7 +79,7 @@ export default async function Home() {
           {/* Best Offers Section */}
           <section>
             <div className="flex items-center justify-between mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-wide text-gray-900">
+              <h2 className="text-xl md:text-3xl lg:text-3xl font-bold uppercase tracking-wide text-gray-900">
                 Our Best Offers
               </h2>
 

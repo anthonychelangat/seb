@@ -23,12 +23,12 @@ const page = async () => {
 
   return (
     <Suspense fallback={<AboutSkeleton />}>
-      <div className="min-h-screen mt-[5rem] relative bg-gray-50">
+      <div className="min-h-screen mt-[5rem] bg-gray-50">
         {/* Main container */}
-        <div className="mx-auto max-w-5xl px-6 py-16 lg:px-8 lg:py-24">
+        <div className="mx-auto max-w-5xl px-6 py-8 lg:px-8 lg:py-24">
           {/* About Section */}
           <div className=" mb-15">
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
               About Us
             </h2>
             <div className="mt-12 max-w-3xl space-y-7 text-lg leading-relaxed text-gray-700">
@@ -41,7 +41,7 @@ const page = async () => {
           {/* Team Section - Now matching the clean centered card style */}
           <div className="bg-white rounded-3xl shadow-2xl py-16 px-8 lg:py-20 lg:px-16">
             <div className=" mb-16">
-              <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">
                 Meet our Team
               </h2>
               <p className="mt-6 max-w-2xl text-xl text-gray-600 leading-relaxed">
@@ -58,15 +58,15 @@ const page = async () => {
                 <li
                   key={index}
                   className="flex flex-col items-center text-center group">
-                  <div className="relative mb-8">
+                  <div className="relative -z-[10] mb-8">
                     <img
                       src={u.url}
                       alt={u.username}
-                      className="h-48 w-48 rounded-full object-cover ring-8 ring-white shadow-lg transition-transform duration-300 group-hover:scale-105"
+                      className="h-48 w-48 rounded-full object-cover ring-8 ring-gray-600 shadow-lg transition-transform duration-300 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 rounded-full ring-4 ring-indigo-200 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
-                  <h3 className="text-2xl font-semibold text-gray-900 capitalize">
+                  <h3 className="text-lg font-semibold text-gray-900 capitalize">
                     {u.username}
                   </h3>
                   <p className="mt-3 text-lg font-medium text-indigo-600">

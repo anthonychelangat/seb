@@ -41,9 +41,7 @@ const Register = () => {
         <div className="bg-white/90 backdrop-blur-lg rounded-3xl shadow-2xl overflow-hidden border border-white/60">
           {/* Gradient Header */}
           <div className="bg-blue-500 capitalize px-8 py-12 text-center">
-            <p className="mt-4 text-lg text-indigo-100">
-              Create your account and start you adventure
-            </p>
+            <p className="mt-4 text-lg text-indigo-100">Create an account</p>
           </div>
 
           {/* Form Body */}
@@ -54,8 +52,8 @@ const Register = () => {
                 type="submit"
                 name="action"
                 value="google"
-                className="w-full flex items-center justify-center gap-4 px-6 py-4 text-lg font-medium text-gray-700 bg-white border-2 border-gray-300 rounded-2xl hover:border-indigo-400 hover:bg-indigo-50 hover:text-indigo-700 transition-all duration-300 shadow-md">
-                <FaGoogle className="text-2xl text-red-500" />
+                className="w-full flex items-center justify-center gap-2 px-6 py-4 text-lg font-medium text-gray-700 bg-white border-2 border-gray-300 rounded-2xl hover:border-indigo-400 hover:bg-indigo-50 hover:text-indigo-700 transition-all duration-300 shadow-md">
+                <FaGoogle className="text-xl text-red-500" />
                 Continue with Google
               </button>
             </form>
@@ -125,7 +123,7 @@ const Register = () => {
             </form>
 
             {/* Login Link */}
-            <p className="text-center text-gray-600">
+            <p className="text-center text-sm text-gray-600">
               Already have an account?{"  "}
               <Link
                 href="/login"

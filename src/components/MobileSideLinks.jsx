@@ -56,7 +56,7 @@ const MobileSideLinks = ({ session, users, onLinkClick = () => {} }) => {
                 }`}>
                 {item.icon}
               </span>
-              <span className="relative z-10">{item.label}</span>
+              <span className="relative uppercase z-10">{item.label}</span>
 
               {/* Active Background - FIXED: click-through */}
               {pathname === item.href && (
