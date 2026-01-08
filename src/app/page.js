@@ -13,7 +13,7 @@ export default async function Home() {
     <Suspense fallback={<HomeSkeleton />}>
       <div className="min-h-screen mt-[5rem] md:mt-[5rem] lg:mt-[5rem] font-[family-name:var(--font-geist-sans)]">
         {/* Hero Section */}
-        <section className="relative -z-10 h-[60vh] md:h-[70vh] lg:h-[80vh] flex items-center justify-center overflow-hidden">
+        <section className="h-[60vh] md:h-[70vh] lg:h-[80vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0">
             <Image
               src="/Images/35.jpg"
@@ -27,7 +27,7 @@ export default async function Home() {
 
           <div className="absolute inset-0 bg-black/50" />
 
-          <div className="relative z-10 text-center px-6 max-w-4xl">
+          <div className="text-center px-6 max-w-4xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white uppercase">
               Welcome to Seb Expeditions
             </h1>
@@ -38,7 +38,7 @@ export default async function Home() {
         </section>
 
         {/* Main Content */}
-        <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-0 py-12 lg:py-20 relative -z-10">
+        <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-0 py-12 lg:py-20">
           {/* About Section */}
           <section className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center mb-20 lg:mb-32">
             <div className="order-2 md:order-1">
@@ -70,6 +70,7 @@ export default async function Home() {
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  quality={90}
                 />
               </div>
             </div>

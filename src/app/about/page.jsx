@@ -23,7 +23,7 @@ const page = async () => {
 
   return (
     <Suspense fallback={<AboutSkeleton />}>
-      <div className="min-h-screen mt-[5rem] relative -z-10 bg-gray-50">
+      <div className="min-h-screen mt-[5rem] relative bg-gray-50">
         {/* Main container */}
         <div className="mx-auto max-w-5xl px-6 py-16 lg:px-8 lg:py-24">
           {/* About Section */}
