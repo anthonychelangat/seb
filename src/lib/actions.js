@@ -130,6 +130,32 @@ export const getusersWithPics = async () => {
   });
 };
 
+export const getAllOfUsersWithPics = async () => {
+  const rows = await executeQuery(
+    `select users.id as id, username, pictures.data as data, email, role from users left join pictures on users.id=pictures.user_id`
+  );
+
+  return rows.map(row => {
+    if (row.data) {
+      const base64 = Buffer.from(row.data).toString("base64");
+      const url = `data:${row.type};base64,${base64}`;
+      const id = row.id;
+      const username = row.username;
+      const email = row.email;
+      const role = row.role;
+
+      return { url, id, username, email, role };
+    } else {
+      const id = row.id;
+      const username = row.username;
+      const email = row.email;
+      const role = row.role;
+
+      return { id, username, email, role };
+    }
+  });
+};
+
 export const getAllUsersWithPics = async () => {
   const rows = await executeQuery(
     `select users.id as id, username, data, email, role from users left join pictures on users.id=pictures.user_id`
@@ -187,19 +213,28 @@ export const getuserWithPics = async id => {
 
 export const getusersWithPicsByRole = async role => {
   const rows = await executeQuery(
-    `select users.id as id, username, data, email, role from users left join pictures on users.id=pictures.user_id where users.role=? and pictures.owner_type="user"`,
+    `select users.id as id, username, data, email, role from users left join pictures on users.id=pictures.user_id where users.role=?`,
     [role]
   );
 
   return rows.map(row => {
-    const base64 = Buffer.from(row.data).toString("base64");
-    const url = `data:${row.type};base64,${base64}`;
-    const id = row.id;
-    const username = row.username;
-    const email = row.email;
-    const role = row.role;
+    if (row.data) {
+      const base64 = Buffer.from(row.data).toString("base64");
+      const url = `data:${row.type};base64,${base64}`;
+      const id = row.id;
+      const username = row.username;
+      const email = row.email;
+      const role = row.role;
 
-    return { url, id, username, email, role };
+      return { url, id, username, email, role };
+    } else {
+      const id = row.id;
+      const username = row.username;
+      const email = row.email;
+      const role = row.role;
+
+      return { id, username, email, role };
+    }
   });
 };
 

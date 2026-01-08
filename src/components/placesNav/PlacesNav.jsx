@@ -10,10 +10,6 @@ const PlacesNav = async () => {
 
   const users = await getUserByEmail(email);
   const [id] = users.map(u => u.id);
-  return (
-    <div>
-      <NavItem items={roles} id={id} />
-    </div>
-  );
+  return <NavItem items={roles} id={id} />;
 };
 export default PlacesNav;

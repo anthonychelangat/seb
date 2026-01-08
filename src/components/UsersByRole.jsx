@@ -9,17 +9,17 @@ const UsersByRole = async ({ id, role }) => {
   const users = await getusersWithPicsByRole(role);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-indigo-50 py-12 px-4">
+    <div className="min-h-screen bg-indigo-50 py-12 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full table-auto">
               <thead>
-                <tr className="bg-gradient-to-r from-indigo-600 to-pink-600 text-white">
+                <tr className="bg-indigo-600 text-white">
                   <th className="px-8 py-6 text-left text-lg font-semibold">
                     Id
                   </th>
-                  <th className="px-8 py-6 text-left text-lg font-semibold">
+                  <th className="px-8 truncate py-6 text-left text-lg font-semibold">
                     User Name
                   </th>
                   <th className="px-8 py-6 text-left text-lg font-semibold hidden lg:table-cell">

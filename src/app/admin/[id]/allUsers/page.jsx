@@ -8,8 +8,10 @@ const page = async ({ params, searchParams }) => {
   const role = search.role;
   const { id } = await params;
 
+  console.log(role, "role");
+
   return (
-    <div className="mx-6 mt-10 space-y-6">
+    <div className="mx-0 lg:mx-6 mt-10 space-y-4">
       <PlacesNav />
 
       <div>

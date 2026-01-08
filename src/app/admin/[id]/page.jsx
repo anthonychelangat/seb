@@ -69,7 +69,7 @@ const AdminDashboard = async () => {
             </p>
           </div>
           <div className="bg-white/70 backdrop-blur-sm rounded-3xl shadow-xl p-8 text-center border border-white/50">
-            <p className="text-5xl font-extrabold text-pink-600">
+            <p className="text-5xl font-extrabold text-indigo-600">
               {tours.length}
             </p>
             <p className="mt-3 text-normal font-medium text-gray-700">
@@ -77,7 +77,7 @@ const AdminDashboard = async () => {
             </p>
           </div>
           <div className="bg-white/70 backdrop-blur-sm rounded-3xl shadow-xl p-8 text-center border border-white/50">
-            <p className="text-5xl font-extrabold text-purple-600">
+            <p className="text-5xl font-extrabold text-indigo-600">
               {links.length}
             </p>
             <p className="mt-3 text-normal font-medium text-gray-700">
@@ -85,10 +85,10 @@ const AdminDashboard = async () => {
             </p>
           </div>
           <div className="bg-white/70 backdrop-blur-sm rounded-3xl shadow-xl p-8 text-center border border-white/50">
-            <p className="text-5xl font-extrabold text-teal-600">
+            <p className="text-5xl font-extrabold text-indigo-600">
               {contacts.length}
             </p>
-            <p className="mt-3 text-lg font-medium text-gray-700">
+            <p className="mt-3 text-lg font-medium text-indigo-700">
               Contact Info
             </p>
           </div>
@@ -109,7 +109,7 @@ const AdminDashboard = async () => {
               <Link
                 href={`/admin/${user_id}/allUsers`}
                 className="flex items-center gap-2 text-indigo-600 font-semibold hover:text-indigo-800">
-                View All <FaArrowRight />
+                <p className="hidden lg:block">View All</p> <FaArrowRight />
               </Link>
             </div>
           </div>
@@ -135,7 +135,7 @@ const AdminDashboard = async () => {
                     <h4 className="text-sm truncate capitalize text-gray-800 mb-5">
                       {u.username}
                     </h4>
-                    <div className="flex justify-center gap-2 text-normal">
+                    <div className="flex justify-center gap-5 lg:gap-2 text-normal">
                       <Link
                         href={`/admin/${user_id}/singleUser/${u.id}`}
                         className="text-gray-600 hover:text-indigo-600 transition">
@@ -176,8 +176,9 @@ const AdminDashboard = async () => {
               </Link>
               <Link
                 href={`/admin/${user_id}/allTours`}
-                className="flex items-center gap-2 text-pink-600 font-semibold hover:text-pink-800">
-                View All <FaArrowRight />
+                className="flex items-center gap-2 text-indigo-600 font-semibold hover:text-pink-800">
+                <p className="hidden lg:block">View All</p>
+                <FaArrowRight />
               </Link>
             </div>
           </div>
@@ -234,9 +235,7 @@ const AdminDashboard = async () => {
           {/* About Us */}
           <section className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-10 border border-white/50">
             <div className="flex items-center justify-between mb-8">
-              <h2 className="text-2xl font-bold text-gray-800">
-                About Us Content
-              </h2>
+              <h2 className="text-2xl font-bold text-gray-800">About Us</h2>
               <Link
                 href={`/admin/${user_id}/addAboutUs`}
                 className="text-indigo-600 hover:text-indigo-800 transition">
@@ -333,9 +332,7 @@ const AdminDashboard = async () => {
           {/* Contact Info */}
           <section className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-10 border border-white/50">
             <div className="flex items-center justify-between mb-8">
-              <h2 className="text-2xl font-bold text-gray-800">
-                Contact Information
-              </h2>
+              <h2 className="text-2xl font-bold text-gray-800">Contact Info</h2>
               <Link
                 href={`/admin/${user_id}/addContacts`}
                 className="text-indigo-600 hover:text-indigo-800 transition">

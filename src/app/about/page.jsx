@@ -28,8 +28,8 @@ const page = async () => {
         <div className="mx-auto max-w-5xl px-6 py-8 lg:px-8 lg:py-24">
           {/* About Section */}
           <div className=" mb-15">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              About Us
+            <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              About Seb Expeditions
             </h2>
             <div className="mt-12 max-w-3xl space-y-7 text-lg leading-relaxed text-gray-700">
               {about.map((a, index) => (
@@ -41,7 +41,7 @@ const page = async () => {
           {/* Team Section - Now matching the clean centered card style */}
           <div className="bg-white rounded-3xl shadow-2xl py-16 px-8 lg:py-20 lg:px-16">
             <div className=" mb-16">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+              <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-5xl">
                 Meet our Team
               </h2>
               <p className="mt-6 max-w-2xl text-xl text-gray-600 leading-relaxed">

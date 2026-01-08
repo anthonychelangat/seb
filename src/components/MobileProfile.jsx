@@ -9,33 +9,39 @@ const MobileProfile = ({ session, users }) => {
   return (
     <div className="flex flex-col gap-2">
       {session?.user?.name && session?.user?.image ? (
-        <>
+        <div className="space-y-4">
           <img
-            className="w-[2rem] aspect-square rounded-[50%]"
+            className="w-[2rem] border border-white aspect-square rounded-[50%]"
             src={session?.user.image}
             alt={session?.user.name}
             width={50}
             height={50}
           />
-          <p className="text-lg/6 font-semibold py-4 text-nowrap">
+          <p className="text-lg/6 font-semibold  text-nowrap">
             {session?.user.name}
           </p>
-        </>
+          <p className="text-lg/6 text-sm font-semibold  text-nowrap">
+            {session?.user.email}
+          </p>
+        </div>
       ) : (
         <p>{session?.user.email}</p>
       )}
 
-      <div className="flex flex-col gap-2 ">
+      <div className="flex flex-col py-4">
         <div>
           {session?.user && role === 1 && (
             <Link
-              className={`text-base font-semibold py-4 relative`}
+              className={`text-base uppercase font-semibold py-4 relative`}
               href={`/admin/${id}`}>
               Admin
             </Link>
           )}
         </div>
-        <Logout />
+        <div className="flex items-center justify-between">
+          <Logout />
+          <div></div>
+        </div>
       </div>
     </div>
   );

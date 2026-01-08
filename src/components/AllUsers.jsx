@@ -1,4 +1,4 @@
-import { deleteUser, getusersWithPics } from "@/lib/actions";
+import { deleteUser, getAllOfUsersWithPics } from "@/lib/actions";
 import Link from "next/link";
 import React from "react";
 import { FaEye, FaPen, FaTrash } from "react-icons/fa";
@@ -6,20 +6,20 @@ import UserOptions from "./UserOptions";
 import Image from "next/image";
 
 const AllUsers = async ({ id }) => {
-  const users = await getusersWithPics();
+  const users = await getAllOfUsersWithPics();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-indigo-50 py-12 px-4">
+    <div className="min-h-screen bg-blue-50 py-12 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full table-auto">
               <thead>
-                <tr className="bg-gradient-to-r from-indigo-600 to-pink-600 text-white">
+                <tr className="bg-indigo-600 text-white">
                   <th className="px-8 py-6 text-left text-lg font-semibold">
                     Id
                   </th>
-                  <th className="px-8 py-6 text-left text-lg font-semibold">
+                  <th className="px-8 truncate py-6 text-left text-lg font-semibold">
                     User Name
                   </th>
                   <th className="px-8 py-6 text-left text-lg font-semibold hidden lg:table-cell">

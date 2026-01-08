@@ -19,7 +19,7 @@ const page = async ({ params }) => {
             key={u.id}
             className="bg-white rounded-3xl shadow-2xl overflow-hidden mb-16">
             {/* Header Bar */}
-            <div className="bg-gradient-to-r from-indigo-600 to-pink-600 text-white px-8 py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+            <div className="bg-indigo-600 text-white px-8 py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
               <PreviousPage />
 
               <div className="flex items-center gap-5">
@@ -65,12 +65,12 @@ const page = async ({ params }) => {
                 </div>
 
                 {/* User Details */}
-                <div className="space-y-12">
+                <div className="space-y-6">
                   <div className="space-y-3">
                     <p className="text-xl font-semibold text-gray-600">
                       Full Name
                     </p>
-                    <p className="text-4xl font-bold text-gray-900 capitalize">
+                    <p className="text-2xl font-bold text-gray-900 capitalize">
                       {u.username}
                     </p>
                   </div>
@@ -79,14 +79,14 @@ const page = async ({ params }) => {
                     <p className="text-xl font-semibold text-gray-600">
                       Email Address
                     </p>
-                    <p className="text-3xl font-medium text-gray-800 break-all">
+                    <p className="text-lg font-medium text-gray-800 break-all">
                       {u.email}
                     </p>
                   </div>
 
                   <div className="space-y-3">
                     <p className="text-xl font-semibold text-gray-600">Role</p>
-                    <div className="text-3xl font-bold text-indigo-600 capitalize">
+                    <div className="text-lg font-bold text-indigo-600 capitalize">
                       <UserOptions id={u.role} />
                     </div>
                   </div>
@@ -97,7 +97,7 @@ const page = async ({ params }) => {
                       Password
                     </p>
                     <p className="text-3xl font-medium text-gray-800">
-                      ••••••••••••••••
+                      {u.password ? u.password : "••••••••••••••••"}
                     </p>
                     <p className="text-sm text-gray-500 mt-2">
                       Hidden for security reasons
