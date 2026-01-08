@@ -23,13 +23,13 @@ const page = async () => {
 
   return (
     <Suspense fallback={<AboutSkeleton />}>
-      <div className="min-h-screen mt-[2rem] bg-gray-50">
+      <div className="min-h-screen mt-[5rem] relative -z-10 bg-gray-50">
         {/* Main container */}
         <div className="mx-auto max-w-5xl px-6 py-16 lg:px-8 lg:py-24">
           {/* About Section */}
-          <div className=" mb-24">
-            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-              About Seb Expeditions
+          <div className=" mb-15">
+            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              About Us
             </h2>
             <div className="mt-12 max-w-3xl space-y-7 text-lg leading-relaxed text-gray-700">
               {about.map((a, index) => (

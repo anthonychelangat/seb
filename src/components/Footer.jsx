@@ -9,7 +9,7 @@ const Footer = ({ links, contacts }) => {
     <footer className="bg-gray-900 text-gray-300">
       {/* Newsletter Section */}
       <div className="bg-gradient-to-b from-indigo-900 to-gray-900 py-16">
-        <div className="max-w-5xl mx-auto px-6 text-center">
+        <div className="max-w-5xl mx-auto px-6 lg:px-0 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Ready for Your Next Adventure?
           </h2>
@@ -22,7 +22,7 @@ const Footer = ({ links, contacts }) => {
 
       {/* Main Footer Links */}
       <div className="border-t border-gray-800 py-12">
-        <div className="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-10">
+        <div className="max-w-5xl mx-auto px-6 lg:px-0 grid grid-cols-2 md:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <h3 className="text-2xl font-bold text-indigo-400 mb-6">
@@ -110,7 +110,7 @@ const Footer = ({ links, contacts }) => {
 
       {/* Bottom Bar */}
       <div className="bg-black/30 py-8 border-t border-gray-800">
-        <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="max-w-5xl mx-auto px-6 lg:px-0 flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Social Links */}
           <div className="flex items-center gap-6">
             {links.map(l => (

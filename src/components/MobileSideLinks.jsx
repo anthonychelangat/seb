@@ -10,7 +10,7 @@ import { BsFillInfoSquareFill } from "react-icons/bs";
 import { RiContactsBook3Fill } from "react-icons/ri";
 import { MdTour } from "react-icons/md";
 
-const MobileSideLinks = ({ session, users }) => {
+const MobileSideLinks = ({ session, users, onLinkClick = () => {} }) => {
   const pathname = usePathname();
 
   const navItems = [
@@ -22,7 +22,7 @@ const MobileSideLinks = ({ session, users }) => {
     },
     {
       href: "/tours",
-      label: "Tour Packages",
+      label: "Tours",
       icon: <MdTour className="text-3xl" />,
     },
     {
@@ -33,19 +33,20 @@ const MobileSideLinks = ({ session, users }) => {
   ];
 
   return (
-    <div className="fixed left-0 w-80 bg-indigo-950 text-white z-[9999] overflow-y-auto">
-      <div className="flex flex-col justify-between h-full py-12 px-8">
+    <div className="fixed inset-y-0 left-0 w-90 bg-indigo-900 text-white overflow-y-auto pt-20 md:pt-24">
+      <div className="flex flex-col justify-between h-full py-8 px-8">
         {/* Main Navigation */}
         <nav className="space-y-3">
           {navItems.map(item => (
             <Link
               key={item.href}
               href={item.href}
-              className={`group z-[9999] flex items-center gap-6 px-8 py-6 rounded-3xl text-xl font-semibold transition-all duration-400 overflow-hidden relative
+              onClick={onLinkClick} // Optional: closes menu if passed from parent
+              className={`group flex items-center gap-6 px-8 py-6 rounded-3xl text-xl font-semibold relative overflow-hidden
                 ${
                   pathname === item.href
                     ? "text-white shadow-2xl"
-                    : "text-gray-300 hover:text-white"
+                    : "text-white hover:text-gray-400"
                 }`}>
               <span
                 className={`transition-all duration-400 ${
@@ -57,13 +58,13 @@ const MobileSideLinks = ({ session, users }) => {
               </span>
               <span className="relative z-10">{item.label}</span>
 
-              {/* Active Gradient Background */}
+              {/* Active Background - FIXED: click-through */}
               {pathname === item.href && (
-                <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/90 to-pink-600/90 rounded-3xl" />
+                <div className="absolute inset-0 bg-blue-500 rounded-3xl pointer-events-none" />
               )}
 
-              {/* Hover Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/20 to-pink-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-400 rounded-3xl" />
+              {/* Hover Glow - FIXED: click-through */}
+              <div className="absolute inset-0 bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-400 rounded-3xl pointer-events-none" />
             </Link>
           ))}
 
@@ -81,7 +82,8 @@ const MobileSideLinks = ({ session, users }) => {
             ) : (
               <Link
                 href="/login"
-                className={`group flex items-center gap-6 px-8 py-6 rounded-3xl text-xl font-semibold transition-all duration-400 overflow-hidden relative
+                onClick={onLinkClick}
+                className={`group flex items-center gap-6 px-8 py-6 rounded-3xl text-xl font-semibold relative overflow-hidden
                   ${
                     pathname === "/login"
                       ? "text-white shadow-2xl"
@@ -96,11 +98,13 @@ const MobileSideLinks = ({ session, users }) => {
                 />
                 <span className="relative z-10">Login</span>
 
+                {/* Active Gradient - FIXED */}
                 {pathname === "/login" && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/90 to-pink-600/90 rounded-3xl" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/90 to-pink-600/90 rounded-3xl pointer-events-none" />
                 )}
 
-                <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/20 to-pink-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-400 rounded-3xl" />
+                {/* Hover Gradient - FIXED */}
+                <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/20 to-pink-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-400 rounded-3xl pointer-events-none" />
               </Link>
             )}
           </div>

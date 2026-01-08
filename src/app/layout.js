@@ -55,7 +55,7 @@ export default function RootLayout({ children }) {
           </Suspense>
 
           {/* Main Content */}
-          <main className="relative min-h-screen">{children}</main>
+          <main className="min-h-screen">{children}</main>
 
           {/* Floating Contact Buttons - Bottom Right */}
           <div className="fixed right-6 bottom-6 z-50 flex flex-col gap-4">

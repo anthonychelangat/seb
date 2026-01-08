@@ -14,14 +14,14 @@ const MobileHeader = ({ session, users }) => {
 
   return (
     <>
-      {/* Main Header Bar - Highest z-index */}
-      <header className="fixed top-0 left-0 right-0 z-[50] bg-gray-950 text-white">
+      {/* Fixed Top Header */}
+      <header className="fixed inset-x-0 top-0 z-[9998] bg-indigo-900 text-white">
         <div className="flex h-20 md:h-24 items-center justify-between px-8">
           {/* Logo */}
           <Link
             href="/"
             onClick={closeMenu}
-            className="relative text-4xl md:text-5xl font-extrabold tracking-tight">
+            className="text-4xl md:text-5xl font-extrabold tracking-tight">
             <span className="text-transparent bg-clip-text bg-white">Seb</span>
           </Link>
 
@@ -29,28 +29,26 @@ const MobileHeader = ({ session, users }) => {
           <button
             onClick={toggleMenu}
             aria-label={open ? "Close menu" : "Open menu"}
-            className="relative z-[70] p-4 rounded-2xl transition-all duration-300 hover:bg-white/10 active:scale-90">
+            className="z-70 p-4 rounded-2xl transition-all duration-300 hover:bg-white/10 active:scale-90">
             {open ? (
               <MdCancel className="text-4xl text-white" />
             ) : (
-              <FaBars className="text-3xl text-indigo-500 drop-shadow-md" />
+              <FaBars className="text-3xl text-white drop-shadow-md" />
             )}
           </button>
         </div>
       </header>
 
-      {/* Overlay & Sliding Menu - Only when open */}
+      {/* Mobile Menu - Only when open */}
       {open && (
         <>
-          {/* Backdrop Overlay */}
-          <div
-            className="fixed inset-0 bg-black/80 z-[50]"
-            onClick={closeMenu}
-          />
-
-          {/* Sliding Sidebar */}
-          <div className="absolute top-20 md:top-24 left-0 bottom-0 w-80 z-[9999] transform transition-transform duration-500 ease-out translate-x-0">
-            <MobileSideLinks session={session} users={users} />
+          {/* Sliding Sidebar - Visible width + higher z-index */}
+          <div className="fixed top-20 md:top-24 left-0 bottom-0 w-90 bg-indigo-900 z-[9999] transition-transform duration-500 ease-out translate-x-0 overflow-y-auto">
+            <MobileSideLinks
+              session={session}
+              users={users}
+              onLinkClick={closeMenu} // Closes menu when a link is clicked
+            />
           </div>
         </>
       )}

@@ -16,12 +16,12 @@ const Header = ({ session, users }) => {
   ];
 
   return (
-    <header className="hidden md:block fixed top-0 left-0 right-0 z-50 bg-gray-900/95 backdrop-blur-md shadow-xl border-b border-gray-800">
-      <div className="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
+    <header className="hidden md:block fixed top-0 left-0 right-0 z-50 bg-indigo-900 backdrop-blur-md shadow-xl border-b border-gray-800">
+      <div className="max-w-5xl mx-auto py-6 flex items-center justify-between">
         {/* Logo */}
         <Link
           href="/"
-          className="text-3xl font-extrabold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-teal-400 hover:from-indigo-300 hover:to-teal-300 transition-all duration-500">
+          className="text-3xl font-extrabold tracking-wider text-white hover:from-indigo-300 hover:to-teal-300 transition-all duration-500">
           SEB
         </Link>
 

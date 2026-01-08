@@ -40,9 +40,9 @@ const Register = () => {
         {/* Elegant Card */}
         <div className="bg-white/90 backdrop-blur-lg rounded-3xl shadow-2xl overflow-hidden border border-white/60">
           {/* Gradient Header */}
-          <div className="bg-gradient-to-r from-indigo-600 to-teal-600 px-8 py-12 text-center">
+          <div className="bg-blue-500 capitalize px-8 py-12 text-center">
             <p className="mt-4 text-lg text-indigo-100">
-              Create your account and start exploring with Seb Expeditions
+              Create your account and start you adventure
             </p>
           </div>
 
@@ -63,9 +63,8 @@ const Register = () => {
             {/* Divider */}
             <div className="relative text-center">
               <span className="px-6 bg-white text-gray-500 text-sm font-medium">
-                or register with email
+                OR
               </span>
-              <div className="absolute inset-x-0 top-1/2 h-px bg-gray-300" />
             </div>
 
             {/* Registration Form */}
@@ -120,14 +119,14 @@ const Register = () => {
 
               <button
                 type="submit"
-                className="w-full py-5 text-lg font-bold text-white bg-gradient-to-r from-indigo-600 to-teal-600 rounded-xl hover:from-indigo-700 hover:to-teal-700 transform hover:scale-105 transition-all duration-300 shadow-xl">
+                className="w-full py-5 text-lg font-bold text-white bg-blue-500 rounded-xl hover:from-indigo-700 hover:to-teal-700 transform hover:scale-105 transition-all duration-300 shadow-xl">
                 Create Account
               </button>
             </form>
 
             {/* Login Link */}
             <p className="text-center text-gray-600">
-              Already have an account?{" "}
+              Already have an account?{"  "}
               <Link
                 href="/login"
                 className="font-semibold text-indigo-600 hover:text-indigo-700 underline underline-offset-2 transition">

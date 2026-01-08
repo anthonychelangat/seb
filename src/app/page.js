@@ -11,22 +11,22 @@ export default async function Home() {
 
   return (
     <Suspense fallback={<HomeSkeleton />}>
-      <div className="min-h-screen z-0 mt-[5rem] md:mt-[5rem] lg:mt-[5rem] font-[family-name:var(--font-geist-sans)]">
+      <div className="min-h-screen mt-[5rem] md:mt-[5rem] lg:mt-[5rem] font-[family-name:var(--font-geist-sans)]">
         {/* Hero Section */}
-        <section className="relative z-0 h-[60vh] md:h-[70vh] lg:h-[80vh] flex items-center justify-center">
-          <Image
-            src="/Images/35.jpg"
-            alt="Thrilling adventure with Seb Expeditions"
-            fill
-            priority
-            className="object-cover object-center"
-            quality={90}
-          />
+        <section className="relative -z-10 h-[60vh] md:h-[70vh] lg:h-[80vh] flex items-center justify-center overflow-hidden">
+          <div className="absolute inset-0">
+            <Image
+              src="/Images/35.jpg"
+              alt="Thrilling adventure with Seb Expeditions"
+              fill
+              priority
+              className="object-cover object-center"
+              quality={90}
+            />
+          </div>
 
-          {/* Dark overlay for better text readability */}
           <div className="absolute inset-0 bg-black/50" />
 
-          {/* Hero Text */}
           <div className="relative z-10 text-center px-6 max-w-4xl">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white uppercase">
               Welcome to Seb Expeditions
@@ -38,7 +38,7 @@ export default async function Home() {
         </section>
 
         {/* Main Content */}
-        <div className="max-w-5xl z-0 mx-auto px-6 md:px-8 lg:px-0 py-12 lg:py-20">
+        <div className="max-w-5xl mx-auto px-6 md:px-8 lg:px-0 py-12 lg:py-20 relative -z-10">
           {/* About Section */}
           <section className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center mb-20 lg:mb-32">
             <div className="order-2 md:order-1">
